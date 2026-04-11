@@ -5,9 +5,9 @@ services:
       dockerfile: Dockerfile
     container_name: ratchetup_candidate
     environment:
-      - VIRTUAL_HOST=candidate.ratchetup.ai,ratchetup.ai
+      - VIRTUAL_HOST=candidate.ratchetup.ai,ratchetup.ai,ratchetup.org,ratchetup.io
       - VIRTUAL_PORT=80
-      - LETSENCRYPT_HOST=candidate.ratchetup.ai,ratchetup.ai
+      - LETSENCRYPT_HOST=candidate.ratchetup.ai,ratchetup.ai,ratchetup.org,ratchetup.io
       - LETSENCRYPT_EMAIL=isaac.ochieng2000@gmail.com
     expose:
       - "80"
