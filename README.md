@@ -1,0 +1,2 @@
+# RatchetUp
+RatchetUp connects job seekers with opportunities in Dubai across various sectors. The platform offers a user-friendly interface to search and apply for jobs, helping individuals find their ideal roles in this dynamic city.
