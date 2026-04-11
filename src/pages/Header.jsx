@@ -58,7 +58,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-white dark:bg-gray-950 border-b border-slate-200 dark:border-slate-700">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 md:h-18 items-center justify-between">
+        <div className="flex h-20 md:h-24 items-center justify-between">
 
           {/* Logo + Mobile Menu Button */}
           <div className="flex items-center gap-4">
