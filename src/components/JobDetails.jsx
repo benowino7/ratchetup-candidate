@@ -288,7 +288,7 @@ const JobDetails = () => {
     return (
       <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex items-center justify-center">
         <div className="text-center">
-          <Loader className="w-12 h-12 text-teal-600 animate-spin mx-auto mb-4" />
+          <Loader className="w-12 h-12 text-orange-600 animate-spin mx-auto mb-4" />
           <p className="text-slate-600 dark:text-slate-400">
             Loading job details...
           </p>
@@ -311,7 +311,7 @@ const JobDetails = () => {
           <p className="text-slate-600 dark:text-slate-400 mb-6">{error}</p>
           <button
             onClick={() => navigate("/joblisting")}
-            className="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl"
+            className="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-xl"
           >
             Back to Job Listings
           </button>
@@ -377,8 +377,8 @@ const JobDetails = () => {
                     onClick={handleExternalApply}
                     disabled={externalApplyLoading}
                     className="
-                      px-6 sm:px-8 py-3 bg-teal-600
-                      hover:bg-teal-700
+                      px-6 sm:px-8 py-3 bg-orange-600
+                      hover:bg-orange-700
                       text-white font-semibold rounded-xl shadow-md hover:shadow-lg
                       transition-all flex items-center gap-2 text-base
                       disabled:opacity-60 disabled:cursor-not-allowed
@@ -397,8 +397,8 @@ const JobDetails = () => {
               <a
                 href={`/login?redirect=/joblisting/${job.id}`}
                 className="
-                  px-6 sm:px-8 py-3 bg-teal-600
-                  hover:bg-teal-700
+                  px-6 sm:px-8 py-3 bg-orange-600
+                  hover:bg-orange-700
                   text-white font-semibold rounded-xl shadow-md hover:shadow-lg
                   transition-all flex items-center gap-2 text-base
                 "
@@ -447,7 +447,7 @@ const JobDetails = () => {
                 <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
                   Vacancies
                 </div>
-                <div className="text-lg font-bold text-teal-600 dark:text-teal-500">
+                <div className="text-lg font-bold text-orange-600 dark:text-orange-500">
                   {job.vacancies}
                 </div>
                 <div className="text-xs text-slate-500 dark:text-slate-400">
@@ -483,7 +483,7 @@ const JobDetails = () => {
                 <ul className="space-y-3 text-slate-700 dark:text-slate-300">
                   {job.requirements.map((req, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <div className="mt-1.5 w-2 h-2 rounded-full bg-teal-500 flex-shrink-0" />
+                      <div className="mt-1.5 w-2 h-2 rounded-full bg-orange-500 flex-shrink-0" />
                       <span>{req}</span>
                     </li>
                   ))}
@@ -500,7 +500,7 @@ const JobDetails = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {job.benefits.map((benefit, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <div className="mt-1 text-teal-500 text-lg">✓</div>
+                      <div className="mt-1 text-orange-500 text-lg">✓</div>
                       <span className="text-slate-700 dark:text-slate-300">
                         {benefit}
                       </span>
@@ -574,7 +574,7 @@ const JobDetails = () => {
                       href={job.companyWebsite}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-teal-600 dark:text-teal-500 hover:underline"
+                      className="text-sm text-orange-600 dark:text-orange-500 hover:underline"
                     >
                       Company Website
                     </a>
@@ -627,8 +627,8 @@ const JobDetails = () => {
                       onClick={handleExternalApply}
                       disabled={externalApplyLoading || isFreeTrial}
                       className="
-                        w-full py-4 bg-teal-600
-                        hover:bg-teal-700
+                        w-full py-4 bg-orange-600
+                        hover:bg-orange-700
                         text-white font-bold rounded-xl shadow-md hover:shadow-lg
                         transition-all mb-4 flex items-center justify-center gap-2 text-lg
                         disabled:opacity-60 disabled:cursor-not-allowed
@@ -657,8 +657,8 @@ const JobDetails = () => {
                 <a
                   href={`/login?redirect=/joblisting/${job.id}`}
                   className="
-                    w-full py-4 bg-teal-600
-                    hover:bg-teal-700
+                    w-full py-4 bg-orange-600
+                    hover:bg-orange-700
                     text-white font-bold rounded-xl shadow-md hover:shadow-lg
                     transition-all mb-4 flex items-center justify-center gap-2 text-lg
                   "
@@ -696,8 +696,8 @@ const JobDetails = () => {
               <a
                 href={`/joblisting?category=${encodeURIComponent(job.category)}`}
                 className="
-                  flex items-center gap-2 text-teal-600 dark:text-teal-500
-                  font-medium hover:text-teal-700 dark:hover:text-teal-400 transition
+                  flex items-center gap-2 text-orange-600 dark:text-orange-500
+                  font-medium hover:text-orange-700 dark:hover:text-orange-400 transition
                 "
               >
                 View all <ArrowRight size={18} />
@@ -711,14 +711,14 @@ const JobDetails = () => {
                   key={relJob.id}
                   className="
                     bg-white dark:bg-dark-sidebar rounded-xl border border-slate-200 dark:border-slate-800
-                    p-5 hover:border-teal-400 dark:hover:border-teal-500
+                    p-5 hover:border-orange-400 dark:hover:border-orange-500
                     hover:shadow-md transition-all group cursor-pointer
                   "
                 >
                   <h3
                     className="
                       text-lg font-semibold text-slate-900 dark:text-white
-                      group-hover:text-teal-600 dark:group-hover:text-teal-400 mb-2 line-clamp-2
+                      group-hover:text-orange-600 dark:group-hover:text-orange-400 mb-2 line-clamp-2
                     "
                   >
                     {relJob.title}
@@ -764,7 +764,7 @@ const JobDetails = () => {
                 href={externalPaymentLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl shadow-lg flex items-center justify-center gap-2"
+                className="w-full py-3 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl shadow-lg flex items-center justify-center gap-2"
               >
                 <ExternalLink size={18} />
                 Pay ${externalFee}.00

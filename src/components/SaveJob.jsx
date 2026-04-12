@@ -83,9 +83,9 @@ function SaveJob({ open, onClose, jobId, jobTitle, companyName }) {
       <div className="px-1 pb-2 space-y-5">
         {/* Job preview card */}
         {(jobTitle || companyName) && (
-          <div className="flex items-start gap-3 p-3.5 rounded-xl bg-teal-50 dark:bg-teal-900/20 border border-teal-100 dark:border-teal-800/40">
-            <div className="w-10 h-10 rounded-lg bg-teal-100 dark:bg-teal-900/50 flex items-center justify-center shrink-0">
-              <Bookmark size={18} className="text-teal-500" />
+          <div className="flex items-start gap-3 p-3.5 rounded-xl bg-orange-50 dark:bg-orange-900/20 border border-orange-100 dark:border-orange-800/40">
+            <div className="w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-900/50 flex items-center justify-center shrink-0">
+              <Bookmark size={18} className="text-orange-500" />
             </div>
             <div className="min-w-0">
               {jobTitle && (
@@ -121,8 +121,8 @@ function SaveJob({ open, onClose, jobId, jobTitle, companyName }) {
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all border
                   ${
                     note === s.value
-                      ? "bg-teal-500 text-white border-teal-500 shadow-sm"
-                      : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-teal-300 dark:hover:border-teal-600 hover:text-teal-600 dark:hover:text-teal-400"
+                      ? "bg-orange-500 text-white border-orange-500 shadow-sm"
+                      : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-orange-300 dark:hover:border-orange-600 hover:text-orange-600 dark:hover:text-orange-400"
                   }`}
               >
                 <Tag size={10} />
@@ -138,7 +138,7 @@ function SaveJob({ open, onClose, jobId, jobTitle, companyName }) {
             rows={3}
             maxLength={300}
             placeholder="Write your own note about this job..."
-            className="w-full px-3.5 py-2.5 text-sm rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition resize-none"
+            className="w-full px-3.5 py-2.5 text-sm rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition resize-none"
           />
           <p className="text-right text-xs text-gray-400">{note.length}/300</p>
         </div>
@@ -165,7 +165,7 @@ function SaveJob({ open, onClose, jobId, jobTitle, companyName }) {
               ${
                 saved
                   ? "bg-green-500 text-white"
-                  : "bg-teal-500 hover:bg-teal-600 text-white disabled:opacity-60"
+                  : "bg-orange-500 hover:bg-orange-600 text-white disabled:opacity-60"
               }`}
           >
             {saved ? (

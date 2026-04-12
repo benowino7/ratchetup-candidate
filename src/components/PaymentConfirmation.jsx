@@ -61,7 +61,7 @@ const PaymentConfirmation = () => {
     <div className="space-y-3 mt-8">
       <a
         href="https://candidate.ratchetup.ai/dashboard"
-        className="flex items-center justify-center gap-2 w-full py-3 bg-teal-500 hover:bg-teal-600 text-white font-semibold rounded-xl transition shadow-lg"
+        className="flex items-center justify-center gap-2 w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition shadow-lg"
       >
         <Briefcase size={18} />
         Go to Job Seeker Dashboard
@@ -87,8 +87,8 @@ const PaymentConfirmation = () => {
         <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8 shadow-2xl">
           {status === 'processing' && (
             <>
-              <div className="w-16 h-16 bg-teal-500/20 rounded-full flex items-center justify-center mx-auto mb-5">
-                <Loader2 size={32} className="text-teal-500 animate-spin" />
+              <div className="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-5">
+                <Loader2 size={32} className="text-orange-500 animate-spin" />
               </div>
               <h1 className="text-xl font-bold text-white mb-2">Processing Payment</h1>
               <p className="text-gray-400 text-sm">Please wait while we confirm your transaction...</p>

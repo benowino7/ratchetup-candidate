@@ -73,12 +73,12 @@ const About = () => {
 
             <div className="md:w-3/5">
               <div className="mb-2">
-                <span className="text-teal-600 font-medium text-xs uppercase tracking-widest">
+                <span className="text-orange-600 font-medium text-xs uppercase tracking-widest">
                   01 / About
                 </span>
               </div>
 
-              <h2 className="text-3xl md:text-4xl font-bold text-[#1A2D42] dark:text-white mb-6 border-l-4 border-teal-600 pl-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1A2D42] dark:text-white mb-6 border-l-4 border-orange-600 pl-4">
                 We're a highly skilled and professional team.
               </h2>
 
@@ -100,11 +100,11 @@ const About = () => {
                     key={index}
                     className="flex items-center gap-5 p-5 bg-[#FAFBFC] dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg"
                   >
-                    <div className="w-12 h-12 bg-teal-600/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Icon size={22} className="text-teal-600" />
+                    <div className="w-12 h-12 bg-orange-600/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon size={22} className="text-orange-600" />
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-teal-600">
+                      <div className="text-2xl font-bold text-orange-600">
                         {stat.value}
                       </div>
                       <div className="text-sm text-slate-500 dark:text-slate-400">
@@ -124,11 +124,11 @@ const About = () => {
         <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="mb-12">
-            <span className="text-teal-600 font-medium text-xs uppercase tracking-widest">
+            <span className="text-orange-600 font-medium text-xs uppercase tracking-widest">
               02 / Why Us
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1A2D42] dark:text-white mt-2 border-l-4 border-teal-600 pl-4">
-              Why Choose <span className="text-teal-600">RatchetUp</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1A2D42] dark:text-white mt-2 border-l-4 border-orange-600 pl-4">
+              Why Choose <span className="text-orange-600">RatchetUp</span>
             </h2>
           </div>
 
@@ -141,10 +141,10 @@ const About = () => {
                   className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden"
                 >
                   {/* Teal top accent line */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-teal-600" />
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-orange-600" />
 
-                  <div className="w-12 h-12 mb-4 bg-teal-600/10 rounded-lg flex items-center justify-center">
-                    <Icon size={22} className="text-teal-600" />
+                  <div className="w-12 h-12 mb-4 bg-orange-600/10 rounded-lg flex items-center justify-center">
+                    <Icon size={22} className="text-orange-600" />
                   </div>
                   <h3 className="text-lg font-semibold text-[#1A2D42] dark:text-white mb-3">
                     {feature.title}
@@ -161,7 +161,7 @@ const About = () => {
             <p className="text-slate-500 dark:text-slate-400 mb-3 text-sm">
               Have a question?
             </p>
-            <a href="/contact" className="text-teal-600 hover:text-teal-700 font-medium text-sm transition-colors">
+            <a href="/contact" className="text-orange-600 hover:text-orange-700 font-medium text-sm transition-colors">
               Contact us <ArrowRight size={14} className="inline ml-1" />
             </a>
           </div>
@@ -172,14 +172,14 @@ const About = () => {
       <section className="bg-white dark:bg-gray-950 py-16 md:py-20 border-b border-slate-200 dark:border-slate-800">
         <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="text-teal-600 font-medium text-xs uppercase tracking-widest">
+            <span className="text-orange-600 font-medium text-xs uppercase tracking-widest">
               03 / Our Mission
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1A2D42] dark:text-white mt-2 mb-8 border-l-4 border-teal-600 pl-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1A2D42] dark:text-white mt-2 mb-8 border-l-4 border-orange-600 pl-4">
               We're a highly professional team
             </h2>
 
-            <blockquote className="border-l-4 border-teal-600 pl-6 mb-8">
+            <blockquote className="border-l-4 border-orange-600 pl-6 mb-8">
               <p className="text-lg italic text-slate-600 dark:text-slate-400 leading-relaxed">
                 "At RatchetUp, our mission is to empower individuals and organizations to achieve their full potential by connecting talent with opportunity. We believe that every person deserves meaningful work, and every employer deserves exceptional talent."
               </p>
@@ -220,7 +220,7 @@ const About = () => {
       {/* CTA Section */}
       <section className="bg-white dark:bg-gray-950 py-16 md:py-20">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-teal-600 font-medium text-xs uppercase tracking-widest">
+          <span className="text-orange-600 font-medium text-xs uppercase tracking-widest">
             04 / Get Started
           </span>
           <h2 className="text-3xl font-bold text-[#1A2D42] dark:text-white mt-2 mb-4">
@@ -231,7 +231,7 @@ const About = () => {
           </p>
           <a
             href="/register"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-medium transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-lg font-medium transition-colors"
           >
             Get Started <ArrowRight size={18} />
           </a>

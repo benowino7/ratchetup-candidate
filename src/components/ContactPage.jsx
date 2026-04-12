@@ -44,14 +44,14 @@ const ContactPage = () => {
 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="mt-1 w-10 h-10 flex items-center justify-center rounded-full bg-teal-50 dark:bg-teal-900/30">
-                      <Mail size={20} className="text-teal-500 dark:text-teal-400" />
+                    <div className="mt-1 w-10 h-10 flex items-center justify-center rounded-full bg-orange-50 dark:bg-orange-900/30">
+                      <Mail size={20} className="text-orange-500 dark:text-orange-400" />
                     </div>
                     <div>
                       <div className="font-medium text-lg">Email Support</div>
                       <a
                         href="mailto:support@ratchetup.ai"
-                        className="text-teal-500 dark:text-teal-400 hover:underline"
+                        className="text-orange-500 dark:text-orange-400 hover:underline"
                       >
                         support@ratchetup.ai
                       </a>
@@ -59,14 +59,14 @@ const ContactPage = () => {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="mt-1 w-10 h-10 flex items-center justify-center rounded-full bg-teal-50 dark:bg-teal-900/30">
-                      <Phone size={20} className="text-teal-500 dark:text-teal-400" />
+                    <div className="mt-1 w-10 h-10 flex items-center justify-center rounded-full bg-orange-50 dark:bg-orange-900/30">
+                      <Phone size={20} className="text-orange-500 dark:text-orange-400" />
                     </div>
                     <div>
                       <div className="font-medium text-lg">Customer Care</div>
                       <a
                         href="tel:+16477888715"
-                        className="text-teal-500 dark:text-teal-400 hover:underline"
+                        className="text-orange-500 dark:text-orange-400 hover:underline"
                       >
                         647-788-8715
                       </a>
@@ -74,14 +74,14 @@ const ContactPage = () => {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="mt-1 w-10 h-10 flex items-center justify-center rounded-full bg-teal-50 dark:bg-teal-900/30">
-                      <Phone size={20} className="text-teal-500 dark:text-teal-400" />
+                    <div className="mt-1 w-10 h-10 flex items-center justify-center rounded-full bg-orange-50 dark:bg-orange-900/30">
+                      <Phone size={20} className="text-orange-500 dark:text-orange-400" />
                     </div>
                     <div>
                       <div className="font-medium text-lg">Customer Support</div>
                       <a
                         href="tel:+16479307516"
-                        className="text-teal-500 dark:text-teal-400 hover:underline"
+                        className="text-orange-500 dark:text-orange-400 hover:underline"
                       >
                         647-930-7516
                       </a>
@@ -89,8 +89,8 @@ const ContactPage = () => {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="mt-1 w-10 h-10 flex items-center justify-center rounded-full bg-teal-50 dark:bg-teal-900/30">
-                      <MapPin size={20} className="text-teal-500 dark:text-teal-400" />
+                    <div className="mt-1 w-10 h-10 flex items-center justify-center rounded-full bg-orange-50 dark:bg-orange-900/30">
+                      <MapPin size={20} className="text-orange-500 dark:text-orange-400" />
                     </div>
                     <div>
                       <div className="font-medium text-lg">Office Location</div>
@@ -106,7 +106,7 @@ const ContactPage = () => {
               {/* Quick CTA button */}
               <a
                 href="mailto:support@ratchetup.ai"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-teal-500 hover:bg-teal-600 dark:bg-teal-600 dark:hover:bg-teal-700 text-white font-medium rounded-xl transition text-lg shadow-sm"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-orange-500 hover:bg-orange-600 dark:bg-orange-600 dark:hover:bg-orange-700 text-white font-medium rounded-xl transition text-lg shadow-sm"
               >
                 <Mail size={20} />
                 Email Support
@@ -127,7 +127,7 @@ const ContactPage = () => {
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="mt-6 text-teal-500 dark:text-teal-400 hover:underline"
+                    className="mt-6 text-orange-500 dark:text-orange-400 hover:underline"
                   >
                     Send another message
                   </button>
@@ -146,7 +146,7 @@ const ContactPage = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-200 dark:focus:ring-teal-500 focus:border-teal-400 dark:focus:border-teal-500 outline-none transition text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                        className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-200 dark:focus:ring-orange-500 focus:border-orange-400 dark:focus:border-orange-500 outline-none transition text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                         placeholder="Your full name"
                       />
                     </div>
@@ -162,7 +162,7 @@ const ContactPage = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-200 dark:focus:ring-teal-500 focus:border-teal-400 dark:focus:border-teal-500 outline-none transition text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                        className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-200 dark:focus:ring-orange-500 focus:border-orange-400 dark:focus:border-orange-500 outline-none transition text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                         placeholder="your.email@example.com"
                       />
                     </div>
@@ -179,7 +179,7 @@ const ContactPage = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-200 dark:focus:ring-teal-500 focus:border-teal-400 dark:focus:border-teal-500 outline-none transition text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                      className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-200 dark:focus:ring-orange-500 focus:border-orange-400 dark:focus:border-orange-500 outline-none transition text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                       placeholder="e.g. Advertising Inquiry, Job Posting Question..."
                     />
                   </div>
@@ -195,14 +195,14 @@ const ContactPage = () => {
                       onChange={handleChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-200 dark:focus:ring-teal-500 focus:border-teal-400 dark:focus:border-teal-500 outline-none transition resize-none text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                      className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-200 dark:focus:ring-orange-500 focus:border-orange-400 dark:focus:border-orange-500 outline-none transition resize-none text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                       placeholder="How can we help you today?"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-4 bg-teal-600 hover:bg-teal-700 dark:bg-teal-600 dark:hover:bg-teal-700 text-white font-medium rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 text-lg"
+                    className="w-full py-4 bg-orange-600 hover:bg-orange-700 dark:bg-orange-600 dark:hover:bg-orange-700 text-white font-medium rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 text-lg"
                   >
                     <Send size={20} />
                     Send Message

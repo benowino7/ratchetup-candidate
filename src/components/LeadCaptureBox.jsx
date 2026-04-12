@@ -86,7 +86,7 @@ const LeadCaptureBox = () => {
     return (
       <button
         onClick={() => setMinimized(false)}
-        className="fixed bottom-6 right-6 z-[9999] flex items-center gap-2 bg-theme_color hover:bg-teal-600 text-white pl-4 pr-3 py-2.5 rounded-full shadow-lg transition-all hover:shadow-xl"
+        className="fixed bottom-6 right-6 z-[9999] flex items-center gap-2 bg-theme_color hover:bg-orange-600 text-white pl-4 pr-3 py-2.5 rounded-full shadow-lg transition-all hover:shadow-xl"
       >
         <Sparkles size={15} />
         <span className="text-xs font-semibold">AI Job Match</span>
@@ -151,7 +151,7 @@ const LeadCaptureBox = () => {
                   type="checkbox"
                   checked={formData.hasVisa}
                   onChange={(e) => setFormData((prev) => ({ ...prev, hasVisa: e.target.checked }))}
-                  className="w-3.5 h-3.5 rounded border-gray-400 text-teal-500 focus:ring-teal-500 accent-teal-500"
+                  className="w-3.5 h-3.5 rounded border-gray-400 text-orange-500 focus:ring-orange-500 accent-orange-500"
                 />
                 I have a Visa
               </label>
@@ -160,7 +160,7 @@ const LeadCaptureBox = () => {
                   type="checkbox"
                   checked={formData.hasWorkPermit}
                   onChange={(e) => setFormData((prev) => ({ ...prev, hasWorkPermit: e.target.checked }))}
-                  className="w-3.5 h-3.5 rounded border-gray-400 text-teal-500 focus:ring-teal-500 accent-teal-500"
+                  className="w-3.5 h-3.5 rounded border-gray-400 text-orange-500 focus:ring-orange-500 accent-orange-500"
                 />
                 Work Permit
               </label>
@@ -192,7 +192,7 @@ const LeadCaptureBox = () => {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full py-2 bg-theme_color hover:bg-teal-600 disabled:bg-teal-300 text-white font-semibold rounded-md transition text-xs flex items-center justify-center gap-1.5"
+              className="w-full py-2 bg-theme_color hover:bg-orange-600 disabled:bg-orange-300 text-white font-semibold rounded-md transition text-xs flex items-center justify-center gap-1.5"
             >
               {submitting ? (
                 <><Loader2 size={13} className="animate-spin" /> Analysing...</>

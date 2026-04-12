@@ -45,9 +45,9 @@ const plans = [
   },
   {
     name: 'Gold',
-    accentColor: 'text-teal-600',
-    accentBg: 'bg-teal-600',
-    cardBg: 'bg-teal-50 dark:bg-teal-950',
+    accentColor: 'text-orange-600',
+    accentBg: 'bg-orange-600',
+    cardBg: 'bg-orange-50 dark:bg-orange-950',
     popular: true,
     icon: Crown,
     description: 'Most popular choice',
@@ -110,17 +110,17 @@ function Pricing() {
     <div className="min-h-screen bg-[#FAFBFC] dark:bg-gray-950 py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-teal-200 dark:bg-teal-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-teal-100 dark:bg-teal-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-15 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-teal-300 dark:bg-teal-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-orange-200 dark:bg-orange-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-orange-100 dark:bg-orange-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-15 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-orange-300 dark:bg-orange-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12 space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 dark:bg-teal-500/20 border border-teal-200 dark:border-teal-800">
-            <Sparkles className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-            <span className="text-sm font-medium text-teal-700 dark:text-teal-300">Simple, transparent pricing</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 dark:bg-orange-500/20 border border-orange-200 dark:border-orange-800">
+            <Sparkles className="w-4 h-4 text-orange-600 dark:text-orange-400" />
+            <span className="text-sm font-medium text-orange-700 dark:text-orange-300">Simple, transparent pricing</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-white leading-tight">
@@ -139,7 +139,7 @@ function Pricing() {
                 onClick={() => setDuration(d.key)}
                 className={`relative px-6 py-2.5 rounded-xl font-semibold transition-all duration-300 ${
                   duration === d.key
-                    ? 'bg-teal-600 text-white shadow-lg'
+                    ? 'bg-orange-600 text-white shadow-lg'
                     : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
                 }`}
               >
@@ -166,16 +166,16 @@ function Pricing() {
                 key={plan.name}
                 className={`relative rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 group flex flex-col ${
                   plan.popular
-                    ? 'shadow-2xl ring-2 ring-teal-400/50'
+                    ? 'shadow-2xl ring-2 ring-orange-400/50'
                     : 'shadow-xl hover:shadow-2xl'
                 }`}
               >
                 <div className={`absolute inset-0 ${plan.cardBg} backdrop-blur-xl`}></div>
-                <div className="absolute inset-0 bg-teal-500 opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-orange-500 opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
 
                 {/* Popular Badge */}
                 {plan.popular && (
-                  <div className="absolute top-0 left-0 right-0 bg-teal-600 text-white text-[11px] font-bold py-1.5 text-center z-10">
+                  <div className="absolute top-0 left-0 right-0 bg-orange-600 text-white text-[11px] font-bold py-1.5 text-center z-10">
                     MOST POPULAR
                   </div>
                 )}
@@ -203,7 +203,7 @@ function Pricing() {
                       </span>
                     </div>
                     {duration === '12mo' && YEARLY_MONTHLY_RATE[plan.name] ? (
-                      <p className="text-xs text-teal-600 dark:text-teal-400 font-semibold mt-0.5">
+                      <p className="text-xs text-orange-600 dark:text-orange-400 font-semibold mt-0.5">
                         or ${YEARLY_MONTHLY_RATE[plan.name]}/mo × 12 installments
                       </p>
                     ) : (
@@ -260,7 +260,7 @@ function Pricing() {
                       href={`/register?plan=${plan.name.toLowerCase()}&duration=${duration}`}
                       className={`w-full mt-5 py-3 px-4 rounded-xl font-bold text-center text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg group/btn ${
                         plan.popular
-                          ? 'bg-teal-600 text-white hover:bg-teal-700'
+                          ? 'bg-orange-600 text-white hover:bg-orange-700'
                           : `${plan.accentBg} text-white hover:shadow-xl hover:opacity-90`
                       }`}
                     >
@@ -278,7 +278,7 @@ function Pricing() {
         <div className="max-w-2xl mx-auto mb-16">
           <div className={`relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 group`}>
             <div className={`absolute inset-0 ${customPlan.cardBg} backdrop-blur-xl`}></div>
-            <div className="absolute inset-0 bg-teal-500 opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+            <div className="absolute inset-0 bg-orange-500 opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
 
             <div className="relative pt-6 px-6 pb-6">
               <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
@@ -324,21 +324,21 @@ function Pricing() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-center">
               <div className="flex flex-col items-center gap-1.5">
-                <div className="w-10 h-10 rounded-xl bg-teal-600 flex items-center justify-center shadow-md">
+                <div className="w-10 h-10 rounded-xl bg-orange-600 flex items-center justify-center shadow-md">
                   <Shield className="w-5 h-5 text-white" />
                 </div>
                 <p className="text-sm font-semibold text-gray-900 dark:text-white">Secure Payments</p>
                 <p className="text-xs text-gray-600 dark:text-gray-400">256-bit SSL encryption</p>
               </div>
               <div className="flex flex-col items-center gap-1.5">
-                <div className="w-10 h-10 rounded-xl bg-teal-600 flex items-center justify-center shadow-md">
+                <div className="w-10 h-10 rounded-xl bg-orange-600 flex items-center justify-center shadow-md">
                   <Zap className="w-5 h-5 text-white" />
                 </div>
                 <p className="text-sm font-semibold text-gray-900 dark:text-white">Cancel Anytime</p>
                 <p className="text-xs text-gray-600 dark:text-gray-400">No long-term commitment</p>
               </div>
               <div className="flex flex-col items-center gap-1.5">
-                <div className="w-10 h-10 rounded-xl bg-teal-600 flex items-center justify-center shadow-md">
+                <div className="w-10 h-10 rounded-xl bg-orange-600 flex items-center justify-center shadow-md">
                   <Star className="w-5 h-5 text-white" />
                 </div>
                 <p className="text-sm font-semibold text-gray-900 dark:text-white">24/7 Support</p>

@@ -104,9 +104,9 @@ const PLAN_VISUAL = {
     description: "Perfect for getting started",
   },
   Gold: {
-    accentColor: "text-teal-600",
-    accentBg: "bg-teal-600",
-    cardBg: "bg-teal-50 dark:bg-teal-950",
+    accentColor: "text-orange-600",
+    accentBg: "bg-orange-600",
+    cardBg: "bg-orange-50 dark:bg-orange-950",
     shadowColor: "shadow-lg",
     popular: true,
     icon: Crown,
@@ -546,7 +546,7 @@ function Subscriptions({ subscription }) {
         </div>
         <button
           onClick={fetchSubscriptions}
-          className="flex items-center gap-2 px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white text-sm font-semibold rounded-xl transition-colors"
+          className="flex items-center gap-2 px-5 py-2.5 bg-orange-600 hover:bg-orange-700 text-white text-sm font-semibold rounded-xl transition-colors"
         >
           <RefreshCw className="w-4 h-4" />
           Try Again
@@ -560,9 +560,9 @@ function Subscriptions({ subscription }) {
     <div className="py-6 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-teal-200 dark:bg-teal-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-teal-100 dark:bg-teal-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-15 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-teal-300 dark:bg-teal-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-orange-200 dark:bg-orange-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-orange-100 dark:bg-orange-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-15 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-orange-300 dark:bg-orange-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
       </div>
 
       <div className="w-full mx-auto relative z-10">
@@ -582,16 +582,16 @@ function Subscriptions({ subscription }) {
           <div className={`mb-8 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 ${
             isExpired
               ? 'bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800'
-              : 'bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800'
+              : 'bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-800'
           }`}>
             <div className="flex items-start gap-3">
               {isExpired ? (
                 <AlertCircle className="w-6 h-6 text-red-500 flex-shrink-0 mt-0.5" />
               ) : (
-                <Calendar className="w-6 h-6 text-teal-600 flex-shrink-0 mt-0.5" />
+                <Calendar className="w-6 h-6 text-orange-600 flex-shrink-0 mt-0.5" />
               )}
               <div>
-                <p className={`font-bold text-lg ${isExpired ? 'text-red-800 dark:text-red-200' : 'text-teal-800 dark:text-teal-200'}`}>
+                <p className={`font-bold text-lg ${isExpired ? 'text-red-800 dark:text-red-200' : 'text-orange-800 dark:text-orange-200'}`}>
                   {isExpired
                     ? 'Your subscription has expired'
                     : `Current Plan: ${subData?.plan?.name || 'Active'}`
@@ -603,14 +603,14 @@ function Subscriptions({ subscription }) {
                   </p>
                 ) : (
                   <div className="flex flex-wrap gap-x-6 gap-y-1 mt-1">
-                    <p className="text-sm text-teal-700 dark:text-teal-300">
+                    <p className="text-sm text-orange-700 dark:text-orange-300">
                       Expires on: <strong>{expiresAt?.toLocaleDateString()}</strong>
                     </p>
-                    <p className="text-sm text-teal-700 dark:text-teal-300">
+                    <p className="text-sm text-orange-700 dark:text-orange-300">
                       Days remaining: <strong>{daysRemaining}</strong>
                     </p>
                     {subData?.subscription?.installmentMeta?.type === "INSTALLMENT" && (
-                      <p className="text-sm text-teal-700 dark:text-teal-300">
+                      <p className="text-sm text-orange-700 dark:text-orange-300">
                         Installments: <strong>{subData.subscription.installmentMeta.paidInstallments || 0} of {subData.subscription.installmentMeta.totalInstallments || 12}</strong> paid
                       </p>
                     )}
@@ -668,7 +668,7 @@ function Subscriptions({ subscription }) {
 
         {/* Trial Status Banner */}
         {isTrial && (
-          <div className="mb-8 bg-teal-600 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between text-white gap-3">
+          <div className="mb-8 bg-orange-600 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between text-white gap-3">
             <div className="flex items-center gap-3">
               <Clock className="w-6 h-6 flex-shrink-0" />
               <div>
@@ -687,7 +687,7 @@ function Subscriptions({ subscription }) {
               onClick={() => setDuration(d.key)}
               className={`relative px-5 py-2 rounded-xl font-semibold text-sm transition-all duration-300 ${
                 duration === d.key
-                  ? 'bg-teal-600 text-white shadow-lg'
+                  ? 'bg-orange-600 text-white shadow-lg'
                   : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
               }`}
             >
@@ -727,7 +727,7 @@ function Subscriptions({ subscription }) {
                   key={plan.id}
                   className={`relative rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 group flex flex-col ${
                     visual.popular
-                      ? "shadow-2xl ring-2 ring-teal-400/50"
+                      ? "shadow-2xl ring-2 ring-orange-400/50"
                       : `shadow-xl hover:shadow-2xl ${visual.shadowColor}`
                   }`}
                 >
@@ -735,12 +735,12 @@ function Subscriptions({ subscription }) {
                     className={`absolute inset-0 ${visual.cardBg} backdrop-blur-xl`}
                   ></div>
                   <div
-                    className="absolute inset-0 bg-teal-500 opacity-0 group-hover:opacity-5 transition-opacity duration-500"
+                    className="absolute inset-0 bg-orange-500 opacity-0 group-hover:opacity-5 transition-opacity duration-500"
                   ></div>
 
                   {/* Popular Badge */}
                   {visual.popular && (
-                    <div className="absolute top-0 left-0 right-0 bg-teal-600 text-white text-[11px] font-bold py-1.5 text-center z-10">
+                    <div className="absolute top-0 left-0 right-0 bg-orange-600 text-white text-[11px] font-bold py-1.5 text-center z-10">
                       MOST POPULAR
                     </div>
                   )}
@@ -777,7 +777,7 @@ function Subscriptions({ subscription }) {
                       </div>
                       {duration === "12mo" && YEARLY_MONTHLY_RATE[tier] ? (
                         <div className="mt-1">
-                          <p className="text-xs text-teal-600 dark:text-teal-400 font-semibold">
+                          <p className="text-xs text-orange-600 dark:text-orange-400 font-semibold">
                             or ${YEARLY_MONTHLY_RATE[tier]}/mo × 12 installments
                           </p>
                           <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-0.5">
@@ -862,7 +862,7 @@ function Subscriptions({ subscription }) {
                         disabled={activePlan === plan?.id && !isTrial && !isExpired}
                         className={`${activePlan === plan?.id && !isExpired ? "disabled:bg-gray-200 disabled:cursor-not-allowed" : "cursor-pointer"} w-full mt-4 py-3 px-4 rounded-xl font-bold text-center text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg group/btn ${
                           visual.popular
-                            ? "bg-teal-600 text-white hover:bg-teal-700"
+                            ? "bg-orange-600 text-white hover:bg-orange-700"
                             : `${visual.accentBg} text-white hover:shadow-xl hover:opacity-90`
                         }`}
                       >
@@ -901,7 +901,7 @@ function Subscriptions({ subscription }) {
               <div key={plan.id} className="max-w-2xl mx-auto mb-8">
                 <div className={`relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 group`}>
                   <div className={`absolute inset-0 ${visual.cardBg} backdrop-blur-xl`}></div>
-                  <div className="absolute inset-0 bg-teal-500 opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 bg-orange-500 opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
 
                   <div className="relative pt-6 px-6 pb-6">
                     <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
@@ -943,7 +943,7 @@ function Subscriptions({ subscription }) {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-center">
               <div className="flex flex-col items-center gap-1.5">
-                <div className="w-10 h-10 rounded-xl bg-teal-600 flex items-center justify-center shadow-md">
+                <div className="w-10 h-10 rounded-xl bg-orange-600 flex items-center justify-center shadow-md">
                   <Shield className="w-5 h-5 text-white" />
                 </div>
                 <p className="text-sm font-semibold text-gray-900 dark:text-white">
@@ -954,7 +954,7 @@ function Subscriptions({ subscription }) {
                 </p>
               </div>
               <div className="flex flex-col items-center gap-1.5">
-                <div className="w-10 h-10 rounded-xl bg-teal-600 flex items-center justify-center shadow-md">
+                <div className="w-10 h-10 rounded-xl bg-orange-600 flex items-center justify-center shadow-md">
                   <Zap className="w-5 h-5 text-white" />
                 </div>
                 <p className="text-sm font-semibold text-gray-900 dark:text-white">
@@ -965,7 +965,7 @@ function Subscriptions({ subscription }) {
                 </p>
               </div>
               <div className="flex flex-col items-center gap-1.5">
-                <div className="w-10 h-10 rounded-xl bg-teal-600 flex items-center justify-center shadow-md">
+                <div className="w-10 h-10 rounded-xl bg-orange-600 flex items-center justify-center shadow-md">
                   <Star className="w-5 h-5 text-white" />
                 </div>
                 <p className="text-sm font-semibold text-gray-900 dark:text-white">
@@ -1154,16 +1154,16 @@ function Subscriptions({ subscription }) {
                       <label
                         className={`relative flex flex-col p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
                           paymentType === "INSTALLMENT"
-                            ? "border-teal-500 bg-teal-50 dark:bg-teal-900/20"
+                            ? "border-orange-500 bg-orange-50 dark:bg-orange-900/20"
                             : "border-gray-200 dark:border-gray-700 hover:border-gray-300"
                         }`}
                       >
                         <input type="radio" name="paymentType" value="INSTALLMENT" checked={paymentType === "INSTALLMENT"} onChange={() => setPaymentType("INSTALLMENT")} className="sr-only" />
                         <div className="flex items-center gap-2 mb-1">
-                          <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${paymentType === "INSTALLMENT" ? "border-teal-500 bg-teal-500" : "border-gray-300"}`}>
+                          <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${paymentType === "INSTALLMENT" ? "border-orange-500 bg-orange-500" : "border-gray-300"}`}>
                             {paymentType === "INSTALLMENT" && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
                           </div>
-                          <span className={`text-sm font-bold ${paymentType === "INSTALLMENT" ? "text-teal-700 dark:text-teal-300" : "text-gray-700 dark:text-gray-300"}`}>
+                          <span className={`text-sm font-bold ${paymentType === "INSTALLMENT" ? "text-orange-700 dark:text-orange-300" : "text-gray-700 dark:text-gray-300"}`}>
                             Monthly Installments
                           </span>
                         </div>
@@ -1178,16 +1178,16 @@ function Subscriptions({ subscription }) {
                       <label
                         className={`relative flex flex-col p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
                           paymentType === "ONE_TIME"
-                            ? "border-teal-500 bg-teal-50 dark:bg-teal-900/20"
+                            ? "border-orange-500 bg-orange-50 dark:bg-orange-900/20"
                             : "border-gray-200 dark:border-gray-700 hover:border-gray-300"
                         }`}
                       >
                         <input type="radio" name="paymentType" value="ONE_TIME" checked={paymentType === "ONE_TIME"} onChange={() => setPaymentType("ONE_TIME")} className="sr-only" />
                         <div className="flex items-center gap-2 mb-1">
-                          <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${paymentType === "ONE_TIME" ? "border-teal-500 bg-teal-500" : "border-gray-300"}`}>
+                          <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${paymentType === "ONE_TIME" ? "border-orange-500 bg-orange-500" : "border-gray-300"}`}>
                             {paymentType === "ONE_TIME" && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
                           </div>
-                          <span className={`text-sm font-bold ${paymentType === "ONE_TIME" ? "text-teal-700 dark:text-teal-300" : "text-gray-700 dark:text-gray-300"}`}>
+                          <span className={`text-sm font-bold ${paymentType === "ONE_TIME" ? "text-orange-700 dark:text-orange-300" : "text-gray-700 dark:text-gray-300"}`}>
                             One-Time Payment
                           </span>
                         </div>
@@ -1259,7 +1259,7 @@ function Subscriptions({ subscription }) {
                       type="checkbox"
                       checked={consentChecked}
                       onChange={(e) => setConsentChecked(e.target.checked)}
-                      className="mt-1 w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-teal-600 focus:ring-teal-500 flex-shrink-0"
+                      className="mt-1 w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-orange-600 focus:ring-orange-500 flex-shrink-0"
                     />
                     <span className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
                       {paymentType === "ONE_TIME" ? (

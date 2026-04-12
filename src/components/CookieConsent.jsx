@@ -31,11 +31,11 @@ function Toggle({ enabled, onChange, disabled }) {
       aria-checked={enabled}
       disabled={disabled}
       onClick={() => !disabled && onChange(!enabled)}
-      className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 ${
+      className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 ${
         disabled
-          ? "bg-teal-400 cursor-not-allowed opacity-70"
+          ? "bg-orange-400 cursor-not-allowed opacity-70"
           : enabled
-          ? "bg-teal-500 cursor-pointer"
+          ? "bg-orange-500 cursor-pointer"
           : "bg-gray-300 dark:bg-gray-600 cursor-pointer"
       }`}
     >
@@ -273,7 +273,7 @@ function PreferencesContent({
           key={cat.label}
           className="flex items-start gap-4 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50"
         >
-          <div className="mt-0.5 p-2 rounded-lg bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400">
+          <div className="mt-0.5 p-2 rounded-lg bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400">
             <cat.icon size={20} />
           </div>
           <div className="flex-1 min-w-0">
@@ -297,13 +297,13 @@ function PreferencesContent({
       <div className="flex items-center justify-between pt-2 border-t border-gray-200 dark:border-gray-700">
         <button
           onClick={onOpenPolicy}
-          className="text-sm text-teal-600 dark:text-teal-400 hover:underline"
+          className="text-sm text-orange-600 dark:text-orange-400 hover:underline"
         >
           Cookie Policy
         </button>
         <button
           onClick={onSave}
-          className="px-5 py-2 bg-teal-500 hover:bg-teal-600 text-white text-sm font-medium rounded-lg transition-colors"
+          className="px-5 py-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium rounded-lg transition-colors"
         >
           Save Preferences
         </button>
@@ -372,7 +372,7 @@ export default function CookieConsent() {
         <div className="fixed bottom-0 inset-x-0 z-50 p-4">
           <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-2xl p-5">
             <div className="flex items-start gap-4">
-              <div className="hidden sm:flex p-2.5 rounded-xl bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 mt-0.5">
+              <div className="hidden sm:flex p-2.5 rounded-xl bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 mt-0.5">
                 <Cookie size={24} />
               </div>
               <div className="flex-1 min-w-0">
@@ -381,7 +381,7 @@ export default function CookieConsent() {
                   use this site, you consent to our use of cookies.{" "}
                   <button
                     onClick={openPolicyFromBanner}
-                    className="text-teal-600 dark:text-teal-400 hover:underline font-medium"
+                    className="text-orange-600 dark:text-orange-400 hover:underline font-medium"
                   >
                     Cookie Policy
                   </button>
@@ -389,7 +389,7 @@ export default function CookieConsent() {
                 <div className="flex flex-wrap gap-2 mt-3">
                   <button
                     onClick={handleAcceptAll}
-                    className="px-4 py-2 bg-teal-500 hover:bg-teal-600 text-white text-sm font-medium rounded-lg transition-colors"
+                    className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium rounded-lg transition-colors"
                   >
                     Accept All
                   </button>
@@ -401,7 +401,7 @@ export default function CookieConsent() {
                   </button>
                   <button
                     onClick={openPreferences}
-                    className="px-4 py-2 border border-teal-500 text-teal-600 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/20 text-sm font-medium rounded-lg transition-colors"
+                    className="px-4 py-2 border border-orange-500 text-orange-600 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-900/20 text-sm font-medium rounded-lg transition-colors"
                   >
                     Manage Preferences
                   </button>
@@ -473,7 +473,7 @@ export function CookieSettingsButton({ className = "" }) {
     <>
       <button
         onClick={openPreferences}
-        className={`text-sm text-gray-500 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors ${className}`}
+        className={`text-sm text-gray-500 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors ${className}`}
       >
         Cookie Settings
       </button>

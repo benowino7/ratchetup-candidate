@@ -115,7 +115,7 @@ export default function SecuritySettings() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <Loader2 className="w-8 h-8 animate-spin text-teal-500" />
+        <Loader2 className="w-8 h-8 animate-spin text-orange-500" />
       </div>
     );
   }
@@ -124,7 +124,7 @@ export default function SecuritySettings() {
     <div className="p-4 md:p-6 max-w-2xl mx-auto">
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-          <Shield className="w-6 h-6 text-teal-500" />
+          <Shield className="w-6 h-6 text-orange-500" />
           Security Settings
         </h1>
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
@@ -181,7 +181,7 @@ export default function SecuritySettings() {
             <button
               onClick={handleSetup}
               disabled={actionLoading}
-              className="px-6 py-2.5 rounded-xl font-semibold text-white bg-teal-600 hover:bg-teal-700 transition-all shadow-md disabled:opacity-50 flex items-center gap-2"
+              className="px-6 py-2.5 rounded-xl font-semibold text-white bg-orange-600 hover:bg-orange-700 transition-all shadow-md disabled:opacity-50 flex items-center gap-2"
             >
               {actionLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <QrCode className="w-4 h-4" />}
               Set Up 2FA
@@ -228,7 +228,7 @@ export default function SecuritySettings() {
                 onChange={(e) => setCode(e.target.value.replace(/\D/g, "").slice(0, 6))}
                 placeholder="000000"
                 maxLength={6}
-                className="flex-1 px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-center text-xl font-mono tracking-[0.4em] text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500"
+                className="flex-1 px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-center text-xl font-mono tracking-[0.4em] text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500"
               />
               <button
                 type="submit"

@@ -76,7 +76,7 @@ export default function ForgotPassword() {
       <div className="w-full max-w-md">
         <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-800 p-8">
           <div className="text-center mb-6">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-teal-600 flex items-center justify-center shadow-lg">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-orange-600 flex items-center justify-center shadow-lg">
               <KeyRound className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -113,14 +113,14 @@ export default function ForgotPassword() {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                     placeholder="your@email.com"
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
                   />
                 </div>
               </div>
               <button
                 type="submit"
                 disabled={loading || !email}
-                className="w-full py-3 rounded-xl font-bold text-white bg-teal-600 hover:bg-teal-700 transition-all shadow-md disabled:opacity-50"
+                className="w-full py-3 rounded-xl font-bold text-white bg-orange-600 hover:bg-orange-700 transition-all shadow-md disabled:opacity-50"
               >
                 {loading ? "Checking..." : "Continue"}
               </button>
@@ -145,7 +145,7 @@ export default function ForgotPassword() {
                   required
                   placeholder="000000"
                   maxLength={6}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-center text-2xl font-mono tracking-[0.5em] text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-center text-2xl font-mono tracking-[0.5em] text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500"
                 />
               </div>
 
@@ -160,7 +160,7 @@ export default function ForgotPassword() {
                     required
                     minLength={8}
                     placeholder="Min. 8 characters"
-                    className="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500"
+                    className="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500"
                   />
                   <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -179,7 +179,7 @@ export default function ForgotPassword() {
                     required
                     minLength={8}
                     placeholder="Confirm password"
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500"
+                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500"
                   />
                 </div>
               </div>
@@ -187,7 +187,7 @@ export default function ForgotPassword() {
               <button
                 type="submit"
                 disabled={loading || code.length !== 6 || !newPassword}
-                className="w-full py-3 rounded-xl font-bold text-white bg-teal-600 hover:bg-teal-700 transition-all shadow-md disabled:opacity-50"
+                className="w-full py-3 rounded-xl font-bold text-white bg-orange-600 hover:bg-orange-700 transition-all shadow-md disabled:opacity-50"
               >
                 {loading ? "Resetting..." : "Reset Password"}
               </button>
@@ -197,14 +197,14 @@ export default function ForgotPassword() {
           {step === "done" && (
             <Link
               to="/login"
-              className="w-full py-3 rounded-xl font-bold text-white bg-teal-600 hover:bg-teal-700 transition-all shadow-md flex items-center justify-center gap-2"
+              className="w-full py-3 rounded-xl font-bold text-white bg-orange-600 hover:bg-orange-700 transition-all shadow-md flex items-center justify-center gap-2"
             >
               Go to Login
             </Link>
           )}
 
           <div className="mt-6 text-center">
-            <Link to="/login" className="text-sm text-teal-600 dark:text-teal-400 hover:underline inline-flex items-center gap-1">
+            <Link to="/login" className="text-sm text-orange-600 dark:text-orange-400 hover:underline inline-flex items-center gap-1">
               <ArrowLeft className="w-3 h-3" /> Back to Login
             </Link>
           </div>

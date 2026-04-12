@@ -1133,7 +1133,7 @@ const CVCard = ({ cv, onDeleted, onUpdated, industries }) => {
         <div className="mt-3">
           <button
             onClick={handleExtract}
-            className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-teal-600 text-white text-sm font-medium rounded-lg hover:bg-teal-700 transition-all"
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-orange-600 text-white text-sm font-medium rounded-lg hover:bg-orange-700 transition-all"
           >
             <Sparkles className="w-4 h-4" />
             Extract & Fill Profile

@@ -533,7 +533,7 @@ function Btn({ children, onClick, variant = "ghost", style: sx, disabled }) {
     opacity: disabled ? 0.5 : 1,
   };
   const variants = {
-    primary: { background: "#0097A7", color: "#fff", padding: "11px 22px", borderRadius: 10, fontSize: 13, letterSpacing: "0.04em" },
+    primary: { background: "#E8600A", color: "#fff", padding: "11px 22px", borderRadius: 10, fontSize: 13, letterSpacing: "0.04em" },
     success: { background: "#059669", color: "#fff", padding: "11px 22px", borderRadius: 10, fontSize: 13 },
     ghost: { background: "transparent", color: T.muted, padding: "8px 14px", borderRadius: 8, fontSize: 12, border: `1px solid ${T.border}` },
     danger: { background: "transparent", color: T.danger, padding: "5px 8px", borderRadius: 6, fontSize: 13 },
@@ -2361,7 +2361,7 @@ export default function App({ subscription }) {
       {showUpgradeModal && (
         <div style={{ position:"fixed", inset:0, background:"rgba(0,0,0,0.6)", display:"flex", alignItems:"center", justifyContent:"center", zIndex:9999 }} onClick={() => setShowUpgradeModal(false)}>
           <div style={{ background:T.card, borderRadius:20, padding:"40px 32px", maxWidth:420, width:"90%", textAlign:"center", boxShadow:"0 20px 60px rgba(0,0,0,0.3)" }} onClick={e => e.stopPropagation()}>
-            <div style={{ width:56, height:56, borderRadius:"50%", background:"#0097A7", display:"flex", alignItems:"center", justifyContent:"center", margin:"0 auto 16px" }}>
+            <div style={{ width:56, height:56, borderRadius:"50%", background:"#E8600A", display:"flex", alignItems:"center", justifyContent:"center", margin:"0 auto 16px" }}>
               <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" style={{width:28,height:28}}><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </div>
             <h3 style={{ fontSize:22, fontWeight:800, color:T.text, margin:"0 0 8px", fontFamily:T.fontDisplay }}>Upgrade to Export PDF</h3>
@@ -2372,7 +2372,7 @@ export default function App({ subscription }) {
               <button onClick={() => setShowUpgradeModal(false)} style={{ flex:1, padding:"12px 20px", borderRadius:12, border:`1px solid ${T.border}`, background:T.surface, color:T.text, fontSize:13, fontWeight:700, cursor:"pointer" }}>
                 Maybe Later
               </button>
-              <button onClick={() => { setShowUpgradeModal(false); window.location.hash = "#/dashboard/subscriptions"; window.location.href = "/dashboard/subscriptions"; }} style={{ flex:1, padding:"12px 20px", borderRadius:12, border:"none", background:"#0097A7", color:"#fff", fontSize:13, fontWeight:800, cursor:"pointer" }}>
+              <button onClick={() => { setShowUpgradeModal(false); window.location.hash = "#/dashboard/subscriptions"; window.location.href = "/dashboard/subscriptions"; }} style={{ flex:1, padding:"12px 20px", borderRadius:12, border:"none", background:"#E8600A", color:"#fff", fontSize:13, fontWeight:800, cursor:"pointer" }}>
                 View Plans
               </button>
             </div>

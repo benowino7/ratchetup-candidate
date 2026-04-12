@@ -52,7 +52,7 @@ const TopCompanies = () => {
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
             Top Companies Hiring{' '}
-            <span className="text-teal-600">
+            <span className="text-orange-600">
               Right Now
             </span>
           </h2>
@@ -156,7 +156,7 @@ const TopCompanies = () => {
         <div className="text-center">
           <a
             href="/companies"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-theme_color hover:bg-teal-600 text-white font-semibold rounded-xl transition shadow-lg"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-theme_color hover:bg-orange-600 text-white font-semibold rounded-xl transition shadow-lg"
           >
             View All Companies
           </a>

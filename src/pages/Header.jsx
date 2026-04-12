@@ -92,8 +92,8 @@ export default function Header() {
                 onClick={() => handleNavClick(item.path)}
                 className={`relative text-sm font-medium transition-colors pb-0.5
                   ${isLinkActive(item.path)
-                    ? 'text-teal-600 dark:text-teal-400 border-b-2 border-teal-600 dark:border-teal-400'
-                    : 'text-slate-600 hover:text-teal-600 dark:text-slate-300 dark:hover:text-teal-400'
+                    ? 'text-orange-600 dark:text-orange-400 border-b-2 border-orange-600 dark:border-orange-400'
+                    : 'text-slate-600 hover:text-orange-600 dark:text-slate-300 dark:hover:text-orange-400'
                   }`}
               >
                 {item.name}
@@ -107,14 +107,14 @@ export default function Header() {
               href="https://recruiter.ratchetup.ai/register"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex px-4 lg:px-5 py-2 rounded-lg bg-teal-600 hover:bg-teal-700 text-white font-medium text-sm transition"
+              className="hidden md:inline-flex px-4 lg:px-5 py-2 rounded-lg bg-orange-600 hover:bg-orange-700 text-white font-medium text-sm transition"
             >
               For Employers
             </a>
 
             <Link
               to="/joblisting"
-              className="hidden lg:inline-flex px-5 py-2 rounded-lg border border-teal-600 text-teal-600 hover:bg-teal-50 dark:hover:bg-teal-900/20 font-medium text-sm transition"
+              className="hidden lg:inline-flex px-5 py-2 rounded-lg border border-orange-600 text-orange-600 hover:bg-orange-50 dark:hover:bg-orange-900/20 font-medium text-sm transition"
             >
               Find Jobs
             </Link>
@@ -152,7 +152,7 @@ export default function Header() {
                 className={`
                   block w-full rounded-lg px-4 py-3 text-base font-medium transition
                   ${active
-                    ? 'bg-teal-50 text-teal-700 border-l-4 border-teal-600 dark:bg-teal-900/20 dark:text-teal-400'
+                    ? 'bg-orange-50 text-orange-700 border-l-4 border-orange-600 dark:bg-orange-900/20 dark:text-orange-400'
                     : 'text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800'
                   }
                 `}
@@ -169,7 +169,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMenuOpen(false)}
-              className="w-full py-3 rounded-lg bg-teal-600 hover:bg-teal-700 text-white text-center font-medium transition"
+              className="w-full py-3 rounded-lg bg-orange-600 hover:bg-orange-700 text-white text-center font-medium transition"
             >
               For Employers
             </a>
@@ -177,7 +177,7 @@ export default function Header() {
             <Link
               to="/joblisting"
               onClick={() => setIsMenuOpen(false)}
-              className="w-full py-3 rounded-lg border border-teal-600 text-teal-600 dark:text-teal-400 text-center font-medium hover:bg-teal-50 dark:hover:bg-teal-900/20 transition"
+              className="w-full py-3 rounded-lg border border-orange-600 text-orange-600 dark:text-orange-400 text-center font-medium hover:bg-orange-50 dark:hover:bg-orange-900/20 transition"
             >
               Find Jobs
             </Link>

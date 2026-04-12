@@ -362,7 +362,7 @@ const Register = () => {
                                     type="text"
                                     value={form.firstName}
                                     onChange={e => setForm({ ...form, firstName: e.target.value })}
-                                    className={`w-full px-4 py-3 border ${errors.firstName ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} text-black dark:text-white rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition`}
+                                    className={`w-full px-4 py-3 border ${errors.firstName ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} text-black dark:text-white rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition`}
                                     placeholder="First name"
                                 />
                                 {errors.firstName && <p className="mt-1.5 text-sm text-red-600">{errors.firstName}</p>}
@@ -376,7 +376,7 @@ const Register = () => {
                                     type="text"
                                     value={form.lastName}
                                     onChange={e => setForm({ ...form, lastName: e.target.value })}
-                                    className={`w-full px-4 py-3 border ${errors.lastName ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} text-black dark:text-white rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition`}
+                                    className={`w-full px-4 py-3 border ${errors.lastName ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} text-black dark:text-white rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition`}
                                     placeholder="Last name"
                                 />
                                 {errors.lastName && <p className="mt-1.5 text-sm text-red-600">{errors.lastName}</p>}
@@ -393,7 +393,7 @@ const Register = () => {
                                     type="email"
                                     value={form.email}
                                     onChange={e => setForm({ ...form, email: e.target.value.trim() })}
-                                    className={`w-full pl-10 pr-4 py-3 border ${errors.email ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} text-black dark:text-white rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition`}
+                                    className={`w-full pl-10 pr-4 py-3 border ${errors.email ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} text-black dark:text-white rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition`}
                                     placeholder="you@example.com"
                                 />
                             </div>
@@ -408,7 +408,7 @@ const Register = () => {
                                 <select
                                     value={form.countryCode}
                                     onChange={handleCountryChange}
-                                    className={`w-full px-3 py-3 border ${errors.country ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} text-black dark:text-white rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition`}
+                                    className={`w-full px-3 py-3 border ${errors.country ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} text-black dark:text-white rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition`}
                                 >
                                     <option value="">Select country</option>
                                     {countries.map(c => (
@@ -432,7 +432,7 @@ const Register = () => {
                                         type="tel"
                                         value={form.phone}
                                         onChange={e => setForm({ ...form, phone: e.target.value.trim() })}
-                                        className={`w-full pl-16 pr-4 py-3 border ${errors.phone ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} text-black dark:text-white rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition`}
+                                        className={`w-full pl-16 pr-4 py-3 border ${errors.phone ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} text-black dark:text-white rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition`}
                                         placeholder="501234567"
                                     />
                                 </div>
@@ -453,7 +453,7 @@ const Register = () => {
                                         setForm({ ...form, password: e.target.value });
                                         calculateStrength(e.target.value);
                                     }}
-                                    className={`w-full pl-10 pr-10 py-3 border ${errors.password ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} text-black dark:text-white rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition`}
+                                    className={`w-full pl-10 pr-10 py-3 border ${errors.password ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} text-black dark:text-white rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition`}
                                     placeholder="At least 8 characters"
                                 />
                                 <button
@@ -492,7 +492,7 @@ const Register = () => {
                                     type={showConfirm ? 'text' : 'password'}
                                     value={form.confirmPassword}
                                     onChange={e => setForm({ ...form, confirmPassword: e.target.value })}
-                                    className={`w-full pl-10 pr-10 py-3 border ${errors.confirmPassword ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} text-black dark:text-white rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition`}
+                                    className={`w-full pl-10 pr-10 py-3 border ${errors.confirmPassword ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} text-black dark:text-white rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition`}
                                     placeholder="Confirm password"
                                 />
                                 <button
@@ -515,7 +515,7 @@ const Register = () => {
                                     id="hasVisa"
                                     checked={form.hasVisa}
                                     onChange={e => setForm({ ...form, hasVisa: e.target.checked })}
-                                    className="w-4 h-4 rounded border-gray-300 text-teal-500 focus:ring-teal-500"
+                                    className="w-4 h-4 rounded border-gray-300 text-orange-500 focus:ring-orange-500"
                                 />
                                 <label htmlFor="hasVisa" className="text-sm text-gray-600 dark:text-gray-400">
                                     I have a valid visa
@@ -527,7 +527,7 @@ const Register = () => {
                                     id="hasWorkPermit"
                                     checked={form.hasWorkPermit}
                                     onChange={e => setForm({ ...form, hasWorkPermit: e.target.checked })}
-                                    className="w-4 h-4 rounded border-gray-300 text-teal-500 focus:ring-teal-500"
+                                    className="w-4 h-4 rounded border-gray-300 text-orange-500 focus:ring-orange-500"
                                 />
                                 <label htmlFor="hasWorkPermit" className="text-sm text-gray-600 dark:text-gray-400">
                                     I have a valid work permit
@@ -541,17 +541,17 @@ const Register = () => {
                                 id="agree"
                                 checked={form.agree}
                                 onChange={e => setForm({ ...form, agree: e.target.checked })}
-                                className="mt-1 w-4 h-4 rounded border-gray-300 text-teal-500 focus:ring-teal-500"
+                                className="mt-1 w-4 h-4 rounded border-gray-300 text-orange-500 focus:ring-orange-500"
                             />
                             <label htmlFor="agree" className="text-sm text-gray-600 dark:text-gray-400">
-                                I agree to the <button type="button" onClick={() => setShowTerms(true)} className="text-teal-600 dark:text-teal-400 hover:underline">Terms of Use</button>
+                                I agree to the <button type="button" onClick={() => setShowTerms(true)} className="text-orange-600 dark:text-orange-400 hover:underline">Terms of Use</button>
                             </label>
                         </div>
                         {errors.agree && <p className="text-sm text-red-600 -mt-2">{errors.agree}</p>}
 
                         <button
                             type="submit"
-                            className="w-full py-3.5 px-6 bg-teal-500 hover:bg-teal-600 active:bg-teal-700 text-white font-medium rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 mt-2"
+                            className="w-full py-3.5 px-6 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-medium rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 mt-2"
                         >
                             Create Free Account
                             <ArrowRight size={18} />
@@ -560,7 +560,7 @@ const Register = () => {
 
                     <p className="mt-8 text-center text-sm text-gray-600 dark:text-gray-400">
                         Already have an account?{' '}
-                        <Link to="/login" className="text-teal-600 dark:text-teal-400 hover:underline font-medium">
+                        <Link to="/login" className="text-orange-600 dark:text-orange-400 hover:underline font-medium">
                             Sign in
                         </Link>
                     </p>

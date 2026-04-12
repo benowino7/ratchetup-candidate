@@ -231,7 +231,7 @@ function DashboardOverview({ subscription }) {
 
         {/* Trial Banner */}
         {subscription?.isTrial && (
-          <div className="bg-teal-600 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between text-white gap-3">
+          <div className="bg-orange-600 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between text-white gap-3">
             <div className="flex items-center gap-3">
               <Clock className="w-6 h-6 flex-shrink-0" />
               <div>
@@ -257,16 +257,16 @@ function DashboardOverview({ subscription }) {
 
         {/* Subscription required banner */}
         {subscription !== null && !isPaidActive && (
-          <Link to="/dashboard/subscriptions" className="block p-5 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-2xl hover:shadow-lg transition-all group">
+          <Link to="/dashboard/subscriptions" className="block p-5 bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-2xl hover:shadow-lg transition-all group">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-teal-100 dark:bg-teal-900/40 rounded-xl flex items-center justify-center shrink-0">
-                <svg className="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+              <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900/40 rounded-xl flex items-center justify-center shrink-0">
+                <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-gray-900 dark:text-white">Subscribe to unlock your dashboard</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">Get a Silver plan or higher to access all features — applications, saved jobs, CV builder, AI matching & more.</p>
               </div>
-              <span className="px-4 py-2 bg-teal-500 text-white text-sm font-semibold rounded-lg group-hover:bg-teal-600 transition shrink-0">
+              <span className="px-4 py-2 bg-orange-500 text-white text-sm font-semibold rounded-lg group-hover:bg-orange-600 transition shrink-0">
                 View Plans
               </span>
             </div>
@@ -286,7 +286,7 @@ function DashboardOverview({ subscription }) {
           </div>
         ) : (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            <Link to={'/dashboard/applications'} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-teal-300 dark:hover:border-teal-600/50 transition-all duration-300 group cursor-pointer">
+            <Link to={'/dashboard/applications'} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-orange-300 dark:hover:border-orange-600/50 transition-all duration-300 group cursor-pointer">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-500 dark:text-gray-400">Applications Sent</p>
@@ -298,7 +298,7 @@ function DashboardOverview({ subscription }) {
               </div>
             </Link>
 
-            <Link to={'/dashboard/saved_jobs'} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-teal-300 dark:hover:border-teal-600/50 transition-all duration-300 group cursor-pointer">
+            <Link to={'/dashboard/saved_jobs'} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-orange-300 dark:hover:border-orange-600/50 transition-all duration-300 group cursor-pointer">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-500 dark:text-gray-400">Saved Jobs</p>
@@ -311,20 +311,20 @@ function DashboardOverview({ subscription }) {
               </div>
             </Link>
 
-            <Link to={'/dashboard/cv-builder'} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-teal-300 dark:hover:border-teal-600/50 transition-all duration-300 group cursor-pointer">
+            <Link to={'/dashboard/cv-builder'} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-orange-300 dark:hover:border-orange-600/50 transition-all duration-300 group cursor-pointer">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-500 dark:text-gray-400">Uploaded CVs</p>
                   <p className="text-2xl md:text-3xl font-bold mt-1">{stats.totalCvs}</p>
-                  <p className="text-xs text-teal-600 dark:text-teal-400 mt-2">Manage CVs</p>
+                  <p className="text-xs text-orange-600 dark:text-orange-400 mt-2">Manage CVs</p>
                 </div>
-                <div className="p-3 bg-teal-100 dark:bg-teal-900/30 rounded-lg group-hover:scale-110 transition-transform duration-300">
-                  <FileText size={24} className="text-teal-600 dark:text-teal-400" />
+                <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                  <FileText size={24} className="text-orange-600 dark:text-orange-400" />
                 </div>
               </div>
             </Link>
 
-            <Link to={'/dashboard/profile'} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-teal-300 dark:hover:border-teal-600/50 transition-all duration-300 group cursor-pointer">
+            <Link to={'/dashboard/profile'} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-orange-300 dark:hover:border-orange-600/50 transition-all duration-300 group cursor-pointer">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-500 dark:text-gray-400">Profile Completion</p>
@@ -459,7 +459,7 @@ function DashboardOverview({ subscription }) {
         <div>
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl md:text-2xl font-bold">Recommended for You</h2>
-            <Link to={'/dashboard/recommendations'} className="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-medium flex items-center gap-1.5 text-sm md:text-base hover:gap-2 transition-all">
+            <Link to={'/dashboard/recommendations'} className="text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium flex items-center gap-1.5 text-sm md:text-base hover:gap-2 transition-all">
               View All <ArrowRight size={16} />
             </Link>
           </div>
@@ -495,7 +495,7 @@ function DashboardOverview({ subscription }) {
                 return (
                   <div
                     key={job.id}
-                    className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 hover:shadow-xl hover:border-teal-300 dark:hover:border-teal-600/50 hover:-translate-y-1 transition-all duration-300 group"
+                    className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 hover:shadow-xl hover:border-orange-300 dark:hover:border-orange-600/50 hover:-translate-y-1 transition-all duration-300 group"
                   >
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex items-center gap-3 flex-1 min-w-0">
@@ -503,7 +503,7 @@ function DashboardOverview({ subscription }) {
                           {logoAbbr}
                         </div>
                         <div className="min-w-0">
-                          <h3 className="font-semibold text-lg truncate group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                          <h3 className="font-semibold text-lg truncate group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
                             {job.title}
                           </h3>
                           <p className="text-sm text-gray-600 dark:text-gray-400 truncate">{job.company?.name}</p>
@@ -517,7 +517,7 @@ function DashboardOverview({ subscription }) {
                     </div>
                     <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-800">
                       {matchScore !== null ? (
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300 rounded-full text-sm font-medium">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 rounded-full text-sm font-medium">
                           <Sparkles size={14} />
                           {matchScore}% Match
                         </span>
@@ -528,7 +528,7 @@ function DashboardOverview({ subscription }) {
                       )}
                       <Link
                         to={`/dashboard/recommendations/${job.id}`}
-                        className="px-4 py-1.5 bg-teal-500 hover:bg-teal-600 text-white text-sm font-medium rounded-lg transition-all hover:shadow-lg active:scale-95"
+                        className="px-4 py-1.5 bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium rounded-lg transition-all hover:shadow-lg active:scale-95"
                       >
                         View
                       </Link>
@@ -544,7 +544,7 @@ function DashboardOverview({ subscription }) {
         <div>
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl md:text-2xl font-bold">Recent Applications</h2>
-            <Link to={'/dashboard/applications'} className="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-medium flex items-center gap-1.5 text-sm md:text-base hover:gap-2 transition-all">
+            <Link to={'/dashboard/applications'} className="text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium flex items-center gap-1.5 text-sm md:text-base hover:gap-2 transition-all">
               View All <ArrowRight size={16} />
             </Link>
           </div>
@@ -571,10 +571,10 @@ function DashboardOverview({ subscription }) {
                 return (
                   <div
                     key={app.id}
-                    className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:shadow-lg hover:border-teal-200 dark:hover:border-teal-800 transition-all duration-300 group"
+                    className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:shadow-lg hover:border-orange-200 dark:hover:border-orange-800 transition-all duration-300 group"
                   >
                     <div className="flex-1 min-w-0">
-                      <h4 className="font-medium text-lg group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors truncate">
+                      <h4 className="font-medium text-lg group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors truncate">
                         {app.job?.title || 'Untitled Position'}
                       </h4>
                       <p className="text-sm text-gray-600 dark:text-gray-400 truncate">
@@ -600,12 +600,12 @@ function DashboardOverview({ subscription }) {
 
         {/* Profile Completion Prompt */}
         {!statsLoading && isProfileIncomplete && (
-          <div className="mt-10 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div className="mt-10 bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div>
                 <div className="flex items-center gap-3 mb-3">
-                  <AlertCircle size={24} className="text-teal-600 dark:text-teal-400" />
-                  <h3 className="text-xl font-semibold text-teal-700 dark:text-teal-300">
+                  <AlertCircle size={24} className="text-orange-600 dark:text-orange-400" />
+                  <h3 className="text-xl font-semibold text-orange-700 dark:text-orange-300">
                     Complete your profile to unlock better matches
                   </h3>
                 </div>
@@ -614,20 +614,20 @@ function DashboardOverview({ subscription }) {
                 </p>
                 <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                   <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-teal-500"></div>
+                    <div className="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
                     Add your CV / resume
                   </li>
                   <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-teal-500"></div>
+                    <div className="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
                     List key skills & certifications
                   </li>
                   <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-teal-500"></div>
+                    <div className="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
                     Set salary & location preferences
                   </li>
                 </ul>
               </div>
-              <Link to={'/dashboard/profile'} className="inline-flex items-center gap-2 px-8 py-4 bg-teal-500 hover:bg-teal-600 text-white font-medium rounded-xl transition-all hover:shadow-lg active:scale-95 whitespace-nowrap">
+              <Link to={'/dashboard/profile'} className="inline-flex items-center gap-2 px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-xl transition-all hover:shadow-lg active:scale-95 whitespace-nowrap">
                 Complete Profile Now
                 <ArrowRight size={18} />
               </Link>

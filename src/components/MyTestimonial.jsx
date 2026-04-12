@@ -154,7 +154,7 @@ const MyTestimonial = () => {
         <button
           type="submit"
           disabled={saving}
-          className="w-full py-3 bg-theme_color hover:bg-teal-600 text-white font-semibold rounded-xl transition disabled:opacity-50 flex items-center justify-center gap-2"
+          className="w-full py-3 bg-theme_color hover:bg-orange-600 text-white font-semibold rounded-xl transition disabled:opacity-50 flex items-center justify-center gap-2"
         >
           {saving ? <Loader className="animate-spin" size={18} /> : null}
           {existing ? 'Update Testimonial' : 'Submit Testimonial'}

@@ -195,7 +195,7 @@ const WithdrawModal = ({ app, onConfirm, onCancel, loading }) => {
       <div className="px-6 py-5 space-y-4">
         {/* Application summary */}
         <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-800/60 rounded-xl border border-gray-100 dark:border-gray-800">
-          <div className="w-8 h-8 rounded-lg bg-teal-100 dark:bg-teal-900/20 flex items-center justify-center flex-shrink-0">
+          <div className="w-8 h-8 rounded-lg bg-orange-100 dark:bg-orange-900/20 flex items-center justify-center flex-shrink-0">
             <Building2 className="w-4 h-4 text-theme_color" />
           </div>
           <div className="min-w-0">
@@ -239,7 +239,7 @@ const WithdrawModal = ({ app, onConfirm, onCancel, loading }) => {
           <button
             onClick={() => onConfirm(note)}
             disabled={loading}
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-teal-500 hover:bg-teal-600 rounded-xl transition-colors disabled:opacity-60"
+            className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded-xl transition-colors disabled:opacity-60"
           >
             {loading ? (
               <Loader2 className="w-4 h-4 animate-spin" />
@@ -327,7 +327,7 @@ const ApplicationCard = ({ app, index, setCvPreview, onWithdraw }) => {
           <div className="flex items-start justify-between gap-3">
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-1">
-                <div className="w-7 h-7 rounded-lg bg-teal-100 dark:bg-teal-900/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-7 h-7 rounded-lg bg-orange-100 dark:bg-orange-900/20 flex items-center justify-center flex-shrink-0">
                   <Building2 className="w-3.5 h-3.5 text-theme_color" />
                 </div>
                 <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 truncate">
@@ -351,7 +351,7 @@ const ApplicationCard = ({ app, index, setCvPreview, onWithdraw }) => {
               {cfg.canWithdraw && (
                 <button
                   onClick={() => setShowWithdrawModal(true)}
-                  className="flex items-center gap-1 text-xs font-semibold text-teal-500 hover:text-teal-600 dark:text-teal-400 hover:underline transition-colors mt-0.5"
+                  className="flex items-center gap-1 text-xs font-semibold text-orange-500 hover:text-orange-600 dark:text-orange-400 hover:underline transition-colors mt-0.5"
                   title="Withdraw this application"
                 >
                   <LogOut className="w-3 h-3" />

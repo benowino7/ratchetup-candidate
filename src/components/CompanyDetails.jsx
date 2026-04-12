@@ -149,7 +149,7 @@ const CompanyDetails = () => {
         <div className="min-h-screen bg-[#e7f0fa] dark:bg-gray-950 transition-colors duration-300">
 
             {/* Cover Image */}
-            <div className="relative h-48 md:h-64 bg-teal-600 overflow-hidden">
+            <div className="relative h-48 md:h-64 bg-orange-600 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             </div>
 
@@ -391,7 +391,7 @@ const CompanyDetails = () => {
                                                         <div className="flex items-center gap-3 mt-4">
                                                             <button
                                                                 onClick={handleQuickApply}
-                                                                className="px-6 py-3 bg-theme_color hover:bg-teal-600 text-white font-semibold rounded-xl transition shadow-lg shadow-theme_color/30 flex items-center gap-2"
+                                                                className="px-6 py-3 bg-theme_color hover:bg-orange-600 text-white font-semibold rounded-xl transition shadow-lg shadow-theme_color/30 flex items-center gap-2"
                                                             >
                                                                 <Briefcase size={18} />
                                                                 Quick Apply
@@ -511,7 +511,7 @@ const CompanyDetails = () => {
                         </div>
 
                         {/* CTA Card */}
-                        <div className="bg-teal-600 rounded-2xl p-6 text-white">
+                        <div className="bg-orange-600 rounded-2xl p-6 text-white">
                             <h3 className="text-lg font-bold mb-2">Interested in this company?</h3>
                             <p className="text-sm text-white/80 mb-4">
                                 Sign in to apply to jobs, save positions, and get personalized recommendations.

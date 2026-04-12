@@ -15,7 +15,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
       >
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-          <h2 className="text-xl font-bold text-teal-500">
+          <h2 className="text-xl font-bold text-orange-500">
             Terms of Use &ndash; RatchetUp
           </h2>
           <button
@@ -40,7 +40,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
           </p>
 
           <div>
-            <h3 className="text-lg font-bold text-teal-500 mb-2">
+            <h3 className="text-lg font-bold text-orange-500 mb-2">
               Account Registration and Security
             </h3>
             <ul className="list-disc list-inside space-y-1 ml-2">
@@ -60,7 +60,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-teal-500 mb-2">
+            <h3 className="text-lg font-bold text-orange-500 mb-2">
               Intellectual Property
             </h3>
             <p>
@@ -74,7 +74,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-teal-500 mb-2">
+            <h3 className="text-lg font-bold text-orange-500 mb-2">
               User Conduct
             </h3>
             <p className="mb-2">
@@ -119,7 +119,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-teal-500 mb-2">
+            <h3 className="text-lg font-bold text-orange-500 mb-2">
               Improper Use
             </h3>
             <p>
@@ -180,7 +180,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-teal-500 mb-2">
+            <h3 className="text-lg font-bold text-orange-500 mb-2">
               Scope of Services for RatchetUp
             </h3>
             <p className="mb-2">
@@ -226,7 +226,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-teal-500 mb-2">
+            <h3 className="text-lg font-bold text-orange-500 mb-2">
               Fee &ndash; Job Seekers
             </h3>
             <p>
@@ -239,7 +239,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-teal-500 mb-2">
+            <h3 className="text-lg font-bold text-orange-500 mb-2">
               Fee &ndash; Employers
             </h3>
             <p>
@@ -251,7 +251,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-teal-500 mb-2">
+            <h3 className="text-lg font-bold text-orange-500 mb-2">
               Refund Policy
             </h3>
             <p>
@@ -273,7 +273,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-teal-500 mb-2">
+            <h3 className="text-lg font-bold text-orange-500 mb-2">
               No Guarantee
             </h3>
             <p>
@@ -290,7 +290,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-teal-500 mb-2">
+            <h3 className="text-lg font-bold text-orange-500 mb-2">
               Disclaimer of Warranties
             </h3>
             <p>
@@ -321,7 +321,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-teal-500 mb-2">
+            <h3 className="text-lg font-bold text-orange-500 mb-2">
               Limitation of Liability
             </h3>
             <p>
@@ -340,7 +340,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-teal-500 mb-2">
+            <h3 className="text-lg font-bold text-orange-500 mb-2">
               Indemnification
             </h3>
             <p>
@@ -354,7 +354,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-teal-500 mb-2">
+            <h3 className="text-lg font-bold text-orange-500 mb-2">
               Termination
             </h3>
             <p>
@@ -367,7 +367,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-teal-500 mb-2">
+            <h3 className="text-lg font-bold text-orange-500 mb-2">
               Governing Law
             </h3>
             <p>
@@ -380,7 +380,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-teal-500 mb-2">Notices</h3>
+            <h3 className="text-lg font-bold text-orange-500 mb-2">Notices</h3>
             <p>Notices may be sent to:</p>
             <p className="mt-2">
               RatchetUp

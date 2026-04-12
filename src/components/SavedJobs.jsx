@@ -680,7 +680,7 @@ function SavedJobs({ isAiSubscribed2 }) {
                         href={job.applicationUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl shadow-md transition-all text-sm inline-flex items-center justify-center gap-2"
+                        className="flex-1 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-xl shadow-md transition-all text-sm inline-flex items-center justify-center gap-2"
                       >
                         <ExternalLink size={14} />
                         Apply Externally
@@ -764,7 +764,7 @@ function SavedJobs({ isAiSubscribed2 }) {
                       href={job.applicationUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl shadow-md transition-all text-sm inline-flex items-center gap-2"
+                      className="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-xl shadow-md transition-all text-sm inline-flex items-center gap-2"
                     >
                       <ExternalLink size={14} />
                       Apply Externally

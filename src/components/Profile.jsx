@@ -326,7 +326,7 @@ const Profile = () => {
         )}
 
         {/* Profile Completion */}
-        <div className="bg-teal-50 dark:bg-teal-900/20 rounded-lg shadow-sm p-6 mb-6 border border-theme_color/20">
+        <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg shadow-sm p-6 mb-6 border border-theme_color/20">
           <div className="flex items-start justify-between mb-4">
             <div className="flex-1">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
@@ -351,7 +351,7 @@ const Profile = () => {
           </div>
           <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 mb-3 overflow-hidden">
             <div
-              className="bg-teal-600 h-3 rounded-full transition-all duration-500 ease-out relative"
+              className="bg-orange-600 h-3 rounded-full transition-all duration-500 ease-out relative"
               style={{ width: `${completion}%` }}
             >
               <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
@@ -420,7 +420,7 @@ const Profile = () => {
                   id="editHasVisa"
                   checked={tempData.hasVisa || false}
                   onChange={(e) => setTempData((prev) => ({ ...prev, hasVisa: e.target.checked }))}
-                  className="w-4 h-4 rounded border-gray-300 text-teal-500 focus:ring-teal-500"
+                  className="w-4 h-4 rounded border-gray-300 text-orange-500 focus:ring-orange-500"
                 />
                 <label htmlFor="editHasVisa" className="text-sm text-gray-700 dark:text-gray-300">I have a valid visa</label>
               </div>
@@ -430,7 +430,7 @@ const Profile = () => {
                   id="editHasWorkPermit"
                   checked={tempData.hasWorkPermit || false}
                   onChange={(e) => setTempData((prev) => ({ ...prev, hasWorkPermit: e.target.checked }))}
-                  className="w-4 h-4 rounded border-gray-300 text-teal-500 focus:ring-teal-500"
+                  className="w-4 h-4 rounded border-gray-300 text-orange-500 focus:ring-orange-500"
                 />
                 <label htmlFor="editHasWorkPermit" className="text-sm text-gray-700 dark:text-gray-300">I have a valid work permit</label>
               </div>
@@ -807,7 +807,7 @@ const BasicInfoView = ({ data }) => (
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div className="md:col-span-2 flex flex-col sm:flex-row items-start sm:items-center gap-4">
       <div className="relative">
-        <div className="w-24 h-24 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-3xl shadow-lg">
+        <div className="w-24 h-24 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold text-3xl shadow-lg">
           {(data.firstName || "-")[0]}
           {(data.lastName || "-")[0]}
         </div>

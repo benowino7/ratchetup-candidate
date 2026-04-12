@@ -168,7 +168,7 @@ const Login = () => {
                     value={twoFACode}
                     onChange={(e) => setTwoFACode(e.target.value.replace(/\D/g, '').slice(0, 6))}
                     required
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition text-center text-2xl tracking-[0.5em] font-mono"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition text-center text-2xl tracking-[0.5em] font-mono"
                     placeholder="000000"
                     autoFocus
                   />
@@ -180,8 +180,8 @@ const Login = () => {
                 className={`
                   w-full py-3.5 px-6 rounded-xl font-medium text-white flex items-center justify-center gap-2 transition-all
                   ${isLoading || twoFACode.length !== 6
-                    ? 'bg-teal-400 cursor-not-allowed'
-                    : 'bg-teal-500 hover:bg-teal-600 active:bg-teal-700 shadow-md hover:shadow-lg'
+                    ? 'bg-orange-400 cursor-not-allowed'
+                    : 'bg-orange-500 hover:bg-orange-600 active:bg-orange-700 shadow-md hover:shadow-lg'
                   }
                 `}
               >
@@ -190,7 +190,7 @@ const Login = () => {
               <button
                 type="button"
                 onClick={() => { setTwoFactorStep(false); setTwoFACode(''); setTempToken(''); }}
-                className="w-full text-sm text-gray-500 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition"
+                className="w-full text-sm text-gray-500 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition"
               >
                 Back to login
               </button>
@@ -212,7 +212,7 @@ const Login = () => {
                   name='email'
                   required
                   defaultValue={prefillEmail}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
                   placeholder="name@company.com"
                 />
               </div>
@@ -230,7 +230,7 @@ const Login = () => {
                   type={showPassword ? 'text' : 'password'}
                   name='password'
                   required
-                  className="w-full pl-10 pr-10 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+                  className="w-full pl-10 pr-10 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
                   placeholder="••••••••"
                 />
                 <button
@@ -248,8 +248,8 @@ const Login = () => {
               className={`
                 w-full py-3.5 px-6 rounded-xl font-medium text-white flex items-center justify-center gap-2 transition-all
                 ${isLoading
-                  ? 'bg-teal-400 cursor-not-allowed'
-                  : 'bg-teal-500 hover:bg-teal-600 active:bg-teal-700 shadow-md hover:shadow-lg'
+                  ? 'bg-orange-400 cursor-not-allowed'
+                  : 'bg-orange-500 hover:bg-orange-600 active:bg-orange-700 shadow-md hover:shadow-lg'
                 }
               `}
             >
@@ -259,13 +259,13 @@ const Login = () => {
 
           <div className="mt-8 text-center text-sm space-y-3">
             <div>
-              <a href="/forgot-password" className="text-teal-600 dark:text-teal-400 hover:underline font-medium">
+              <a href="/forgot-password" className="text-orange-600 dark:text-orange-400 hover:underline font-medium">
                 Forgot your password?
               </a>
             </div>
             <div className="text-gray-600 dark:text-gray-400">
               Don't have an account?{' '}
-              <Link to="/register" className="text-teal-600 dark:text-teal-400 hover:underline font-medium">
+              <Link to="/register" className="text-orange-600 dark:text-orange-400 hover:underline font-medium">
                 Create account
               </Link>
             </div>
@@ -295,7 +295,7 @@ const Login = () => {
               <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
                 One login away from new opportunities, career growth, and a brighter future.
               </p>
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-teal-500/10 dark:bg-teal-600/20 rounded-full text-teal-600 dark:text-teal-400 font-medium">
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500/10 dark:bg-orange-600/20 rounded-full text-orange-600 dark:text-orange-400 font-medium">
                 <span>✨</span> Start your journey today
               </div>
             </div>

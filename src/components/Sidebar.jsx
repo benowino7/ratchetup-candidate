@@ -66,7 +66,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       >
         <div className="h-full flex flex-col">
           <div className="p-6 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between lg:hidden">
-            <span className="text-xl font-bold text-teal-500">Menu</span>
+            <span className="text-xl font-bold text-orange-500">Menu</span>
             <button onClick={toggleSidebar}>
               <XCircle size={24} />
             </button>
@@ -81,7 +81,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                   flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors
                   ${
                     location.pathname === item.path
-                      ? "bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400"
+                      ? "bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400"
                       : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                   }
                 `}

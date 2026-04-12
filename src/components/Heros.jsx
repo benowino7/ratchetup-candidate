@@ -113,7 +113,7 @@ const Hero = () => {
         {leadMinimized ? (
           <button
             onClick={() => setLeadMinimized(false)}
-            className="ml-auto flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white pl-4 pr-3 py-2.5 rounded-full shadow-lg transition-all hover:shadow-xl"
+            className="ml-auto flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white pl-4 pr-3 py-2.5 rounded-full shadow-lg transition-all hover:shadow-xl"
           >
             <Sparkles size={15} />
             <span className="text-xs font-semibold">AI Job Match</span>
@@ -123,7 +123,7 @@ const Hero = () => {
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg overflow-hidden">
             <div className="bg-slate-50 dark:bg-slate-800 px-3.5 py-2.5 flex items-center justify-between border-b border-slate-200 dark:border-slate-700">
               <div className="flex items-center gap-1.5">
-                <Sparkles size={13} className="text-teal-600" />
+                <Sparkles size={13} className="text-orange-600" />
                 <span className="text-slate-800 dark:text-white text-[11px] font-semibold">AI Job Match</span>
               </div>
               <button onClick={() => setLeadMinimized(true)} className="w-5 h-5 flex items-center justify-center rounded hover:bg-slate-200 dark:hover:bg-slate-700 transition">
@@ -133,31 +133,31 @@ const Hero = () => {
             <div className="p-3">
               <form onSubmit={handleLeadSubmit} className="space-y-1.5">
                 <input type="text" name="fullName" placeholder="Full Name *" value={leadForm.fullName} onChange={handleLeadChange}
-                  className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-md text-[11px] text-slate-800 dark:text-white placeholder:text-slate-400 outline-none focus:border-teal-500 transition" required />
+                  className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-md text-[11px] text-slate-800 dark:text-white placeholder:text-slate-400 outline-none focus:border-orange-500 transition" required />
                 <input type="email" name="email" placeholder="Email *" value={leadForm.email} onChange={handleLeadChange}
-                  className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-md text-[11px] text-slate-800 dark:text-white placeholder:text-slate-400 outline-none focus:border-teal-500 transition" required />
+                  className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-md text-[11px] text-slate-800 dark:text-white placeholder:text-slate-400 outline-none focus:border-orange-500 transition" required />
                 <input type="tel" name="phone" placeholder="Phone (optional)" value={leadForm.phone} onChange={handleLeadChange}
-                  className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-md text-[11px] text-slate-800 dark:text-white placeholder:text-slate-400 outline-none focus:border-teal-500 transition" />
+                  className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-md text-[11px] text-slate-800 dark:text-white placeholder:text-slate-400 outline-none focus:border-orange-500 transition" />
                 <div className="flex items-center gap-4 py-0.5">
                   <label className="flex items-center gap-1.5 text-[10px] text-slate-500 dark:text-slate-400 cursor-pointer select-none">
                     <input type="checkbox" checked={leadForm.hasVisa} onChange={(e) => setLeadForm((p) => ({ ...p, hasVisa: e.target.checked }))}
-                      className="w-3 h-3 rounded border-slate-300 accent-teal-600" />
+                      className="w-3 h-3 rounded border-slate-300 accent-orange-600" />
                     I have a Visa
                   </label>
                   <label className="flex items-center gap-1.5 text-[10px] text-slate-500 dark:text-slate-400 cursor-pointer select-none">
                     <input type="checkbox" checked={leadForm.hasWorkPermit} onChange={(e) => setLeadForm((p) => ({ ...p, hasWorkPermit: e.target.checked }))}
-                      className="w-3 h-3 rounded border-slate-300 accent-teal-600" />
+                      className="w-3 h-3 rounded border-slate-300 accent-orange-600" />
                     Work Permit
                   </label>
                 </div>
                 <div onClick={() => cvInputRef.current?.click()}
-                  className="border border-dashed border-slate-300 dark:border-slate-500 hover:border-teal-500 rounded-md py-2 text-center cursor-pointer transition group">
+                  className="border border-dashed border-slate-300 dark:border-slate-500 hover:border-orange-500 rounded-md py-2 text-center cursor-pointer transition group">
                   <input ref={cvInputRef} type="file" onChange={handleCvChange} className="hidden" accept=".pdf,.doc,.docx" />
                   {cvFile ? (
                     <p className="text-[10px] text-slate-700 dark:text-slate-200 font-medium px-2 truncate">{cvFile.name}</p>
                   ) : (
                     <div className="flex items-center justify-center gap-1.5">
-                      <Upload size={11} className="text-slate-400 group-hover:text-teal-600 transition" />
+                      <Upload size={11} className="text-slate-400 group-hover:text-orange-600 transition" />
                       <span className="text-[10px] text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition">Upload CV - PDF, DOC, DOCX</span>
                     </div>
                   )}
@@ -169,7 +169,7 @@ const Hero = () => {
                   </div>
                 )}
                 <button type="submit" disabled={leadSubmitting}
-                  className="w-full py-1.5 bg-teal-600 hover:bg-teal-700 disabled:bg-teal-300 text-white font-semibold rounded-md transition text-[11px] flex items-center justify-center gap-1.5">
+                  className="w-full py-1.5 bg-orange-600 hover:bg-orange-700 disabled:bg-orange-300 text-white font-semibold rounded-md transition text-[11px] flex items-center justify-center gap-1.5">
                   {leadSubmitting ? (<><Loader2 size={12} className="animate-spin" /> Analysing...</>) : (<><Sparkles size={12} /> Get AI Job Matches</>)}
                 </button>
               </form>
@@ -182,9 +182,9 @@ const Hero = () => {
       <div className="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-4 w-full flex flex-col items-center justify-center">
         <div className="text-center w-full mx-auto">
           {/* Trust Badge */}
-          <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-2.5 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-700 rounded-full mb-6 sm:mb-8 animate-fade-in">
-            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-teal-500 rounded-full animate-pulse flex-shrink-0" />
-            <span className="text-teal-700 dark:text-teal-400 font-medium text-xs sm:text-sm md:text-base">AI-Powered Career Platform</span>
+          <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-2.5 bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-700 rounded-full mb-6 sm:mb-8 animate-fade-in">
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-orange-500 rounded-full animate-pulse flex-shrink-0" />
+            <span className="text-orange-700 dark:text-orange-400 font-medium text-xs sm:text-sm md:text-base">AI-Powered Career Platform</span>
           </div>
 
           {/* Intro text -- centered, symmetric padding on xl keeps text centered while clearing the box */}
@@ -192,7 +192,7 @@ const Hero = () => {
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 sm:mb-6 text-slate-800 dark:text-white animate-fade-in-up">
               Your AI Career Partner{' '}
               <br className="hidden sm:block" />
-              <span className="text-teal-600 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold">
+              <span className="text-orange-600 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold">
                 Matching You to the Perfect Job
               </span>
             </h1>
@@ -207,7 +207,7 @@ const Hero = () => {
             {leadMinimized ? (
               <button
                 onClick={() => setLeadMinimized(false)}
-                className="mx-auto flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white pl-4 pr-3 py-2.5 rounded-full shadow-lg transition-all hover:shadow-xl"
+                className="mx-auto flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white pl-4 pr-3 py-2.5 rounded-full shadow-lg transition-all hover:shadow-xl"
               >
                 <Sparkles size={15} />
                 <span className="text-xs font-semibold">AI Job Match</span>
@@ -217,7 +217,7 @@ const Hero = () => {
               <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg overflow-hidden">
                 <div className="bg-slate-50 dark:bg-slate-800 px-3.5 py-2.5 flex items-center justify-between border-b border-slate-200 dark:border-slate-700">
                   <div className="flex items-center gap-1.5">
-                    <Sparkles size={13} className="text-teal-600" />
+                    <Sparkles size={13} className="text-orange-600" />
                     <span className="text-slate-800 dark:text-white text-[11px] font-semibold">AI Job Match</span>
                   </div>
                   <button onClick={() => setLeadMinimized(true)} className="w-5 h-5 flex items-center justify-center rounded hover:bg-slate-200 dark:hover:bg-slate-700 transition">
@@ -227,31 +227,31 @@ const Hero = () => {
                 <div className="p-3">
                   <form onSubmit={handleLeadSubmit} className="space-y-1.5">
                     <input type="text" name="fullName" placeholder="Full Name *" value={leadForm.fullName} onChange={handleLeadChange}
-                      className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-md text-[11px] text-slate-800 dark:text-white placeholder:text-slate-400 outline-none focus:border-teal-500 transition" required />
+                      className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-md text-[11px] text-slate-800 dark:text-white placeholder:text-slate-400 outline-none focus:border-orange-500 transition" required />
                     <input type="email" name="email" placeholder="Email *" value={leadForm.email} onChange={handleLeadChange}
-                      className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-md text-[11px] text-slate-800 dark:text-white placeholder:text-slate-400 outline-none focus:border-teal-500 transition" required />
+                      className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-md text-[11px] text-slate-800 dark:text-white placeholder:text-slate-400 outline-none focus:border-orange-500 transition" required />
                     <input type="tel" name="phone" placeholder="Phone (optional)" value={leadForm.phone} onChange={handleLeadChange}
-                      className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-md text-[11px] text-slate-800 dark:text-white placeholder:text-slate-400 outline-none focus:border-teal-500 transition" />
+                      className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-md text-[11px] text-slate-800 dark:text-white placeholder:text-slate-400 outline-none focus:border-orange-500 transition" />
                     <div className="flex items-center gap-4 py-0.5">
                       <label className="flex items-center gap-1.5 text-[10px] text-slate-500 dark:text-slate-400 cursor-pointer select-none">
                         <input type="checkbox" checked={leadForm.hasVisa} onChange={(e) => setLeadForm((p) => ({ ...p, hasVisa: e.target.checked }))}
-                          className="w-3 h-3 rounded border-slate-300 accent-teal-600" />
+                          className="w-3 h-3 rounded border-slate-300 accent-orange-600" />
                         I have a Visa
                       </label>
                       <label className="flex items-center gap-1.5 text-[10px] text-slate-500 dark:text-slate-400 cursor-pointer select-none">
                         <input type="checkbox" checked={leadForm.hasWorkPermit} onChange={(e) => setLeadForm((p) => ({ ...p, hasWorkPermit: e.target.checked }))}
-                          className="w-3 h-3 rounded border-slate-300 accent-teal-600" />
+                          className="w-3 h-3 rounded border-slate-300 accent-orange-600" />
                         Work Permit
                       </label>
                     </div>
                     <div onClick={() => cvInputRef.current?.click()}
-                      className="border border-dashed border-slate-300 dark:border-slate-500 hover:border-teal-500 rounded-md py-2 text-center cursor-pointer transition group">
+                      className="border border-dashed border-slate-300 dark:border-slate-500 hover:border-orange-500 rounded-md py-2 text-center cursor-pointer transition group">
                       <input ref={cvInputRef} type="file" onChange={handleCvChange} className="hidden" accept=".pdf,.doc,.docx" />
                       {cvFile ? (
                         <p className="text-[10px] text-slate-700 dark:text-slate-200 font-medium px-2 truncate">{cvFile.name}</p>
                       ) : (
                         <div className="flex items-center justify-center gap-1.5">
-                          <Upload size={11} className="text-slate-400 group-hover:text-teal-600 transition" />
+                          <Upload size={11} className="text-slate-400 group-hover:text-orange-600 transition" />
                           <span className="text-[10px] text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition">Upload CV - PDF, DOC, DOCX</span>
                         </div>
                       )}
@@ -263,7 +263,7 @@ const Hero = () => {
                       </div>
                     )}
                     <button type="submit" disabled={leadSubmitting}
-                      className="w-full py-1.5 bg-teal-600 hover:bg-teal-700 disabled:bg-teal-300 text-white font-semibold rounded-md transition text-[11px] flex items-center justify-center gap-1.5">
+                      className="w-full py-1.5 bg-orange-600 hover:bg-orange-700 disabled:bg-orange-300 text-white font-semibold rounded-md transition text-[11px] flex items-center justify-center gap-1.5">
                       {leadSubmitting ? (<><Loader2 size={12} className="animate-spin" /> Analysing...</>) : (<><Sparkles size={12} /> Get AI Job Matches</>)}
                     </button>
                   </form>
@@ -278,14 +278,14 @@ const Hero = () => {
 
               {/* Job Title Input */}
               <div className="flex-1 relative">
-                <Sparkles className="absolute left-4 sm:left-5 top-1/2 -translate-y-1/2 text-teal-600" size={18} />
+                <Sparkles className="absolute left-4 sm:left-5 top-1/2 -translate-y-1/2 text-orange-600" size={18} />
                 <input
                   type="text"
                   placeholder="Try: banking, remote react, finance..."
                   value={jobKeyword}
                   onChange={(e) => setJobKeyword(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  className="w-full pl-10 sm:pl-12 pr-4 py-3 sm:py-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 focus:border-teal-500 focus:ring-1 focus:ring-teal-500/20 rounded-xl outline-none transition-all text-slate-800 dark:text-white placeholder:text-slate-400 text-sm sm:text-base"
+                  className="w-full pl-10 sm:pl-12 pr-4 py-3 sm:py-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 focus:border-orange-500 focus:ring-1 focus:ring-orange-500/20 rounded-xl outline-none transition-all text-slate-800 dark:text-white placeholder:text-slate-400 text-sm sm:text-base"
                 />
               </div>
 
@@ -295,7 +295,7 @@ const Hero = () => {
                 <button
                   type="button"
                   onClick={() => setIndustryOpen(!industryOpen)}
-                  className={`w-full pl-12 pr-10 py-3 sm:py-4 bg-slate-50 dark:bg-slate-800 border ${industryOpen ? 'border-teal-500 ring-1 ring-teal-500/20' : 'border-slate-200 dark:border-slate-600'} rounded-xl outline-none transition-all text-left cursor-pointer text-sm sm:text-base ${industry ? 'text-slate-800 dark:text-white' : 'text-slate-400'}`}
+                  className={`w-full pl-12 pr-10 py-3 sm:py-4 bg-slate-50 dark:bg-slate-800 border ${industryOpen ? 'border-orange-500 ring-1 ring-orange-500/20' : 'border-slate-200 dark:border-slate-600'} rounded-xl outline-none transition-all text-left cursor-pointer text-sm sm:text-base ${industry ? 'text-slate-800 dark:text-white' : 'text-slate-400'}`}
                 >
                   {industry || 'Industry'}
                 </button>
@@ -306,7 +306,7 @@ const Hero = () => {
                         <button
                           type="button"
                           onClick={() => { setIndustry(''); setIndustryOpen(false); }}
-                          className={`w-full text-left px-5 py-3 text-sm transition-colors ${!industry ? 'bg-teal-50 text-teal-700 font-semibold dark:bg-teal-900/20 dark:text-teal-400' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'}`}
+                          className={`w-full text-left px-5 py-3 text-sm transition-colors ${!industry ? 'bg-orange-50 text-orange-700 font-semibold dark:bg-orange-900/20 dark:text-orange-400' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'}`}
                         >
                           All Industries
                         </button>
@@ -316,7 +316,7 @@ const Hero = () => {
                           <button
                             type="button"
                             onClick={() => { setIndustry(ind); setIndustryOpen(false); }}
-                            className={`w-full text-left px-5 py-3 text-sm transition-colors ${industry === ind ? 'bg-teal-50 text-teal-700 font-semibold dark:bg-teal-900/20 dark:text-teal-400' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'}`}
+                            className={`w-full text-left px-5 py-3 text-sm transition-colors ${industry === ind ? 'bg-orange-50 text-orange-700 font-semibold dark:bg-orange-900/20 dark:text-orange-400' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'}`}
                           >
                             {ind}
                           </button>
@@ -334,13 +334,13 @@ const Hero = () => {
                   placeholder="Search location..."
                   icon={<MapPin className="text-slate-400" size={22} />}
                   onKeyDown={handleKeyDown}
-                  className="w-full pl-12 pr-4 py-3 sm:py-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 focus:border-teal-500 focus:ring-1 focus:ring-teal-500/20 rounded-xl outline-none transition-all text-slate-800 dark:text-white placeholder:text-slate-400"
+                  className="w-full pl-12 pr-4 py-3 sm:py-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 focus:border-orange-500 focus:ring-1 focus:ring-orange-500/20 rounded-xl outline-none transition-all text-slate-800 dark:text-white placeholder:text-slate-400"
                 />
               </div>
 
               <button
                 onClick={handleSearch}
-                className="px-6 sm:px-10 py-3 sm:py-4 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl transition shadow-sm hover:shadow-md flex items-center justify-center gap-2 group text-sm sm:text-base"
+                className="px-6 sm:px-10 py-3 sm:py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-xl transition shadow-sm hover:shadow-md flex items-center justify-center gap-2 group text-sm sm:text-base"
               >
                 <Sparkles size={18} />
                 AI Search
@@ -356,7 +356,7 @@ const Hero = () => {
                   onClick={() => {
                     window.location.href = `/joblisting?q=${encodeURIComponent(search)}&aiSearch=true`;
                   }}
-                  className="px-2.5 sm:px-4 py-1 sm:py-1.5 border border-teal-300 dark:border-teal-600 text-teal-700 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/20 rounded-full transition font-medium"
+                  className="px-2.5 sm:px-4 py-1 sm:py-1.5 border border-orange-300 dark:border-orange-600 text-orange-700 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-900/20 rounded-full transition font-medium"
                 >
                   {search}
                 </button>
@@ -368,7 +368,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 justify-center animate-fade-in-up delay-500">
             <a
               href="/joblisting"
-              className="group px-6 sm:px-10 py-3.5 sm:py-5 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-semibold transition flex items-center justify-center gap-2 sm:gap-3 shadow-sm hover:shadow-md text-sm sm:text-base"
+              className="group px-6 sm:px-10 py-3.5 sm:py-5 bg-orange-600 hover:bg-orange-700 text-white rounded-xl font-semibold transition flex items-center justify-center gap-2 sm:gap-3 shadow-sm hover:shadow-md text-sm sm:text-base"
             >
               <Briefcase size={18} />
               Looking for Work
@@ -379,7 +379,7 @@ const Hero = () => {
               href="https://recruiter.ratchetup.ai/register"
               target="_blank"
               rel="noopener noreferrer"
-              className="group px-6 sm:px-10 py-3.5 sm:py-5 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:border-teal-500 hover:text-teal-700 dark:hover:text-teal-400 rounded-xl font-semibold transition flex items-center justify-center gap-2 sm:gap-3 text-sm sm:text-base"
+              className="group px-6 sm:px-10 py-3.5 sm:py-5 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:border-orange-500 hover:text-orange-700 dark:hover:text-orange-400 rounded-xl font-semibold transition flex items-center justify-center gap-2 sm:gap-3 text-sm sm:text-base"
             >
               <Building2 size={18} />
               I'm Hiring
@@ -389,22 +389,22 @@ const Hero = () => {
           {/* AI Capabilities Stats */}
           <div className="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
             <div className="flex flex-col items-center gap-1.5 sm:gap-2 p-3 sm:p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl">
-              <FileText className="text-teal-600" size={22} />
+              <FileText className="text-orange-600" size={22} />
               <p className="text-slate-800 dark:text-white font-bold text-xs sm:text-sm">AI CV Extraction</p>
               <p className="text-slate-500 dark:text-slate-400 text-[10px] sm:text-xs">Auto-parse your resume</p>
             </div>
             <div className="flex flex-col items-center gap-1.5 sm:gap-2 p-3 sm:p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl">
-              <Brain className="text-teal-600" size={22} />
+              <Brain className="text-orange-600" size={22} />
               <p className="text-slate-800 dark:text-white font-bold text-xs sm:text-sm">AI Job Matching</p>
               <p className="text-slate-500 dark:text-slate-400 text-[10px] sm:text-xs">Smart skill-to-job fit</p>
             </div>
             <div className="flex flex-col items-center gap-1.5 sm:gap-2 p-3 sm:p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl">
-              <BarChart3 className="text-teal-600" size={22} />
+              <BarChart3 className="text-orange-600" size={22} />
               <p className="text-slate-800 dark:text-white font-bold text-xs sm:text-sm">% Match Scoring</p>
               <p className="text-slate-500 dark:text-slate-400 text-[10px] sm:text-xs">Know your fit instantly</p>
             </div>
             <div className="flex flex-col items-center gap-1.5 sm:gap-2 p-3 sm:p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl">
-              <Sparkles className="text-teal-600" size={22} />
+              <Sparkles className="text-orange-600" size={22} />
               <p className="text-slate-800 dark:text-white font-bold text-xs sm:text-sm">AI CV Builder</p>
               <p className="text-slate-500 dark:text-slate-400 text-[10px] sm:text-xs">30+ premium templates</p>
             </div>

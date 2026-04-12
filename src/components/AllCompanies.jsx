@@ -89,7 +89,7 @@ const AllCompanies = () => {
         <div className="mb-8">
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-3">
             Discover{' '}
-            <span className="text-teal-600">
+            <span className="text-orange-600">
               Companies Hiring
             </span>
           </h1>
@@ -122,7 +122,7 @@ const AllCompanies = () => {
             </div>
             <button
               onClick={handleSearch}
-              className="px-8 py-4 bg-theme_color hover:bg-teal-600 text-white font-semibold rounded-2xl transition shadow-lg"
+              className="px-8 py-4 bg-theme_color hover:bg-orange-600 text-white font-semibold rounded-2xl transition shadow-lg"
             >
               Search
             </button>

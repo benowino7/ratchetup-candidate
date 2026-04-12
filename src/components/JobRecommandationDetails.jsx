@@ -219,7 +219,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
     return (
       <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex items-center justify-center">
         <div className="text-center">
-          <Loader className="w-12 h-12 text-teal-600 animate-spin mx-auto mb-4" />
+          <Loader className="w-12 h-12 text-orange-600 animate-spin mx-auto mb-4" />
           <p className="text-slate-600 dark:text-slate-400">
             Loading job details...
           </p>
@@ -242,7 +242,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
           <p className="text-slate-600 dark:text-slate-400 mb-6">{error}</p>
           <button
             onClick={() => navigate("/dashboard/recommendations")}
-            className="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl"
+            className="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-xl"
           >
             Back to Job Listings
           </button>
@@ -271,7 +271,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
 
               {/* AI Match badge — subscribed only */}
               {isAiSubscribed && job.aiMatchScore !== null && (
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 text-xs font-semibold rounded-full border border-teal-200 dark:border-teal-800">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-xs font-semibold rounded-full border border-orange-200 dark:border-orange-800">
                   <Sparkles size={13} className="animate-pulse" />
                   {job.aiMatchScore}% AI Match
                 </span>
@@ -301,7 +301,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
                 href={job.applicationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 sm:px-8 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2 text-base"
+                className="px-6 sm:px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2 text-base"
               >
                 <ExternalLink size={18} />
                 Apply Externally
@@ -309,7 +309,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
             ) : isAiSubscribed ? (
               <button
                 onClick={() => setApply(true)}
-                className="px-6 sm:px-8 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2 text-base"
+                className="px-6 sm:px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2 text-base"
               >
                 <Briefcase size={18} />
                 Apply Now
@@ -317,7 +317,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
             ) : (
               <Link
                 to={"/dashboard/subscriptions"}
-                className="px-6 sm:px-8 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2 text-base"
+                className="px-6 sm:px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2 text-base"
               >
                 <Briefcase size={18} />
                 Apply Now
@@ -363,7 +363,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
                 <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
                   Vacancies
                 </div>
-                <div className="text-lg font-bold text-teal-600 dark:text-teal-500">
+                <div className="text-lg font-bold text-orange-600 dark:text-orange-500">
                   {job.vacancies}
                 </div>
                 <div className="text-xs text-slate-500 dark:text-slate-400">
@@ -376,24 +376,24 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
             {isAiSubscribed &&
               job.aiMatchScore !== null &&
               job.matchedSkills.length > 0 && (
-                <div className="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-2xl p-6 mb-8">
+                <div className="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-2xl p-6 mb-8">
                   <div className="flex items-center gap-2 mb-3">
                     <Sparkles
                       size={18}
-                      className="text-teal-600 dark:text-teal-400 animate-pulse"
+                      className="text-orange-600 dark:text-orange-400 animate-pulse"
                     />
-                    <h3 className="font-semibold text-teal-700 dark:text-teal-300">
+                    <h3 className="font-semibold text-orange-700 dark:text-orange-300">
                       AI Match: {job.aiMatchScore}%
                     </h3>
                   </div>
-                  <p className="text-sm text-teal-600 dark:text-teal-400 mb-3">
+                  <p className="text-sm text-orange-600 dark:text-orange-400 mb-3">
                     Your profile matches these required skills:
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {job.matchedSkills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-3 py-1 bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300 text-xs font-medium rounded-full border border-teal-300 dark:border-teal-700"
+                        className="px-3 py-1 bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 text-xs font-medium rounded-full border border-orange-300 dark:border-orange-700"
                       >
                         ✓ {skill}
                       </span>
@@ -429,7 +429,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
                 <ul className="space-y-3 text-slate-700 dark:text-slate-300">
                   {job.requirements.map((req, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <div className="mt-1.5 w-2 h-2 rounded-full bg-teal-500 flex-shrink-0" />
+                      <div className="mt-1.5 w-2 h-2 rounded-full bg-orange-500 flex-shrink-0" />
                       <span>{req}</span>
                     </li>
                   ))}
@@ -446,7 +446,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {job.benefits.map((benefit, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <div className="mt-1 text-teal-500 text-lg">✓</div>
+                      <div className="mt-1 text-orange-500 text-lg">✓</div>
                       <span className="text-slate-700 dark:text-slate-300">
                         {benefit}
                       </span>
@@ -474,7 +474,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
                         key={i}
                         className={`px-4 py-2 rounded-lg text-sm font-medium border transition-colors ${
                           isMatched
-                            ? "bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 border-teal-300 dark:border-teal-700"
+                            ? "bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border-orange-300 dark:border-orange-700"
                             : "bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-slate-700"
                         }`}
                       >
@@ -539,7 +539,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
                       href={job.companyWebsite}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-teal-600 dark:text-teal-500 hover:underline"
+                      className="text-sm text-orange-600 dark:text-orange-500 hover:underline"
                     >
                       Company Website
                     </a>
@@ -549,12 +549,12 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
 
               {/* AI match summary in sidebar — subscribed only */}
               {isAiSubscribed && job.aiMatchScore !== null ? (
-                <div className="flex items-center gap-2 mb-5 px-4 py-3 bg-teal-50 dark:bg-teal-900/20 rounded-xl border border-teal-200 dark:border-teal-800">
+                <div className="flex items-center gap-2 mb-5 px-4 py-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl border border-orange-200 dark:border-orange-800">
                   <Sparkles
                     size={16}
-                    className="text-teal-500 animate-pulse"
+                    className="text-orange-500 animate-pulse"
                   />
-                  <span className="text-sm font-semibold text-teal-700 dark:text-teal-300">
+                  <span className="text-sm font-semibold text-orange-700 dark:text-orange-300">
                     {job.aiMatchScore}% match with your profile
                   </span>
                 </div>
@@ -572,7 +572,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
                   href={job.applicationUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all mb-4 flex items-center justify-center gap-2 text-lg"
+                  className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all mb-4 flex items-center justify-center gap-2 text-lg"
                 >
                   <ExternalLink size={20} />
                   Apply Externally
@@ -580,7 +580,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
               ) : isAiSubscribed ? (
                 <button
                   onClick={() => setApply(true)}
-                  className="w-full py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all mb-4 flex items-center justify-center gap-2 text-lg"
+                  className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all mb-4 flex items-center justify-center gap-2 text-lg"
                 >
                   <Briefcase size={20} />
                   Apply for this job
@@ -588,7 +588,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
               ) : (
                 <Link
                   to={"/dashboard/subscriptions"}
-                  className="w-full py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all mb-4 flex items-center justify-center gap-2 text-lg"
+                  className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all mb-4 flex items-center justify-center gap-2 text-lg"
                 >
                   <Briefcase size={20} />
                   Apply for this job
@@ -613,7 +613,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
               </h2>
               <a
                 href={`/dashboard/recommendations?category=${encodeURIComponent(job.category)}`}
-                className="flex items-center gap-2 text-teal-600 dark:text-teal-500 font-medium hover:text-teal-700 dark:hover:text-teal-400 transition"
+                className="flex items-center gap-2 text-orange-600 dark:text-orange-500 font-medium hover:text-orange-700 dark:hover:text-orange-400 transition"
               >
                 View all <ArrowRight size={18} />
               </a>
@@ -624,9 +624,9 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
                 <a
                   href={`/dashboard/recommendations/${relJob.id}`}
                   key={relJob.id}
-                  className="bg-white dark:bg-dark-sidebar rounded-xl border border-slate-200 dark:border-slate-800 p-5 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all group cursor-pointer"
+                  className="bg-white dark:bg-dark-sidebar rounded-xl border border-slate-200 dark:border-slate-800 p-5 hover:border-orange-400 dark:hover:border-orange-500 hover:shadow-md transition-all group cursor-pointer"
                 >
-                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 mb-2 line-clamp-2">
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 mb-2 line-clamp-2">
                     {relJob.title}
                   </h3>
                   <div className="text-sm text-slate-600 dark:text-slate-400 mb-3">
@@ -635,7 +635,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
                   <div className="flex items-center justify-between">
                     {/* AI match on related cards — subscribed only */}
                     {isAiSubscribed && relJob.aiMatchScore !== null && (
-                      <span className="inline-flex items-center gap-1 px-2 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 text-xs font-semibold rounded-full">
+                      <span className="inline-flex items-center gap-1 px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-xs font-semibold rounded-full">
                         <Sparkles size={11} />
                         {relJob.aiMatchScore}%
                       </span>

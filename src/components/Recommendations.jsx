@@ -865,7 +865,7 @@ function RecommendedJobs({ isAiSubscribed2 }) {
                           href={job.applicationUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 py-3.5 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center inline-flex items-center justify-center gap-2"
+                          className="flex-1 py-3.5 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center inline-flex items-center justify-center gap-2"
                         >
                           <ExternalLink size={16} />
                           Apply Externally
@@ -967,7 +967,7 @@ function RecommendedJobs({ isAiSubscribed2 }) {
                         href={job.applicationUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-8 py-3.5 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 inline-flex items-center gap-2"
+                        className="px-8 py-3.5 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 inline-flex items-center gap-2"
                       >
                         <ExternalLink size={16} />
                         Apply Externally

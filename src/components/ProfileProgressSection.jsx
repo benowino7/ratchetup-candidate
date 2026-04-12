@@ -46,7 +46,7 @@ const ProfileProgressSection = () => {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Image Side */}
             <div className="relative group">
-              <div className="absolute -inset-4 bg-teal-500/20 dark:bg-teal-500/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
+              <div className="absolute -inset-4 bg-orange-500/20 dark:bg-orange-500/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src={teamImg}
@@ -78,7 +78,7 @@ const ProfileProgressSection = () => {
 
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight">
                 Create Your Personal{" "}
-                <span className="text-teal-600">
+                <span className="text-orange-600">
                   Account Profile
                 </span>
               </h2>
@@ -92,7 +92,7 @@ const ProfileProgressSection = () => {
 
               <div className="space-y-4 pt-4">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-teal-600 rounded-xl flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center">
                     <CheckCircle className="text-white" size={24} />
                   </div>
                   <div>
@@ -106,7 +106,7 @@ const ProfileProgressSection = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-teal-600 rounded-xl flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center">
                     <TrendingUp className="text-white" size={24} />
                   </div>
                   <div>
@@ -121,7 +121,7 @@ const ProfileProgressSection = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4 sm:mt-8">
-                <a href="/register" className="group flex-1 px-5 sm:px-8 py-3 sm:py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center gap-2 sm:gap-3 text-sm sm:text-base justify-center">
+                <a href="/register" className="group flex-1 px-5 sm:px-8 py-3 sm:py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center gap-2 sm:gap-3 text-sm sm:text-base justify-center">
                   <span>Create Job Seeker Profile</span>
                   <ArrowRight
                     size={20}
@@ -131,7 +131,7 @@ const ProfileProgressSection = () => {
                 <a
                   href="https://recruiter.ratchetup.ai/register"
                   target='_blank'
-                  className="group flex-1 px-5 sm:px-8 py-3 sm:py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center gap-2 sm:gap-3 text-sm sm:text-base justify-center">
+                  className="group flex-1 px-5 sm:px-8 py-3 sm:py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center gap-2 sm:gap-3 text-sm sm:text-base justify-center">
                   <span>Create Company Profile</span>
                   <ArrowRight
                     size={20}
@@ -188,7 +188,7 @@ const ProfileProgressSection = () => {
                     x2="100%"
                     y2="0%"
                   >
-                    <stop offset="0%" stopColor="#0097A7" stopOpacity="0.6" />
+                    <stop offset="0%" stopColor="#E8600A" stopOpacity="0.6" />
                     <stop offset="50%" stopColor="#A855F7" stopOpacity="0.6" />
                     <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.6" />
                   </linearGradient>
@@ -271,7 +271,7 @@ const ProfileProgressSection = () => {
                 >
                   {/* Step Number Badge */}
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
-                    <div className="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center text-white font-bold text-sm shadow-lg border-4 border-background dark:border-dark-background">
+                    <div className="w-10 h-10 rounded-full bg-orange-600 flex items-center justify-center text-white font-bold text-sm shadow-lg border-4 border-background dark:border-dark-background">
                       {index + 1}
                     </div>
                   </div>

@@ -246,14 +246,14 @@ const JobListings = () => {
     return (
       <a
         href={`/joblisting/${job.id}`}
-        className="group relative bg-white dark:bg-dark-sidebar rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-xl transition-all duration-300 overflow-hidden"
+        className="group relative bg-white dark:bg-dark-sidebar rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-orange-400 dark:hover:border-orange-500 hover:shadow-xl transition-all duration-300 overflow-hidden"
       >
-        <div className="absolute inset-0 group-hover:bg-teal-500/5 transition-all duration-500 pointer-events-none" />
+        <div className="absolute inset-0 group-hover:bg-orange-500/5 transition-all duration-500 pointer-events-none" />
 
         <div className="relative p-6">
           <div className="flex items-start justify-between mb-4">
             <div className="flex items-start gap-4">
-              <div className="w-14 h-14 rounded-xl overflow-hidden ring-2 ring-slate-100 dark:ring-slate-700 group-hover:ring-teal-200 dark:group-hover:ring-teal-800 transition-all flex-shrink-0">
+              <div className="w-14 h-14 rounded-xl overflow-hidden ring-2 ring-slate-100 dark:ring-slate-700 group-hover:ring-orange-200 dark:group-hover:ring-orange-800 transition-all flex-shrink-0">
                 <img
                   src={job.companyLogo}
                   alt={job.company}
@@ -261,7 +261,7 @@ const JobListings = () => {
                 />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors mb-1 line-clamp-1">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors mb-1 line-clamp-1">
                   {job.title}
                 </h3>
                 <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
@@ -273,7 +273,7 @@ const JobListings = () => {
 
             <div className="flex flex-col items-end gap-2">
               {job.matchScore > 0 && (
-                <div className="bg-teal-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg flex items-center gap-1">
+                <div className="bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg flex items-center gap-1">
                   <Star size={12} fill="white" />
                   {job.matchScore}%
                 </div>
@@ -356,7 +356,7 @@ const JobListings = () => {
                   });
               }
             }}
-            className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-4 rounded-xl text-center shadow-lg hover:shadow-xl transition-all group-hover:scale-[1.02] flex items-center justify-center gap-2"
+            className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-4 rounded-xl text-center shadow-lg hover:shadow-xl transition-all group-hover:scale-[1.02] flex items-center justify-center gap-2"
           >
             <Briefcase size={18} />
             {job.applicationUrl ? "Apply" : "Quick Apply"}
@@ -375,7 +375,7 @@ const JobListings = () => {
     return (
       <a
         href={`/joblisting/${job.id}`}
-        className="group relative flex flex-col sm:flex-row sm:items-start gap-5 sm:gap-6 px-5 sm:px-6 py-5 sm:py-6 border-b border-slate-200/80 dark:border-slate-800/70 hover:bg-teal-50/40 dark:hover:bg-orange-950/20 transition-all duration-250 ease-out cursor-pointer bg-white dark:bg-dark-sidebar rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700"
+        className="group relative flex flex-col sm:flex-row sm:items-start gap-5 sm:gap-6 px-5 sm:px-6 py-5 sm:py-6 border-b border-slate-200/80 dark:border-slate-800/70 hover:bg-orange-50/40 dark:hover:bg-orange-950/20 transition-all duration-250 ease-out cursor-pointer bg-white dark:bg-dark-sidebar rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700"
       >
         <div className="relative flex-shrink-0 self-start sm:self-center">
           <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden shadow-md group-hover:shadow-lg ring-1 ring-slate-100/70 dark:ring-slate-700/50 transition-all duration-300">
@@ -387,7 +387,7 @@ const JobListings = () => {
           </div>
 
           {job.matchScore > 0 && (
-            <div className="absolute -bottom-2 -right-2 sm:-right-3 bg-teal-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-lg ring-2 ring-white/40 dark:ring-slate-900/60 flex items-center gap-1 z-10">
+            <div className="absolute -bottom-2 -right-2 sm:-right-3 bg-orange-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-lg ring-2 ring-white/40 dark:ring-slate-900/60 flex items-center gap-1 z-10">
               <Star size={12} fill="white" />
               {job.matchScore}%
             </div>
@@ -396,7 +396,7 @@ const JobListings = () => {
 
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-4 mb-2">
-            <h3 className="text-base sm:text-lg font-semibold leading-snug text-slate-900 dark:text-slate-50 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors line-clamp-2">
+            <h3 className="text-base sm:text-lg font-semibold leading-snug text-slate-900 dark:text-slate-50 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors line-clamp-2">
               {job.title}
             </h3>
 
@@ -425,7 +425,7 @@ const JobListings = () => {
           </div>
 
           <div className="flex flex-wrap gap-2 mb-3.5">
-            <span className="px-3 py-1 text-xs font-medium rounded-full bg-teal-100/80 dark:bg-teal-900/35 text-teal-800 dark:text-teal-300 border border-teal-200/50 dark:border-teal-800/40">
+            <span className="px-3 py-1 text-xs font-medium rounded-full bg-orange-100/80 dark:bg-orange-900/35 text-orange-800 dark:text-orange-300 border border-orange-200/50 dark:border-orange-800/40">
               {job.jobType}
             </span>
             <span className="px-3 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
@@ -463,7 +463,7 @@ const JobListings = () => {
           <a
             href={`/login?redirect=/joblisting/${job.id}`}
             onClick={(e) => { e.stopPropagation(); }}
-            className="inline-flex items-center gap-2 px-6 py-2.5 sm:px-7 sm:py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm sm:text-base rounded-xl shadow-md hover:shadow-lg transition-all duration-250 group-hover:scale-105 active:scale-95"
+            className="inline-flex items-center gap-2 px-6 py-2.5 sm:px-7 sm:py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold text-sm sm:text-base rounded-xl shadow-md hover:shadow-lg transition-all duration-250 group-hover:scale-105 active:scale-95"
           >
             Apply
             <Briefcase size={17} />
@@ -477,7 +477,7 @@ const JobListings = () => {
   const InlineLoader = () => (
     <div className="flex items-center justify-center py-20">
       <div className="text-center">
-        <Loader className="w-12 h-12 text-teal-600 animate-spin mx-auto mb-4" />
+        <Loader className="w-12 h-12 text-orange-600 animate-spin mx-auto mb-4" />
         <p className="text-slate-600 dark:text-slate-400">Loading jobs...</p>
       </div>
     </div>
@@ -497,7 +497,7 @@ const JobListings = () => {
           <p className="text-slate-600 dark:text-slate-400 mb-4">{error}</p>
           <button
             onClick={() => window.location.reload()}
-            className="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl"
+            className="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-xl"
           >
             Try Again
           </button>
@@ -513,7 +513,7 @@ const JobListings = () => {
         <div className="max-w-[90rem] mx-auto">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="inline-flex items-center gap-2 bg-teal-500/20 backdrop-blur-sm border border-teal-400/30 rounded-full px-4 py-2">
+              <div className="inline-flex items-center gap-2 bg-orange-500/20 backdrop-blur-sm border border-orange-400/30 rounded-full px-4 py-2">
                 <TrendingUp
                   size={16}
                   className="text-theme_color dark:text-white"
@@ -525,7 +525,7 @@ const JobListings = () => {
             </div>
             <h1 className="text-5xl md:text-6xl font-extrabold mb-4 text-gray-600 dark:text-slate-300">
               Find Your Dream Job in{" "}
-              <span className="text-teal-400">Dubai</span>
+              <span className="text-orange-400">Dubai</span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-slate-300 max-w-2xl mx-auto">
               AI-powered matching • Verified employers • Tax-free salaries
@@ -552,7 +552,7 @@ const JobListings = () => {
                         triggerSearch(true);
                       }
                     }}
-                    className="w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-slate-800 border-0 rounded-xl text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:bg-white dark:focus:bg-slate-700 focus:ring-2 focus:ring-teal-500 transition"
+                    className="w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-slate-800 border-0 rounded-xl text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:bg-white dark:focus:bg-slate-700 focus:ring-2 focus:ring-orange-500 transition"
                   />
                 </div>
                 <div className="md:w-64">
@@ -564,7 +564,7 @@ const JobListings = () => {
                     onKeyDown={(e) => {
                       if (e.key === 'Enter') triggerSearch(true);
                     }}
-                    className="w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-slate-800 border-0 rounded-xl text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:bg-white dark:focus:bg-slate-700 focus:ring-2 focus:ring-teal-500 transition"
+                    className="w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-slate-800 border-0 rounded-xl text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:bg-white dark:focus:bg-slate-700 focus:ring-2 focus:ring-orange-500 transition"
                   />
                 </div>
                 <button
@@ -572,7 +572,7 @@ const JobListings = () => {
                     setIsAiSearch(true);
                     triggerSearch(true);
                   }}
-                  className="px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all whitespace-nowrap flex items-center gap-2"
+                  className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all whitespace-nowrap flex items-center gap-2"
                 >
                   <Zap size={18} />
                   AI Search
@@ -583,9 +583,9 @@ const JobListings = () => {
             {/* AI Search Badge */}
             {isAiSearch && filters.search && (
               <div className="mt-3 flex items-center gap-2">
-                <Zap size={14} className="text-teal-500" />
+                <Zap size={14} className="text-orange-500" />
                 <span className="text-sm text-slate-400 dark:text-slate-500">
-                  AI-powered results for <span className="font-semibold text-teal-500">"{filters.search}"</span>
+                  AI-powered results for <span className="font-semibold text-orange-500">"{filters.search}"</span>
                 </span>
               </div>
             )}
@@ -604,7 +604,7 @@ const JobListings = () => {
                 Filter by Industry
               </h3>
               {filters.category && (
-                <span className="px-3 py-1 bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-300 text-sm font-semibold rounded-full">
+                <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300 text-sm font-semibold rounded-full">
                   1 active
                 </span>
               )}
@@ -612,7 +612,7 @@ const JobListings = () => {
             {filters.category && (
               <button
                 onClick={clearAllFilters}
-                className="text-sm text-slate-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 font-medium flex items-center gap-1 transition"
+                className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 font-medium flex items-center gap-1 transition"
               >
                 <X size={16} />
                 Clear filter
@@ -635,7 +635,7 @@ const JobListings = () => {
                   fetchJobs(newFilters, 1, false);
                 }
               }}
-              className="flex-1 sm:max-w-sm px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white text-sm font-medium appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all"
+              className="flex-1 sm:max-w-sm px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white text-sm font-medium appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all"
             >
               <option value="">All Industries</option>
               {industries.map((ind) => (
@@ -647,20 +647,20 @@ const JobListings = () => {
 
         {/* Lead Mode Banner */}
         {isLeadMode && (
-          <div className="mb-6 bg-teal-600 rounded-2xl p-5 text-white shadow-lg">
+          <div className="mb-6 bg-orange-600 rounded-2xl p-5 text-white shadow-lg">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <div>
                 <h2 className="text-xl font-bold flex items-center gap-2">
                   <Star size={20} fill="white" /> AI-Matched Jobs for {leadInfo?.name || "You"}
                 </h2>
-                <p className="text-teal-100 text-sm mt-1">
+                <p className="text-orange-100 text-sm mt-1">
                   Based on your CV analysis — register to apply, save jobs, and unlock full features
                 </p>
               </div>
               <div className="flex gap-2">
                 <a
                   href={`/register${leadInfo?.email ? `?email=${encodeURIComponent(leadInfo.email)}` : ''}`}
-                  className="px-5 py-2.5 bg-white text-teal-600 font-semibold rounded-xl hover:bg-teal-50 transition text-sm shadow"
+                  className="px-5 py-2.5 bg-white text-orange-600 font-semibold rounded-xl hover:bg-orange-50 transition text-sm shadow"
                 >
                   Create Account
                 </a>
@@ -689,13 +689,13 @@ const JobListings = () => {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setLayout("grid")}
-              className={`p-2 rounded ${layout === "grid" ? "bg-teal-600 text-white" : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"} hover:bg-teal-500 hover:text-white transition`}
+              className={`p-2 rounded ${layout === "grid" ? "bg-orange-600 text-white" : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"} hover:bg-orange-500 hover:text-white transition`}
             >
               <LayoutGrid size={20} />
             </button>
             <button
               onClick={() => setLayout("list")}
-              className={`p-2 rounded ${layout === "list" ? "bg-teal-600 text-white" : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"} hover:bg-teal-500 hover:text-white transition`}
+              className={`p-2 rounded ${layout === "list" ? "bg-orange-600 text-white" : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"} hover:bg-orange-500 hover:text-white transition`}
             >
               <List size={20} />
             </button>
@@ -708,7 +708,7 @@ const JobListings = () => {
         ) : jobs.length === 0 ? (
           <div className="text-center py-10 bg-white dark:bg-dark-sidebar rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg">
             <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Briefcase className="h-10 w-10 text-teal-600" />
+              <Briefcase className="h-10 w-10 text-orange-600" />
             </div>
             <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-200 mb-2">
               No jobs found
@@ -719,7 +719,7 @@ const JobListings = () => {
             </p>
             <button
               onClick={clearAllFilters}
-              className="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
+              className="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
             >
               Clear All Filters
             </button>
@@ -744,7 +744,7 @@ const JobListings = () => {
             <button
               onClick={() => { isLeadMode ? fetchLeadRecommendations(searchParams.get("leadId"), pagination.page - 1) : fetchJobs(filters, pagination.page - 1, isAiSearch); }}
               disabled={pagination.page <= 1}
-              className="px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 disabled:opacity-40 hover:bg-teal-50 dark:hover:bg-slate-700 transition font-medium text-sm"
+              className="px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 disabled:opacity-40 hover:bg-orange-50 dark:hover:bg-slate-700 transition font-medium text-sm"
             >
               Previous
             </button>
@@ -754,7 +754,7 @@ const JobListings = () => {
             <button
               onClick={() => { isLeadMode ? fetchLeadRecommendations(searchParams.get("leadId"), pagination.page + 1) : fetchJobs(filters, pagination.page + 1, isAiSearch); }}
               disabled={pagination.page >= pagination.totalPages}
-              className="px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 disabled:opacity-40 hover:bg-teal-50 dark:hover:bg-slate-700 transition font-medium text-sm"
+              className="px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 disabled:opacity-40 hover:bg-orange-50 dark:hover:bg-slate-700 transition font-medium text-sm"
             >
               Next
             </button>

@@ -222,7 +222,7 @@ export default function Messaging({ subscription }) {
 
   const getRoleBadgeColor = (role) => {
     switch (role) {
-      case "RECRUITER": return "bg-teal-100 text-teal-700 dark:bg-teal-900/30 dark:text-teal-400";
+      case "RECRUITER": return "bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400";
       case "ADMIN": return "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400";
       default: return "bg-gray-100 text-gray-700";
     }
@@ -238,7 +238,7 @@ export default function Messaging({ subscription }) {
       >
         <div className="p-4 border-b border-gray-200 dark:border-gray-800">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-            <MessageCircle className="w-5 h-5 text-teal-500" />
+            <MessageCircle className="w-5 h-5 text-orange-500" />
             Messages
           </h2>
           {!isPlatinum && (
@@ -252,7 +252,7 @@ export default function Messaging({ subscription }) {
         <div className="flex-1 overflow-y-auto">
           {loading ? (
             <div className="flex items-center justify-center h-32">
-              <div className="animate-spin w-6 h-6 border-2 border-teal-500 border-t-transparent rounded-full" />
+              <div className="animate-spin w-6 h-6 border-2 border-orange-500 border-t-transparent rounded-full" />
             </div>
           ) : conversations.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-64 text-gray-400 px-6 text-center">
@@ -269,16 +269,16 @@ export default function Messaging({ subscription }) {
                 onClick={() => openConversation(conv)}
                 className={`w-full flex items-center gap-3 p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-left border-b border-gray-100 dark:border-gray-800 ${
                   activeConversation?.id === conv.id
-                    ? "bg-teal-50 dark:bg-teal-900/10 border-l-4 border-l-teal-500"
+                    ? "bg-orange-50 dark:bg-orange-900/10 border-l-4 border-l-orange-500"
                     : ""
                 }`}
               >
                 <div className="relative">
-                  <div className="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center text-white font-semibold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-orange-600 flex items-center justify-center text-white font-semibold text-sm">
                     {conv.otherUser?.firstName?.[0]}{conv.otherUser?.lastName?.[0]}
                   </div>
                   {conv.unreadCount > 0 && (
-                    <span className="absolute -top-1 -right-1 w-5 h-5 bg-teal-500 text-white text-xs rounded-full flex items-center justify-center font-bold">
+                    <span className="absolute -top-1 -right-1 w-5 h-5 bg-orange-500 text-white text-xs rounded-full flex items-center justify-center font-bold">
                       {conv.unreadCount > 9 ? "9+" : conv.unreadCount}
                     </span>
                   )}
@@ -326,7 +326,7 @@ export default function Messaging({ subscription }) {
               >
                 <ArrowLeft className="w-5 h-5" />
               </button>
-              <div className="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center text-white font-semibold text-sm">
+              <div className="w-10 h-10 rounded-full bg-orange-600 flex items-center justify-center text-white font-semibold text-sm">
                 {activeConversation.otherUser?.firstName?.[0]}
                 {activeConversation.otherUser?.lastName?.[0]}
               </div>
@@ -353,7 +353,7 @@ export default function Messaging({ subscription }) {
                     <div
                       className={`max-w-[75%] px-4 py-2.5 rounded-2xl text-sm ${
                         isMine
-                          ? "bg-teal-500 text-white rounded-br-md"
+                          ? "bg-orange-500 text-white rounded-br-md"
                           : "bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-bl-md shadow-sm"
                       }`}
                     >
@@ -413,13 +413,13 @@ export default function Messaging({ subscription }) {
                     value={messageText}
                     onChange={(e) => setMessageText(e.target.value)}
                     placeholder="Type a message..."
-                    className="flex-1 px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 text-gray-900 dark:text-white placeholder-gray-400"
+                    className="flex-1 px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-900 dark:text-white placeholder-gray-400"
                     disabled={sendingMessage}
                   />
                   <button
                     type="submit"
                     disabled={!messageText.trim() || sendingMessage}
-                    className="p-3 bg-teal-500 text-white rounded-xl hover:bg-teal-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="p-3 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Send className="w-4 h-4" />
                   </button>
@@ -433,7 +433,7 @@ export default function Messaging({ subscription }) {
               <div className="p-4 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
                 <button
                   onClick={() => setUpgradeModal(true)}
-                  className="w-full py-3 bg-teal-600 text-white font-semibold rounded-xl hover:bg-teal-700 transition-all flex items-center justify-center gap-2 shadow-lg"
+                  className="w-full py-3 bg-orange-600 text-white font-semibold rounded-xl hover:bg-orange-700 transition-all flex items-center justify-center gap-2 shadow-lg"
                 >
                   <Crown className="w-4 h-4" />
                   Upgrade to Platinum to Reply
@@ -457,7 +457,7 @@ export default function Messaging({ subscription }) {
       {upgradeModal && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm">
           <div className="relative w-full max-w-md mx-4 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden">
-            <div className="bg-teal-600 p-6 text-white text-center">
+            <div className="bg-orange-600 p-6 text-white text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-4">
                 <Crown className="w-8 h-8" />
               </div>
@@ -482,7 +482,7 @@ export default function Messaging({ subscription }) {
                     setUpgradeModal(false);
                     navigate("/dashboard/subscriptions");
                   }}
-                  className="flex-1 py-3 px-4 bg-teal-600 text-white font-semibold rounded-xl hover:bg-teal-700 transition-all flex items-center justify-center gap-2 shadow-lg"
+                  className="flex-1 py-3 px-4 bg-orange-600 text-white font-semibold rounded-xl hover:bg-orange-700 transition-all flex items-center justify-center gap-2 shadow-lg"
                 >
                   Upgrade <ArrowRight className="w-4 h-4" />
                 </button>
