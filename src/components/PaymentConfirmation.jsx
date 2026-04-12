@@ -81,7 +81,7 @@ const PaymentConfirmation = () => {
       <div className="max-w-md w-full text-center">
         {/* Logo */}
         <a href="https://candidate.ratchetup.ai" className="inline-block mb-10">
-          <img src={logodark} alt="RatchetUp" className="w-[180px] sm:w-[200px] h-auto" />
+          <img src={logodark} alt="RatchetUp" className="w-[220px] sm:w-[280px] h-auto" />
         </a>
 
         <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8 shadow-2xl">

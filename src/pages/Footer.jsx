@@ -27,7 +27,7 @@ const Footer = () => {
             <div className="sm:col-span-2 lg:col-span-1">
               <div className="mb-4">
                 <img
-                  className="w-[180px] sm:w-[200px] h-auto object-contain"
+                  className="w-[220px] sm:w-[260px] h-auto object-contain"
                   src={isDark ? logodark : logo}
                   alt="RatchetUp logo"
                 />

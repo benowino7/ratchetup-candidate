@@ -78,7 +78,7 @@ export default function Header() {
               <img
                 src={isDark ? logodark : logo}
                 alt="RatchetUp"
-                className="w-[140px] sm:w-[160px] md:w-[180px] h-auto"
+                className="w-[180px] sm:w-[220px] md:w-[260px] h-auto"
               />
             </Link>
           </div>
