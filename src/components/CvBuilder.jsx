@@ -705,7 +705,7 @@ function CVEditor({ cv, onChange, enabledSections }) {
         <Field label="Professional Title" value={cv.title} onChange={v=>set("title",v)} placeholder="e.g. Senior Product Manager" />
         <Field label="Email" value={cv.email} onChange={v=>set("email",v)} type="email" />
         <Field label="Phone" value={cv.phone} onChange={v=>set("phone",v)} />
-        <Field label="Location" value={cv.location} onChange={v=>set("location",v)} placeholder="e.g. Dubai, UAE" />
+        <Field label="Location" value={cv.location} onChange={v=>set("location",v)} placeholder="e.g. Dubai, global" />
         {(enabledSections.includes("linkedin") || cv.linkedin) && <Field label="LinkedIn" value={cv.linkedin} onChange={v=>set("linkedin",v)} placeholder="linkedin.com/in/…" />}
         {(enabledSections.includes("website") || cv.website) && <Field label="Portfolio / Website" value={cv.website} onChange={v=>set("website",v)} placeholder="https://…" />}
       </div>
@@ -1817,7 +1817,7 @@ function TplPremiumDubai({ cv, color, partitionColor }) {
 // ── Template Registry ─────────────────────────────────────────────
 
 const TEMPLATES = [
-  { id:"dubai-gold",  label:"Dubai Gold",        emoji:"🏆", dark:true,  Component:TplDubaiGold,  partitions:{ sidebar:{ label:"Sidebar", default:"#111" } } },
+  { id:"global-gold",  label:"Dubai Gold",        emoji:"🏆", dark:true,  Component:TplDubaiGold,  partitions:{ sidebar:{ label:"Sidebar", default:"#111" } } },
   { id:"executive",   label:"Executive Classic",  emoji:"👔", dark:false, Component:TplExecutive,  partitions:{ header:{ label:"Header", default:"#1a2744" } } },
   { id:"tech-min",    label:"Tech Minimal",       emoji:"💻", dark:false, Component:TplTechMinimal, partitions:{} },
   { id:"architect",   label:"Architect",          emoji:"🏗",  dark:false, Component:TplArchitect,  partitions:{ header:{ label:"Header", default:"#111" } } },
@@ -1852,7 +1852,7 @@ const TEMPLATES = [
   { id:"premium-tech",      label:"Tech Modern",       emoji:"🖥️", dark:true,  Component:TplPremiumTech,      partitions:{}, premium:true },
   { id:"premium-creative",  label:"Creative Portfolio", emoji:"🎯", dark:false, Component:TplPremiumCreative,  partitions:{ sidebar:{ label:"Accent Bar", default:"#f5f3ff" } }, premium:true },
   { id:"premium-minimal",   label:"Minimalist Plus",   emoji:"◻️", dark:false, Component:TplPremiumMinimal,   partitions:{}, premium:true },
-  { id:"premium-dubai",     label:"Dubai Professional", emoji:"🕌", dark:false, Component:TplPremiumDubai,     partitions:{ header:{ label:"Header", default:"#0c2340" } }, premium:true },
+  { id:"premium-global",     label:"Dubai Professional", emoji:"🕌", dark:false, Component:TplPremiumDubai,     partitions:{ header:{ label:"Header", default:"#0c2340" } }, premium:true },
 ];
 
 // ═══════════════════════════════════════════════════════════════════
@@ -2151,7 +2151,7 @@ export default function App({ subscription }) {
   const [affindaKey] = useState(() => { try { return localStorage.getItem("cv_affinda_key")||""; } catch { return ""; } });
   const [cv, setCV] = useState(EMPTY_CV);
   const [tab, setTab] = useState("upload");
-  const [template, setTemplate] = useState("dubai-gold");
+  const [template, setTemplate] = useState("global-gold");
   const [accentColor, setAccentColor] = useState("#c9952a");
   const [partitionColor, setPartitionColor] = useState("#111");
   const [suggestions, setSuggestions] = useState([]);

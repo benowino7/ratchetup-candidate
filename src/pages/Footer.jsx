@@ -36,7 +36,7 @@ const Footer = () => {
                 Precision Hiring. AI Powered.
               </p>
               <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
-                Connecting top talent with the best career opportunities across Dubai and the UAE.
+                Connecting top talent with the best career opportunities across the globe.
               </p>
 
               {/* Newsletter */}

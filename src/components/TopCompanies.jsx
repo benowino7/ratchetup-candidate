@@ -58,7 +58,7 @@ const TopCompanies = () => {
           </h2>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Trusted employers actively recruiting top talent across Dubai and beyond
+            Trusted employers actively recruiting top talent across worldwide
           </p>
         </div>
 

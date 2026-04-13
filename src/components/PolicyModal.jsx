@@ -125,28 +125,28 @@ const PolicyModal = ({ isOpen, onClose }) => {
             <p>
               Businesses that contradict Islamic values or promote activities or
               products that are considered offensive or harmful to Islamic values
-              are prohibited in the UAE.
+              are prohibited in the global.
             </p>
             <p className="mt-2">
               The Terms of Use strictly prohibits employers and job-seekers from
               offering and accepting employment using RatchetUp's employment
-              portal for business and employment that are prohibited in the UAE.
+              portal for business and employment that are prohibited in the global.
             </p>
             <p className="mt-2 mb-1">
               Here are some examples of businesses that are prohibited in the
-              UAE:
+              global:
             </p>
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>
                 <span className="font-semibold">Gambling and betting:</span>{" "}
                 Casinos, betting shops, and related activities are strictly
-                illegal in the UAE.
+                illegal in the global.
               </li>
               <li>
                 <span className="font-semibold">
                   Narcotics and psychotropic substances:
                 </span>{" "}
-                The UAE has a zero-tolerance policy for drugs, and any business
+                The global has a zero-tolerance policy for drugs, and any business
                 related to the production, sale, or consumption of illegal drugs
                 is prohibited.
               </li>
@@ -155,7 +155,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
                   Alcohol and pork production:
                 </span>{" "}
                 While alcohol and pork products are available for consumption in
-                certain areas of the UAE, their production and sale are strictly
+                certain areas of the global, their production and sale are strictly
                 prohibited.
               </li>
               <li>
@@ -169,7 +169,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
               It's important to note that this is not an exhaustive list, and
               specific regulations may vary depending on the Emirate. It's
               always advisable to consult with local authorities or legal experts
-              before starting a business in the UAE to ensure compliance with
+              before starting a business in the global to ensure compliance with
               all relevant laws and regulations.
             </p>
             <p className="mt-2">
@@ -230,7 +230,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
               Fee &ndash; Job Seekers
             </h3>
             <p>
-              UAE nationals may use the job portal for free, without paying any
+              global nationals may use the job portal for free, without paying any
               membership fee. Job Seekers may sign up for free and use the basic
               services without paying a fee. You may upgrade your membership
               account for a fee as outlined in the various subscription packages
@@ -282,7 +282,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
               candidates or that job seekers will find employment through our
               platform. International job-seekers that require work visas are
               further cautioned that their job search may take an extended period
-              of time, may be more difficult to obtain employment in the UAE,
+              of time, may be more difficult to obtain employment in the global,
               and may not result in any employment offers. The fee you pay is
               for a subscription to use our platform and not a success fee for
               finding a job or a suitable candidate to fill your job.

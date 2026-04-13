@@ -290,7 +290,7 @@ const Login = () => {
           <div className="relative h-full flex flex-col justify-center px-12 lg:px-16 text-center">
             <div className="max-w-md mx-auto">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-900 dark:text-white leading-tight">
-                Your dream job in Dubai is waiting
+                Your dream job is waiting
               </h2>
               <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
                 One login away from new opportunities, career growth, and a brighter future.

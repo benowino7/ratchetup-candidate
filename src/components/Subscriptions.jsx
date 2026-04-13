@@ -198,15 +198,15 @@ const buildFeatureList = (planName, features) => {
     included: ai.skillGapAnalysis === true,
   });
 
-  const dubaiVal = features.insights?.dubaiMarketInsights;
-  const dubaiIncluded = dubaiVal && dubaiVal !== false;
+  const globalVal = features.insights?.globalMarketInsights;
+  const globalIncluded = globalVal && globalVal !== false;
   rows.push({
-    text: dubaiIncluded
-      ? typeof dubaiVal === "string"
-        ? `Market Insights: ${dubaiVal}`
+    text: globalIncluded
+      ? typeof globalVal === "string"
+        ? `Market Insights: ${globalVal}`
         : "Dubai Market Insights"
       : "Dubai Market Insights",
-    included: !!dubaiIncluded,
+    included: !!globalIncluded,
   });
 
   const rs = features.recruiter || {};
@@ -573,7 +573,7 @@ function Subscriptions({ subscription }) {
           </h1>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
             Unlock better job matches, premium tools, and accelerate your career
-            growth in Dubai & UAE
+            growth in Worldwide
           </p>
         </div>
 

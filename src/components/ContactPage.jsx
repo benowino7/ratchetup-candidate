@@ -222,7 +222,7 @@ const ContactPage = () => {
           </h3>
           <p className="text-lg text-gray-600 dark:text-gray-400">
             Our team is committed to providing exceptional support and quick responses.<br />
-            Your success in Dubai's job market is our priority.
+            Your success globally's job market is our priority.
           </p>
         </div>
       </section>

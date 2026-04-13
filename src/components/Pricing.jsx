@@ -128,7 +128,7 @@ function Pricing() {
           </h1>
 
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            Unlock better job matches, premium tools, and accelerate your career growth in Dubai & UAE
+            Unlock better job matches, premium tools, and accelerate your career growth in Worldwide
           </p>
 
           {/* Duration Toggle */}

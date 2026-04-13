@@ -348,7 +348,7 @@ const Register = () => {
                             Create your account
                         </h1>
                         <p className="mt-3 text-gray-600 dark:text-gray-400">
-                            Start finding great jobs in Dubai today
+                            Start finding great jobs globally today
                         </p>
                     </div>
 
@@ -579,10 +579,10 @@ const Register = () => {
 
                     <div className="relative h-full flex flex-col justify-center px-12 lg:px-16 text-center">
                         <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
-                            Create your account<br />and start finding jobs in Dubai
+                            Create your account<br />and start finding jobs globally
                         </h2>
                         <p className="text-xl text-gray-700 dark:text-gray-300 max-w-lg mx-auto leading-relaxed">
-                            Unlock thousands of opportunities across the UAE.<br />
+                            Unlock thousands of opportunities across the global.<br />
                             Your next career step begins here.
                         </p>
                     </div>
