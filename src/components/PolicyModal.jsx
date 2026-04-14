@@ -266,7 +266,7 @@ const PolicyModal = ({ isOpen, onClose }) => {
               You must request a refund in writing stating clearly your reasons
               for requesting the refund, and what services were not delivered to
               you. Please send your requests to
-              support@ratchetup.ai. Refunds may take up to 180 days
+              WhatsApp Us. Refunds may take up to 180 days
               to be processed. Refunds may be issued at the discretion of
               RatchetUp.
             </p>
@@ -389,9 +389,9 @@ const PolicyModal = ({ isOpen, onClose }) => {
               <br />
               Markham, ON, L3T 7V9
               <br />
-              Customer Care: 647-788-8715 | Support: 647-930-7516
+              WhatsApp: +254 112 549 611 | Chat with us on WhatsApp
               <br />
-              Email: support@ratchetup.ai
+              Email: WhatsApp Us
             </p>
           </div>
         </div>

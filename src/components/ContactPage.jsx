@@ -50,10 +50,10 @@ const ContactPage = () => {
                     <div>
                       <div className="font-medium text-lg">Email Support</div>
                       <a
-                        href="mailto:support@ratchetup.ai"
+                        href="https://wa.me/254112549611?text=Hello%20RatchetUp" target="_blank" rel="noopener noreferrer"
                         className="text-orange-500 dark:text-orange-400 hover:underline"
                       >
-                        support@ratchetup.ai
+                        WhatsApp Us
                       </a>
                     </div>
                   </div>
@@ -65,10 +65,10 @@ const ContactPage = () => {
                     <div>
                       <div className="font-medium text-lg">Customer Care</div>
                       <a
-                        href="tel:+16477888715"
+                        href="https://wa.me/254112549611?text=Hello%20RatchetUp%2C%20I%20need%20help" target="_blank" rel="noopener noreferrer"
                         className="text-orange-500 dark:text-orange-400 hover:underline"
                       >
-                        647-788-8715
+                        +254 112 549 611
                       </a>
                     </div>
                   </div>
@@ -80,10 +80,10 @@ const ContactPage = () => {
                     <div>
                       <div className="font-medium text-lg">Customer Support</div>
                       <a
-                        href="tel:+16479307516"
+                        href="https://wa.me/254112549611?text=Hello%20RatchetUp%2C%20I%20need%20support" target="_blank" rel="noopener noreferrer"
                         className="text-orange-500 dark:text-orange-400 hover:underline"
                       >
-                        647-930-7516
+                        +254 112 549 611
                       </a>
                     </div>
                   </div>
@@ -105,7 +105,7 @@ const ContactPage = () => {
 
               {/* Quick CTA button */}
               <a
-                href="mailto:support@ratchetup.ai"
+                href="https://wa.me/254112549611?text=Hello%20RatchetUp" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-orange-500 hover:bg-orange-600 dark:bg-orange-600 dark:hover:bg-orange-700 text-white font-medium rounded-xl transition text-lg shadow-sm"
               >
                 <Mail size={20} />

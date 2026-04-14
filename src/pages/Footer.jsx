@@ -1,7 +1,7 @@
 // src/pages/Footer.jsx
 import React, { useState } from 'react';
 import {
-  Building2, Briefcase, Mail, Phone, MapPin, Send,
+  Building2, Briefcase, MessageCircle, MapPin, Send,
   Linkedin, Twitter, Instagram, Facebook, ArrowUp
 } from 'lucide-react';
 import logo from '../assets/logo.png';
@@ -107,16 +107,16 @@ const Footer = () => {
                   <span className="text-slate-500">Suite 502, 55 Commerce Valley,<br />Markham, ON, L3T 7V9</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Phone size={16} className="text-orange-600 mt-0.5 flex-shrink-0" />
+                  <MessageCircle size={16} className="text-orange-600 mt-0.5 flex-shrink-0" />
                   <div className="space-y-1">
-                    <div><a href="tel:+16477888715" className="text-slate-500 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">Customer Care: 647-788-8715</a></div>
-                    <div><a href="tel:+16479307516" className="text-slate-500 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">Support: 647-930-7516</a></div>
+                    <div><a href="https://wa.me/254112549611?text=Hello%20RatchetUp%2C%20I%20need%20help" target="_blank" rel="noopener noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">WhatsApp: +254 112 549 611</a></div>
+                    <div><a href="https://wa.me/254112549611?text=Hello%20RatchetUp%2C%20I%20need%20support" target="_blank" rel="noopener noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">Chat with us on WhatsApp</a></div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Mail size={16} className="text-orange-600 flex-shrink-0" />
-                  <a href="mailto:support@ratchetup.ai" className="text-slate-500 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
-                    support@ratchetup.ai
+                  <MessageCircle size={16} className="text-orange-600 flex-shrink-0" />
+                  <a href="https://wa.me/254112549611?text=Hello%20RatchetUp" target="_blank" rel="noopener noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+                    WhatsApp Us
                   </a>
                 </div>
               </div>

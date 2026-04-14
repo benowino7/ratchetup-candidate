@@ -306,7 +306,7 @@ function Pricing() {
               </div>
 
               <a
-                href="mailto:info@ratchetup.ai?subject=Custom Package Inquiry"
+                href="https://wa.me/254112549611?text=Hello%20RatchetUp%2C%20I%20am%20interested%20in%20the%20Custom%20Package"
                 className={`inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-bold text-sm transition-all duration-300 shadow-md hover:shadow-lg ${customPlan.accentBg} text-white hover:opacity-90`}
               >
                 Contact Us

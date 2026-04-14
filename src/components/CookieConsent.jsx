@@ -176,9 +176,9 @@ function CookiePolicyContent() {
           <p>RatchetUp</p>
           <p>Suite 502, 55 Commerce Valley</p>
           <p>Markham, ON, L3T 7V9</p>
-          <p>Customer Care: 647-788-8715</p>
-          <p>Support: 647-930-7516</p>
-          <p>Email: support@ratchetup.ai</p>
+          <p>WhatsApp: +254 112 549 611</p>
+          <p>Chat with us on WhatsApp</p>
+          <p>Email: WhatsApp Us</p>
         </address>
       </div>
     </div>
