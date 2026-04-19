@@ -46,7 +46,7 @@ export default function Messaging({ subscription }) {
   const socketRef = useRef(null);
 
   const isPlatinum =
-    subscription?.plan?.name?.toLowerCase() === "platinum" &&
+    (subscription?.plan?.name?.toLowerCase() || "").startsWith("platinum") &&
     subscription?.status === "ACTIVE";
 
   const getCurrentUserId = () => {
