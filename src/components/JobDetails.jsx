@@ -13,24 +13,8 @@ import {
   Loader,
   X,
   ExternalLink,
-  Loader2,
-  Copy,
-  CheckCircle,
-  Link2,
 } from "lucide-react";
 import { BASE_URL } from "../BaseUrl";
-
-// External apply fee by subscription plan
-const EXTERNAL_APPLY_FEE = {
-  Silver: 99,
-  Gold: 50,
-  Platinum: 20,
-  Diamond: 10,
-  "Diamond Compact": 10,
-  "Diamond Compact Plus": 10,
-  "Diamond Unlimited": 10,
-};
-const DEFAULT_FEE = 99;
 
 const JobDetails = () => {
   const { id } = useParams();
@@ -40,37 +24,6 @@ const JobDetails = () => {
   const [relatedJobs, setRelatedJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  // Subscription state
-  const [userPlan, setUserPlan] = useState(null); // e.g. "Silver", "Gold", etc.
-
-  // External apply state
-  const [externalApplyLoading, setExternalApplyLoading] = useState(false);
-  const [externalPaymentLink, setExternalPaymentLink] = useState(null);
-  const [externalApplyError, setExternalApplyError] = useState(null);
-  const [externalApplyUrl, setExternalApplyUrl] = useState(null); // URL after payment confirmed
-  const [linkCopied, setLinkCopied] = useState(false);
-
-  // Fetch user subscription plan
-  useEffect(() => {
-    const token = JSON.parse(sessionStorage.getItem("accessToken") || "null");
-    if (!token) return;
-    const fetchPlan = async () => {
-      try {
-        const res = await fetch(`${BASE_URL}/job-seeker/subscriptions/latest`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        const data = await res.json();
-        const planName = data.result?.subscription?.plan?.name;
-        if (!data.error && planName) {
-          setUserPlan(planName);
-        }
-      } catch (err) {
-        console.error("Failed to fetch subscription:", err);
-      }
-    };
-    fetchPlan();
-  }, []);
 
   // Fetch job details and related jobs
   useEffect(() => {
@@ -173,7 +126,7 @@ const JobDetails = () => {
 
   // Helper function to extract requirements from description
   const extractRequirements = (description) => {
-    const lines = description.split("\n").filter((line) => line.trim());
+    const lines = String(description || "").split("\n").filter((line) => line.trim());
     const requirements = [];
 
     let inRequirementsSection = false;
@@ -213,74 +166,6 @@ const JobDetails = () => {
       "Flexible working hours",
       "Team collaboration",
     ];
-  };
-
-  const externalFee = userPlan ? (EXTERNAL_APPLY_FEE[userPlan] || DEFAULT_FEE) : DEFAULT_FEE;
-  const isFreeTrial = userPlan === "Free Trial";
-
-  // Handle external apply - pay to get the external application link
-  const handleExternalApply = async () => {
-    const token = JSON.parse(sessionStorage.getItem("accessToken") || "null");
-    if (!token) {
-      navigate(`/login?redirect=/joblisting/${id}`);
-      return;
-    }
-
-    setExternalApplyLoading(true);
-    setExternalApplyError(null);
-    try {
-      // First check if already paid
-      const statusRes = await fetch(`${BASE_URL}/job-seeker/jobs/${id}/external-apply/status`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      const statusData = await statusRes.json();
-      if (statusData?.result?.paid) {
-        setExternalApplyUrl(statusData.result.applicationUrl);
-        setExternalApplyLoading(false);
-        return;
-      }
-
-      // Initiate payment
-      const res = await fetch(`${BASE_URL}/job-seeker/jobs/${id}/external-apply`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ paymentMethod: "CARD", currency: "USD" }),
-      });
-      const data = await res.json();
-
-      if (data?.result?.alreadyPaid) {
-        setExternalApplyUrl(data.result.applicationUrl);
-      } else if (data?.result?.gateway?.payment_link) {
-        setExternalPaymentLink(data.result.gateway.payment_link);
-      } else {
-        setExternalApplyError(data?.message || "Failed to initiate payment");
-      }
-    } catch (err) {
-      setExternalApplyError(err.message || "Something went wrong");
-    } finally {
-      setExternalApplyLoading(false);
-    }
-  };
-
-  // Check payment status (called after user returns from payment)
-  const checkPaymentStatus = async () => {
-    const token = JSON.parse(sessionStorage.getItem("accessToken") || "null");
-    if (!token) return;
-    try {
-      const statusRes = await fetch(`${BASE_URL}/job-seeker/jobs/${id}/external-apply/status`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      const statusData = await statusRes.json();
-      if (statusData?.result?.paid) {
-        setExternalApplyUrl(statusData.result.applicationUrl);
-        setExternalPaymentLink(null);
-      }
-    } catch (err) {
-      console.error("Failed to check payment status:", err);
-    }
   };
 
   // Loading State
@@ -358,41 +243,20 @@ const JobDetails = () => {
               <Share2 size={20} />
             </button>
             {job.applicationUrl ? (
-              <>
-                {externalApplyUrl ? (
-                  <button
-                    onClick={() => window.open(externalApplyUrl, "_blank")}
-                    className="
-                      px-6 sm:px-8 py-3 bg-emerald-600
-                      hover:bg-emerald-700
-                      text-white font-semibold rounded-xl shadow-md hover:shadow-lg
-                      transition-all flex items-center gap-2 text-base
-                    "
-                  >
-                    <ExternalLink size={18} />
-                    Open Application Link
-                  </button>
-                ) : (
-                  <button
-                    onClick={handleExternalApply}
-                    disabled={externalApplyLoading}
-                    className="
-                      px-6 sm:px-8 py-3 bg-orange-600
-                      hover:bg-orange-700
-                      text-white font-semibold rounded-xl shadow-md hover:shadow-lg
-                      transition-all flex items-center gap-2 text-base
-                      disabled:opacity-60 disabled:cursor-not-allowed
-                    "
-                  >
-                    {externalApplyLoading ? (
-                      <Loader2 size={18} className="animate-spin" />
-                    ) : (
-                      <ExternalLink size={18} />
-                    )}
-                    Apply Externally (${externalFee})
-                  </button>
-                )}
-              </>
+              <a
+                href={job.applicationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  px-6 sm:px-8 py-3 bg-orange-600
+                  hover:bg-orange-700
+                  text-white font-semibold rounded-xl shadow-md hover:shadow-lg
+                  transition-all flex items-center gap-2 text-base
+                "
+              >
+                <ExternalLink size={18} />
+                Apply Externally
+              </a>
             ) : (
               <a
                 href={`/login?redirect=/joblisting/${job.id}`}
@@ -462,10 +326,10 @@ const JobDetails = () => {
                 About the Role
               </h2>
               <div className="prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 leading-relaxed">
-                {/<[a-z][\s\S]*>/i.test(job.description) ? (
+                {/<[a-z][\s\S]*>/i.test(job.description || "") ? (
                   <div dangerouslySetInnerHTML={{ __html: job.description }} />
                 ) : (
-                  job.description.split("\n").map((line, i) => (
+                  String(job.description || "").split("\n").map((line, i) => (
                     <p key={i} className="mb-4 last:mb-0 whitespace-pre-wrap">
                       {line}
                     </p>
@@ -583,76 +447,20 @@ const JobDetails = () => {
               </div>
 
               {job.applicationUrl ? (
-                <>
-                  {externalApplyUrl ? (
-                    <>
-                      {/* Already paid — show the link */}
-                      <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-4 mb-4">
-                        <div className="flex items-center gap-2 mb-3">
-                          <CheckCircle size={18} className="text-emerald-600" />
-                          <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-400">Payment Confirmed</span>
-                        </div>
-                        <div className="bg-white dark:bg-slate-800 rounded-lg p-3 mb-3 border border-slate-200 dark:border-slate-700">
-                          <p className="text-xs text-slate-500 mb-1">Application Link</p>
-                          <p className="text-sm text-slate-800 dark:text-slate-200 break-all font-mono">{externalApplyUrl}</p>
-                        </div>
-                        <div className="flex gap-2">
-                          <button
-                            onClick={async () => {
-                              try {
-                                await navigator.clipboard.writeText(externalApplyUrl);
-                                setLinkCopied(true);
-                                setTimeout(() => setLinkCopied(false), 2000);
-                              } catch {}
-                            }}
-                            className="flex-1 py-2.5 border-2 border-emerald-600 text-emerald-700 dark:text-emerald-400 font-semibold rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/30 flex items-center justify-center gap-1.5 text-sm"
-                          >
-                            {linkCopied ? <CheckCircle size={15} /> : <Copy size={15} />}
-                            {linkCopied ? "Copied!" : "Copy"}
-                          </button>
-                          <a
-                            href={externalApplyUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg flex items-center justify-center gap-1.5 text-sm"
-                          >
-                            <ExternalLink size={15} />
-                            Open
-                          </a>
-                        </div>
-                      </div>
-                    </>
-                  ) : (
-                    <button
-                      onClick={handleExternalApply}
-                      disabled={externalApplyLoading || isFreeTrial}
-                      className="
-                        w-full py-4 bg-orange-600
-                        hover:bg-orange-700
-                        text-white font-bold rounded-xl shadow-md hover:shadow-lg
-                        transition-all mb-4 flex items-center justify-center gap-2 text-lg
-                        disabled:opacity-60 disabled:cursor-not-allowed
-                      "
-                    >
-                      {externalApplyLoading ? (
-                        <Loader2 size={20} className="animate-spin" />
-                      ) : (
-                        <ExternalLink size={20} />
-                      )}
-                      Apply Externally (${externalFee})
-                    </button>
-                  )}
-                  {isFreeTrial && !externalApplyUrl && (
-                    <p className="text-xs text-amber-600 dark:text-amber-400 text-center mb-3">
-                      Upgrade your subscription to apply externally
-                    </p>
-                  )}
-                  {!isFreeTrial && userPlan && !externalApplyUrl && (
-                    <p className="text-xs text-slate-500 dark:text-slate-400 text-center mb-3">
-                      {userPlan} plan — ${externalFee} per external application
-                    </p>
-                  )}
-                </>
+                <a
+                  href={job.applicationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    w-full py-4 bg-orange-600
+                    hover:bg-orange-700
+                    text-white font-bold rounded-xl shadow-md hover:shadow-lg
+                    transition-all mb-4 flex items-center justify-center gap-2 text-lg
+                  "
+                >
+                  <ExternalLink size={20} />
+                  Apply Externally
+                </a>
               ) : (
                 <a
                   href={`/login?redirect=/joblisting/${job.id}`}
@@ -666,10 +474,6 @@ const JobDetails = () => {
                   <Briefcase size={20} />
                   Apply Internally
                 </a>
-              )}
-
-              {externalApplyError && (
-                <p className="text-sm text-red-500 mb-3 text-center">{externalApplyError}</p>
               )}
 
               <button
@@ -724,7 +528,7 @@ const JobDetails = () => {
                     {relJob.title}
                   </h3>
                   <div className="text-sm text-slate-600 dark:text-slate-400 mb-3">
-                    {relJob.company} • {relJob.location.split(",")[0]}
+                    {relJob.company} • {String(relJob.location || "").split(",")[0] || "Remote"}
                   </div>
                 </a>
               ))}
@@ -733,123 +537,6 @@ const JobDetails = () => {
         )}
       </div>
 
-      {/* External Apply Payment Modal */}
-      {externalPaymentLink && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
-          <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl max-w-md w-full p-8 relative">
-            <button
-              onClick={() => setExternalPaymentLink(null)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
-            >
-              <X size={20} />
-            </button>
-            <div className="text-center mb-6">
-              <div className="w-14 h-14 bg-sky-100 dark:bg-sky-900/30 rounded-full flex items-center justify-center mx-auto mb-3">
-                <ExternalLink className="w-7 h-7 text-sky-600" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                External Application Fee
-              </h3>
-              <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
-                Pay ${externalFee}.00 to access the external application link
-              </p>
-              {userPlan && (
-                <span className="inline-block mt-2 px-3 py-1 bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-400 text-xs font-semibold rounded-full">
-                  {userPlan} Plan
-                </span>
-              )}
-            </div>
-            <div className="flex flex-col gap-3">
-              <a
-                href={externalPaymentLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-3 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl shadow-lg flex items-center justify-center gap-2"
-              >
-                <ExternalLink size={18} />
-                Pay ${externalFee}.00
-              </a>
-              <button
-                onClick={async () => {
-                  try {
-                    await navigator.clipboard.writeText(externalPaymentLink);
-                  } catch {}
-                }}
-                className="w-full py-3 border-2 border-sky-600 text-sky-700 dark:text-sky-400 font-semibold rounded-xl hover:bg-sky-50 dark:hover:bg-sky-950/30 flex items-center justify-center gap-2"
-              >
-                <Copy size={18} />
-                Copy Payment Link
-              </button>
-              <button
-                onClick={checkPaymentStatus}
-                className="w-full py-3 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center gap-2"
-              >
-                <CheckCircle size={18} />
-                I've Paid — Check Status
-              </button>
-            </div>
-            <p className="text-xs text-center text-slate-400 mt-4">
-              Complete payment, then click "I've Paid" to reveal the application link
-            </p>
-          </div>
-        </div>
-      )}
-
-      {/* External Apply URL Revealed Modal */}
-      {externalApplyUrl && externalPaymentLink === null && !loading && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4" onClick={() => setExternalApplyUrl(null)}>
-          <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl max-w-md w-full p-8 relative" onClick={(e) => e.stopPropagation()}>
-            <button
-              onClick={() => setExternalApplyUrl(null)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
-            >
-              <X size={20} />
-            </button>
-            <div className="text-center mb-6">
-              <div className="w-14 h-14 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mx-auto mb-3">
-                <CheckCircle className="w-7 h-7 text-emerald-600" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                Application Link Ready
-              </h3>
-              <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
-                Your payment has been confirmed. Here's your application link:
-              </p>
-            </div>
-            <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-4 mb-4 border border-slate-200 dark:border-slate-700">
-              <div className="flex items-center gap-2 mb-1">
-                <Link2 size={14} className="text-slate-400" />
-                <span className="text-xs text-slate-500 font-medium">External Application URL</span>
-              </div>
-              <p className="text-sm text-slate-800 dark:text-slate-200 break-all font-mono">{externalApplyUrl}</p>
-            </div>
-            <div className="flex gap-3">
-              <button
-                onClick={async () => {
-                  try {
-                    await navigator.clipboard.writeText(externalApplyUrl);
-                    setLinkCopied(true);
-                    setTimeout(() => setLinkCopied(false), 2000);
-                  } catch {}
-                }}
-                className="flex-1 py-3 border-2 border-emerald-600 text-emerald-700 dark:text-emerald-400 font-semibold rounded-xl hover:bg-emerald-50 dark:hover:bg-emerald-950/30 flex items-center justify-center gap-2"
-              >
-                {linkCopied ? <CheckCircle size={18} /> : <Copy size={18} />}
-                {linkCopied ? "Copied!" : "Copy Link"}
-              </button>
-              <a
-                href={externalApplyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-lg flex items-center justify-center gap-2"
-              >
-                <ExternalLink size={18} />
-                Apply Now
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
