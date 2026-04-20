@@ -71,7 +71,9 @@ const computeMatchScore = (jobSkills, matchedSkills, recommendation) => {
 // ────────────────────────────────────────────────
 // COMPONENT
 // ────────────────────────────────────────────────
-function RecommendedJobs({ isAiSubscribed2 }) {
+function RecommendedJobs({ isAiSubscribed2, subscription }) {
+  const isTrial = subscription?.isTrial === true;
+  const isAuthMatched = isAiSubscribed2 || isTrial; // either paid or trial: hit auth endpoint
   const [jobs, setJobs] = useState([]);
   const [isAiSubscribed, setIsAiSubscribed] = useState(isAiSubscribed2);
   const [loading, setLoading] = useState(true);
@@ -101,22 +103,27 @@ function RecommendedJobs({ isAiSubscribed2 }) {
   const [visibleCount, setVisibleCount] = useState(9);
   const loadMoreRef = useRef(null);
 
+  const [trialMeta, setTrialMeta] = useState(null); // { requiresCV, trialCap, ... }
+
   // ─── FETCH JOBS ───
   useEffect(() => {
     const fetchJobs = async () => {
       try {
         setLoading(true);
         setError(null);
+        setTrialMeta(null);
 
-        // Use different endpoint based on subscription status
-        const endpoint = isAiSubscribed
+        // Auth endpoint for paid + trial users; public listing for everyone else.
+        // Trial users get manual matches (no AI) capped at 5 by the backend.
+        const useAuthEndpoint = isAuthMatched;
+        const endpoint = useAuthEndpoint
           ? `${BASE_URL}/job-seeker/jobs/suggestions`
           : `${BASE_URL}/public/jobs`;
 
         const token = JSON.parse(sessionStorage.getItem("accessToken") || "null");
 
         const headers = { "Content-Type": "application/json" };
-        if (isAiSubscribed && token) {
+        if (useAuthEndpoint && token) {
           headers["Authorization"] = `Bearer ${token}`;
         }
 
@@ -125,6 +132,11 @@ function RecommendedJobs({ isAiSubscribed2 }) {
         if (!response.ok) throw new Error("Failed to fetch jobs");
 
         const result = await response.json();
+        // Surface trial meta (CV-required, cap) so the UI can react.
+        if (useAuthEndpoint) {
+          const meta = result.message?.meta || null;
+          if (meta?.requiresCV || meta?.trial) setTrialMeta(meta);
+        }
 
         // Support both response shapes:
         //   AI endpoint  → result.message.jobs  (per the sample JSON)
@@ -187,7 +199,7 @@ function RecommendedJobs({ isAiSubscribed2 }) {
     };
 
     fetchJobs();
-  }, [isAiSubscribed]);
+  }, [isAiSubscribed, isTrial]);
 
   // Persist layout preference
   useEffect(() => {
@@ -369,12 +381,21 @@ function RecommendedJobs({ isAiSubscribed2 }) {
           </div>
 
           <div className="flex items-center gap-5 flex-wrap">
-            {/* AI Matching badge — or upsell */}
+            {/* AI Matching badge — or trial / upsell */}
             {isAiSubscribed ? (
               <button className="inline-flex items-center gap-2 px-5 py-2.5 bg-theme_color/10 dark:bg-theme_color/20 rounded-full border border-theme_color/50 dark:border-theme_color/40 text-theme_color font-medium shadow-sm">
                 <Sparkles size={18} className="animate-pulse" />
                 AI Matching Active
               </button>
+            ) : isTrial ? (
+              <Link
+                to={"/dashboard/subscriptions"}
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-amber-50 dark:bg-amber-900/20 rounded-full border border-amber-300 dark:border-amber-700 text-amber-700 dark:text-amber-300 font-medium shadow-sm hover:border-amber-400 transition-colors"
+                title="Free trial: top 5 manual matches only. Click to subscribe for AI matching."
+              >
+                <Sparkles size={16} />
+                Free trial — manual matches (5 max)
+              </Link>
             ) : (
               <Link
                 to={"/dashboard/subscriptions"}
@@ -412,6 +433,29 @@ function RecommendedJobs({ isAiSubscribed2 }) {
             </div>
           </div>
         </div>
+
+        {/* ─── Trial: Add CV CTA when no CV uploaded ─── */}
+        {trialMeta?.requiresCV && (
+          <div className="mb-6 rounded-2xl border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-900/20 p-5 flex flex-col md:flex-row items-start md:items-center gap-4">
+            <div className="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center flex-shrink-0">
+              <Lock className="w-6 h-6 text-amber-700 dark:text-amber-300" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <h3 className="text-base font-bold text-amber-900 dark:text-amber-200 mb-0.5">
+                Add a CV to see your matches
+              </h3>
+              <p className="text-sm text-amber-800 dark:text-amber-300">
+                {trialMeta.message || "During your free trial we match you to up to 5 jobs based on your CV. Upload one to get started."}
+              </p>
+            </div>
+            <Link
+              to="/dashboard/profile"
+              className="px-5 py-2.5 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-xl shadow-md whitespace-nowrap"
+            >
+              Add CV
+            </Link>
+          </div>
+        )}
 
         {/* ─── CONTROLS ─── */}
         <div className="mb-4 flex flex-col lg:flex-row gap-4 items-stretch">

@@ -58,24 +58,42 @@ function Dashboard() {
 
   // Paid subscription = active + not trial
   const isPaidActive = subscription?.isActive && !subscription?.isTrial;
+  const isTrialActive = subscription?.isActive && subscription?.isTrial;
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Pages exempt from subscription gate
+  // Pages exempt from any subscription gate (open to anyone logged in)
   const isExemptPage = location.pathname.endsWith('/subscriptions')
     || location.pathname.endsWith('/checkout')
     || location.pathname.endsWith('/subscription_invoices');
 
-  // Redirect to subscriptions if no active paid subscription
+  // Pages a Free Trial user is allowed into (limited 48h preview).
+  // Anything not in this list redirects trial users to /subscriptions.
+  const trialAllowedPaths = [
+    '/dashboard',                  // overview
+    '/dashboard/profile',
+    '/dashboard/cv_builder',
+    '/dashboard/cv-builder',
+    '/dashboard/recommendations',
+    '/dashboard/security',
+  ];
+  const isTrialAllowedPage = trialAllowedPaths.some(
+    (p) => location.pathname === p || location.pathname.startsWith(p + '/')
+  );
+
+  // Effective access: paid users see everything; trial users see exempt + trialAllowed.
+  const hasAccess = isPaidActive || (isTrialActive && (isExemptPage || isTrialAllowedPage));
+
+  // Redirect to subscriptions if no access at all
   useEffect(() => {
     if (subscription === null) return; // still loading
-    if (!isPaidActive && !isExemptPage) {
+    if (!hasAccess && !isExemptPage) {
       navigate('/dashboard/subscriptions', { replace: true });
     }
-  }, [subscription, isPaidActive, location.pathname]);
+  }, [subscription, hasAccess, location.pathname]);
 
   // Subscription gate overlay — block all interaction except subscriptions
-  const showGate = subscription !== null && !isPaidActive && !isExemptPage;
+  const showGate = subscription !== null && !hasAccess && !isExemptPage;
 
   return (
     <div>
