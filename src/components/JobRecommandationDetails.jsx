@@ -172,6 +172,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
           vacancies: jobData.vacancies,
           requirements: extractRequirements(jobData.description),
           benefits: extractBenefits(),
+          applicationUrl: jobData.applicationUrl || null,
         };
 
         setJob(transformedJob);
