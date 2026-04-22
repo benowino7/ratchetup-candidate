@@ -568,17 +568,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
                 </div>
               ) : null}
 
-              {job.applicationUrl ? (
-                <a
-                  href={job.applicationUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all mb-4 flex items-center justify-center gap-2 text-lg"
-                >
-                  <ExternalLink size={20} />
-                  Apply Externally
-                </a>
-              ) : isAiSubscribed ? (
+              {isAiSubscribed ? (
                 <button
                   onClick={() => setApply(true)}
                   className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all mb-4 flex items-center justify-center gap-2 text-lg"
