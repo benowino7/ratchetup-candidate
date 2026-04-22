@@ -120,7 +120,7 @@ function RecommendedJobs({ isAiSubscribed2, subscription }) {
         setTrialMeta(null);
 
         // Auth endpoint for paid + trial users; public listing for everyone else.
-        // Trial users get manual matches (no AI) capped at 5 by the backend.
+        // Trial users get manual matches (no AI) capped at 25 by the backend.
         const useAuthEndpoint = isAuthMatched;
         const endpoint = useAuthEndpoint
           ? `${BASE_URL}/job-seeker/jobs/suggestions`
@@ -398,10 +398,10 @@ function RecommendedJobs({ isAiSubscribed2, subscription }) {
               <Link
                 to={"/dashboard/subscriptions"}
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-amber-50 dark:bg-amber-900/20 rounded-full border border-amber-300 dark:border-amber-700 text-amber-700 dark:text-amber-300 font-medium shadow-sm hover:border-amber-400 transition-colors"
-                title="Free trial: top 5 manual matches only. Click to subscribe for AI matching."
+                title="Free trial: top 25 manual matches only. Click to subscribe for AI matching."
               >
                 <Sparkles size={16} />
-                Free trial — manual matches (5 max)
+                Free trial — manual matches (25 max)
               </Link>
             ) : (
               <Link
@@ -452,7 +452,7 @@ function RecommendedJobs({ isAiSubscribed2, subscription }) {
                 Add a CV to see your matches
               </h3>
               <p className="text-sm text-amber-800 dark:text-amber-300">
-                {trialMeta.message || "During your free trial we match you to up to 5 jobs based on your CV. Upload one to get started."}
+                {trialMeta.message || "During your free trial we match you to up to 25 jobs based on your CV. Upload one to get started."}
               </p>
             </div>
             <Link
