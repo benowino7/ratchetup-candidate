@@ -296,7 +296,7 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
             >
               <Share2 size={20} />
             </button>
-            {job.applicationUrl ? (
+            {job.applicationUrl && (
               <a
                 href={job.applicationUrl}
                 target="_blank"
@@ -306,22 +306,6 @@ const JobRecommandationDetails = ({ isAiSubscribed2 }) => {
                 <ExternalLink size={18} />
                 Apply Externally
               </a>
-            ) : isAiSubscribed ? (
-              <button
-                onClick={() => setApply(true)}
-                className="px-6 sm:px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2 text-base"
-              >
-                <Briefcase size={18} />
-                Apply Now
-              </button>
-            ) : (
-              <Link
-                to={"/dashboard/subscriptions"}
-                className="px-6 sm:px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2 text-base"
-              >
-                <Briefcase size={18} />
-                Apply Now
-              </Link>
             )}
           </div>
         </div>
