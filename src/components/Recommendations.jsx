@@ -28,10 +28,10 @@ import { Link } from "react-router-dom";
 // HELPERS
 // ────────────────────────────────────────────────
 const getMatchStyle = (score) => ({
-  bg: "bg-theme_color/80 dark:bg-theme_color/20",
-  text: "text-theme_color dark:text-theme_color",
+  bg: "bg-theme_color dark:bg-theme_color/20",
+  text: "text-white dark:text-theme_color",
   border: "border-theme_color/70 dark:border-theme_color/60",
-  icon: "text-theme_color dark:text-theme_color",
+  icon: "text-white dark:text-theme_color",
 });
 
 const getRelativeTime = (dateStr) => {
