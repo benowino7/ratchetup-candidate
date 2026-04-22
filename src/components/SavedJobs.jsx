@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Search,
   X,
@@ -30,6 +31,7 @@ const getRelativeTime = (dateStr) => {
 };
 
 function SavedJobs({ isAiSubscribed2 }) {
+  const navigate = useNavigate();
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -72,6 +74,16 @@ function SavedJobs({ isAiSubscribed2 }) {
             "Content-Type": "application/json",
           },
         });
+
+        // Trial / unsubscribed users get 403 requiresUpgrade from the API —
+        // redirect them to the subscriptions page instead of surfacing an error.
+        if (response.status === 403) {
+          const body = await response.json().catch(() => ({}));
+          if (body?.result?.requiresUpgrade || body?.result?.requiresSubscription) {
+            navigate("/dashboard/subscriptions", { replace: true });
+            return;
+          }
+        }
 
         if (!response.ok) throw new Error("Failed to fetch saved jobs");
 

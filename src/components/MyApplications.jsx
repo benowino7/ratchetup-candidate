@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Search,
   MapPin,
@@ -158,6 +159,14 @@ const fetchApplications = async (status, page = 1, limit = 20) => {
     `${BASE_URL}/job-seeker/jobs/applications?status=${statusFilter2}&page=${page}&limit=${limit}`,
     { headers: authHeaders() },
   );
+  if (res.status === 403) {
+    const body = await res.json().catch(() => ({}));
+    if (body?.result?.requiresUpgrade || body?.result?.requiresSubscription) {
+      const e = new Error(body?.message || "Subscription required");
+      e.requiresUpgrade = true;
+      throw e;
+    }
+  }
   if (!res.ok) throw new Error("Failed to fetch applications");
   const json = await res.json();
   return json.message || {};
@@ -614,6 +623,7 @@ const EmptyState = ({ filtered }) => (
 // ─── Main page ────────────────────────────────────────────────────────────────
 
 const MyApplications = () => {
+  const navigate = useNavigate();
   const [applications, setApplications] = useState([]);
   const [pagination, setPagination] = useState({
     total: 0,
@@ -646,12 +656,18 @@ const MyApplications = () => {
         setApplications(data?.applications || []);
         if (data?.pagination) setPagination(data.pagination);
       } catch (err) {
+        // Trial / unsubscribed users: redirect to subscriptions instead of
+        // surfacing a 403 error message.
+        if (err?.requiresUpgrade) {
+          navigate("/dashboard/subscriptions", { replace: true });
+          return;
+        }
         setError(err.message);
       } finally {
         setLoading(false);
       }
     },
-    [pagination.limit, statusFilter],
+    [pagination.limit, statusFilter, navigate],
   );
 
   useEffect(() => {
