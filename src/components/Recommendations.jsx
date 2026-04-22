@@ -27,11 +27,21 @@ import { Link } from "react-router-dom";
 // ────────────────────────────────────────────────
 // HELPERS
 // ────────────────────────────────────────────────
+// Two colour variants:
+//  - pillBg / pillText / pillIcon — for the solid-colour pill on Grid
+//    cards (bg-theme_color, needs white text to be visible).
+//  - text / icon — for plain text renderings on a white card (List
+//    layout), where we want theme-colour ink that stays legible in
+//    both light and dark modes.
 const getMatchStyle = (score) => ({
-  bg: "bg-theme_color dark:bg-theme_color/20",
-  text: "text-white dark:text-theme_color",
+  pillBg: "bg-theme_color dark:bg-theme_color/20",
+  pillText: "text-white dark:text-theme_color",
+  pillIcon: "text-white dark:text-theme_color",
   border: "border-theme_color/70 dark:border-theme_color/60",
-  icon: "text-white dark:text-theme_color",
+  text: "text-theme_color dark:text-theme_color",
+  icon: "text-theme_color dark:text-theme_color",
+  // legacy aliases kept so any older reference still compiles
+  bg: "bg-theme_color dark:bg-theme_color/20",
 });
 
 const getRelativeTime = (dateStr) => {
@@ -45,27 +55,19 @@ const getRelativeTime = (dateStr) => {
 
 /**
  * Computes a match percentage from the backend recommendation.
- * Uses the composite AI score (skills + keywords + title + industry + recency)
- * and normalizes it to 0-100%.
+ * Backend composite score rewards: skill match (10/hit), keyword (2) + title
+ * keyword bonus (2), recency (0-8), AI title (8), AI industry (5), AI inferred
+ * skill (4), AI experience-level (3). A strong CV/JD match lands around
+ * rawScore 40-80; a thin keyword-only overlap is around 10-20.
+ *
+ * We map that to 0-100% with an exponential curve that reaches 0% at score 0
+ * (no inflated floor), ~50% at score 20, ~80% at score 50, ~95% at score 90.
  */
 const computeMatchScore = (jobSkills, matchedSkills, recommendation) => {
-  // Use the backend's composite score if available
-  if (recommendation?.score != null && recommendation.score > 0) {
-    // The backend score is a composite: each skill match = 10pts, keyword = 2-4pts,
-    // AI title = 8pts, industry = 5pts, inferred skill = 4pts, recency up to 8pts.
-    // A strong match typically scores 30-80+. Normalize to 0-100% with a cap.
-    const rawScore = recommendation.score;
-    // Use logarithmic-ish scaling: 10pts = ~40%, 20pts = ~55%, 40pts = ~75%, 60pts = ~85%, 80+ = ~95%
-    const percentage = Math.min(99, Math.round(30 + (70 * (1 - Math.exp(-rawScore / 40)))));
-    return Math.max(percentage, 1);
-  }
-  // Fallback: compute from matched skills if no backend score
-  if (!jobSkills?.length) return 0;
-  const matched = matchedSkills?.map((s) => s.toLowerCase()) ?? [];
-  const hits = jobSkills.filter((s) =>
-    matched.includes(s.skill.name.toLowerCase()),
-  ).length;
-  return Math.round((hits / jobSkills.length) * 100);
+  const raw = Number(recommendation?.score) || 0;
+  if (raw <= 0) return 0;
+  const pct = 100 * (1 - Math.exp(-raw / 30));
+  return Math.max(1, Math.min(99, Math.round(pct)));
 };
 
 // ────────────────────────────────────────────────
@@ -152,12 +154,13 @@ function RecommendedJobs({ isAiSubscribed2, subscription }) {
             .toUpperCase()
             .substring(0, 2);
 
-          // AI match data — only meaningful when subscribed
+          // AI match data — only meaningful when subscribed.
+          // We default to 0 (not null) when subscribed so the badge/pill
+          // always renders for paid users, even if the job scored zero.
           const recommendation = job.recommendation ?? null;
-          const aiMatchScore =
-            isAiSubscribed && recommendation
-              ? computeMatchScore(job.skills, recommendation.matchedSkills, recommendation)
-              : null;
+          const aiMatchScore = isAiSubscribed
+            ? computeMatchScore(job.skills, recommendation?.matchedSkills, recommendation)
+            : null;
 
           const matchedSkillNames =
             isAiSubscribed && recommendation
@@ -861,13 +864,13 @@ function RecommendedJobs({ isAiSubscribed2, subscription }) {
                       </div>
                     </div>
 
-                    {/* AI Match Badge — only for subscribed users */}
-                    {isAiSubscribed && job.aiMatchScore !== null && (
+                    {/* AI Match Badge — always visible for subscribed users */}
+                    {isAiSubscribed && (
                       <div
-                        className={`inline-flex items-center gap-2.5 px-5 py-2 rounded-full border ${match.border} ${match.bg} ${match.text} font-semibold mb-5 shadow-sm`}
+                        className={`inline-flex items-center gap-2.5 px-5 py-2 rounded-full border ${match.border} ${match.pillBg} ${match.pillText} font-semibold mb-5 shadow-sm`}
                       >
-                        <Sparkles size={18} className={match.icon} />
-                        {job.aiMatchScore}% AI Match
+                        <Sparkles size={18} className={match.pillIcon} />
+                        {job.aiMatchScore ?? 0}% AI Match
                       </div>
                     )}
 
@@ -976,13 +979,13 @@ function RecommendedJobs({ isAiSubscribed2, subscription }) {
                       {getRelativeTime(job.postedAt)}
                     </div>
 
-                    {/* AI Match — subscribed only */}
-                    {isAiSubscribed && job.aiMatchScore !== null ? (
+                    {/* AI Match — subscribed see the score, others see locked */}
+                    {isAiSubscribed ? (
                       <div
                         className={`inline-flex items-center gap-2 font-semibold ${match.text}`}
                       >
                         <Sparkles size={18} className={match.icon} />
-                        {job.aiMatchScore}% Match
+                        {job.aiMatchScore ?? 0}% Match
                       </div>
                     ) : (
                       <div className="flex items-center gap-2 text-gray-400 dark:text-gray-500">
