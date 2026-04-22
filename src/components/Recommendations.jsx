@@ -74,10 +74,14 @@ const computeMatchScore = (jobSkills, matchedSkills, recommendation) => {
 // COMPONENT
 // ────────────────────────────────────────────────
 function RecommendedJobs({ isAiSubscribed2, subscription }) {
+  // Bind directly to the prop — subscription resolves async in the parent
+  // and using state here captured the initial (undefined) value once and
+  // never synced back, so the page rendered without the AI badge until a
+  // manual refresh.
+  const isAiSubscribed = isAiSubscribed2 === true;
   const isTrial = subscription?.isTrial === true;
-  const isAuthMatched = isAiSubscribed2 || isTrial; // either paid or trial: hit auth endpoint
+  const isAuthMatched = isAiSubscribed || isTrial; // paid or trial: hit auth endpoint
   const [jobs, setJobs] = useState([]);
-  const [isAiSubscribed, setIsAiSubscribed] = useState(isAiSubscribed2);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
