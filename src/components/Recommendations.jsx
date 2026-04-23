@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useRef } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import {
   Search,
   X,
@@ -21,6 +21,7 @@ import {
 import { BASE_URL } from "../BaseUrl";
 import Modal from "../allmodals/Modal";
 import ApplyJob from "./Applyjob";
+import { Pagination } from "./Pagination";
 import SaveJob from "./SaveJob";
 import { Link } from "react-router-dom";
 
@@ -106,8 +107,8 @@ function RecommendedJobs({ isAiSubscribed2, subscription }) {
   });
 
   const [savedJobs, setSavedJobs] = useState(new Set());
-  const [visibleCount, setVisibleCount] = useState(9);
-  const loadMoreRef = useRef(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(20);
 
   const [trialMeta, setTrialMeta] = useState(null); // { requiresCV, trialCap, ... }
 
@@ -291,24 +292,18 @@ function RecommendedJobs({ isAiSubscribed2, subscription }) {
     return result;
   }, [jobs, searchQuery, filters, sortBy, isAiSubscribed]);
 
-  const displayedJobs = filteredAndSortedJobs.slice(0, visibleCount);
+  // ─── PAGINATION (20 per page by default) ───
+  const totalJobs = filteredAndSortedJobs.length;
+  const totalPages = Math.max(1, Math.ceil(totalJobs / itemsPerPage));
+  const pageClamped = Math.min(currentPage, totalPages);
+  const pageStart = (pageClamped - 1) * itemsPerPage;
+  const displayedJobs = filteredAndSortedJobs.slice(pageStart, pageStart + itemsPerPage);
 
-  // ─── INFINITE SCROLL ───
+  // Reset to page 1 whenever the filtered set shrinks below the current page,
+  // or when the user changes search / filters / sort / page size.
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (
-          entries[0].isIntersecting &&
-          visibleCount < filteredAndSortedJobs.length
-        ) {
-          setVisibleCount((c) => Math.min(c + 9, filteredAndSortedJobs.length));
-        }
-      },
-      { threshold: 0.1 },
-    );
-    if (loadMoreRef.current) observer.observe(loadMoreRef.current);
-    return () => observer.disconnect();
-  }, [filteredAndSortedJobs.length, visibleCount]);
+    setCurrentPage(1);
+  }, [searchQuery, filters, sortBy, itemsPerPage]);
 
   const toggleSave = (id) => {
     setSavedJobs((prev) => {
@@ -1045,12 +1040,21 @@ function RecommendedJobs({ isAiSubscribed2, subscription }) {
           </div>
         )}
 
-        {/* Load more indicator */}
-        {visibleCount < filteredAndSortedJobs.length && (
-          <div ref={loadMoreRef} className="py-16 flex justify-center">
-            <div className="animate-pulse text-theme_color font-medium">
-              Discovering more opportunities...
-            </div>
+        {/* Pagination — 20 per page by default */}
+        {totalJobs > 0 && (
+          <div className="mt-8">
+            <Pagination
+              currentPage={pageClamped}
+              totalPages={totalPages}
+              total={totalJobs}
+              limit={itemsPerPage}
+              onPageChange={(p) => {
+                setCurrentPage(p);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              onLimitChange={(n) => setItemsPerPage(n)}
+              limitOptions={[10, 20, 50, 100]}
+            />
           </div>
         )}
       </div>
