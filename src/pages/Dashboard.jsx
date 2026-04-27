@@ -15,6 +15,7 @@ import SubscriptionInvoices from "../components/SubscriptionInvoices";
 import Messaging from "../components/Messaging";
 import SecuritySettings from "../components/SecuritySettings";
 import MyTestimonial from "../components/MyTestimonial";
+import Verification from "../components/Verification";
 import { BASE_URL } from "../BaseUrl";
 
 function Dashboard() {
@@ -75,6 +76,7 @@ function Dashboard() {
     '/dashboard/cv_builder',
     '/dashboard/cv-builder',
     '/dashboard/recommendations',
+    '/dashboard/verification',
     '/dashboard/security',
   ];
   const isTrialAllowedPage = trialAllowedPaths.some(
@@ -141,6 +143,7 @@ function Dashboard() {
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/testimonial" element={<MyTestimonial />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/verification" element={<Verification />} />
               <Route path="/security" element={<SecuritySettings />} />
             </Routes>
           </main>

@@ -10,6 +10,7 @@ import {
   CircleUserRound, // My Profile
   MessageCircle, // Messages
   Shield, // Security
+  ShieldCheck, // Verification
   MessageSquareQuote, // Testimonial
   LogOut,
   XCircle,
@@ -43,6 +44,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     { path: "/dashboard/cv-builder", label: "CV Builder", icon: FileUser },
     { path: "/dashboard/testimonial", label: "My Testimonial", icon: MessageSquareQuote },
     { path: "/dashboard/profile", label: "My Profile", icon: CircleUserRound },
+    { path: "/dashboard/verification", label: "Verification", icon: ShieldCheck },
     { path: "/dashboard/security", label: "Security", icon: Shield },
   ];
 
