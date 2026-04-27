@@ -1,9 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import {
   ShieldCheck,
-  ShieldAlert,
-  ShieldX,
   Lock,
   Loader2,
   ExternalLink,
@@ -12,9 +10,11 @@ import {
   Clock,
   AlertTriangle,
   RefreshCw,
+  RotateCcw,
 } from "lucide-react";
 import { BASE_URL } from "../BaseUrl";
 import ErrorMessage from "../utilities/ErrorMessage";
+import VerifiedBadge from "./VerifiedBadge";
 
 const VERIFICATION_TYPES = [
   {
@@ -50,7 +50,8 @@ function formatPrice(cents, currency = "USD") {
 export default function Verification() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [submitting, setSubmitting] = useState(null); // type currently being submitted
+  const [submitting, setSubmitting] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -70,8 +71,38 @@ export default function Verification() {
     load();
   }, [load]);
 
-  // Light polling while there is an in-progress verification — picks up
-  // webhook-driven status changes without a manual refresh.
+  // PayPal returns the user with paypal=cancelled when they close the window.
+  // Move the row out of PAYMENT_PENDING so the UI offers a clean retry.
+  useEffect(() => {
+    const paypal = searchParams.get("paypal");
+    const verificationId = searchParams.get("verification");
+    if ((paypal === "cancelled" || paypal === "cancel") && verificationId) {
+      (async () => {
+        try {
+          await fetch(`${BASE_URL}/job-seeker/verification/${verificationId}/cancel`, {
+            method: "POST",
+            headers: authHeaders(),
+          });
+        } catch {}
+        // Strip the query params so a refresh doesn't re-trigger the cancel.
+        const next = new URLSearchParams(searchParams);
+        next.delete("paypal");
+        next.delete("verification");
+        setSearchParams(next, { replace: true });
+        load();
+      })();
+    } else if (paypal === "success") {
+      // Clean the URL but reload so the IN_PROGRESS row + hostedUrl appear.
+      const next = new URLSearchParams(searchParams);
+      next.delete("paypal");
+      next.delete("verification");
+      setSearchParams(next, { replace: true });
+      setTimeout(load, 1500);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Light polling while a row is in flight — picks up webhook-driven changes.
   useEffect(() => {
     const inFlight = items.some((v) => v.status === "PAYMENT_PENDING" || v.status === "IN_PROGRESS");
     if (!inFlight) return undefined;
@@ -79,25 +110,56 @@ export default function Verification() {
     return () => clearInterval(t);
   }, [items, load]);
 
+  const callInitiate = async (type, force = false) => {
+    const res = await fetch(`${BASE_URL}/job-seeker/verification/initiate`, {
+      method: "POST",
+      headers: authHeaders(),
+      body: JSON.stringify({ type, force }),
+    });
+    const json = await res.json();
+    if (!res.ok || json.error) throw new Error(json.message || "Could not start verification");
+    return json.result || {};
+  };
+
   const initiate = async (type) => {
     if (submitting) return;
     setSubmitting(type);
     try {
-      const res = await fetch(`${BASE_URL}/job-seeker/verification/initiate`, {
-        method: "POST",
-        headers: authHeaders(),
-        body: JSON.stringify({ type }),
-      });
-      const json = await res.json();
-      if (!res.ok || json.error) throw new Error(json.message || "Could not start verification");
-      // If the backend returned an existing PASSED row, just reload.
-      if (json.result?.alreadyVerified) {
+      const result = await callInitiate(type, false);
+      if (result.alreadyVerified) {
         await load();
         return;
       }
-      // First-time order: we have a PayPal approveUrl — open in new tab.
-      if (json.result?.paypalOrderUrl) {
-        window.open(json.result.paypalOrderUrl, "_blank", "noopener,noreferrer");
+      if (result.paypalOrderUrl) {
+        window.open(result.paypalOrderUrl, "_blank", "noopener,noreferrer");
+      }
+      await load();
+    } catch (e) {
+      ErrorMessage(e.message || "Could not start verification");
+    } finally {
+      setSubmitting(null);
+    }
+  };
+
+  // Re-open the same PayPal checkout for a still-pending row. Avoids
+  // creating a duplicate order or running a fresh API call.
+  const reopen = (row) => {
+    if (row.paypalApproveUrl) {
+      window.open(row.paypalApproveUrl, "_blank", "noopener,noreferrer");
+    } else {
+      // No saved URL (older rows) — fall through to a fresh init.
+      initiate(row.type);
+    }
+  };
+
+  // User explicitly wants to abandon a stuck pending order and start over.
+  const startOver = async (type) => {
+    if (submitting) return;
+    setSubmitting(type);
+    try {
+      const result = await callInitiate(type, true);
+      if (result.paypalOrderUrl) {
+        window.open(result.paypalOrderUrl, "_blank", "noopener,noreferrer");
       }
       await load();
     } catch (e) {
@@ -167,11 +229,20 @@ export default function Verification() {
                 <RefreshCw className="w-4 h-4" /> Refresh
               </button>
               <button
-                onClick={() => initiate(typeMeta.type)}
+                onClick={() => reopen(latest)}
                 disabled={submitting === typeMeta.type}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-theme_color/90 hover:bg-theme_color text-white text-sm font-semibold disabled:opacity-60"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-theme_color hover:bg-theme_color/90 text-white text-sm font-semibold disabled:opacity-60"
               >
+                <ExternalLink className="w-4 h-4" />
                 Reopen payment
+              </button>
+              <button
+                onClick={() => startOver(typeMeta.type)}
+                disabled={submitting === typeMeta.type}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-60"
+              >
+                <RotateCcw className="w-4 h-4" />
+                Start over
               </button>
             </>
           )}
@@ -194,8 +265,9 @@ export default function Verification() {
 
           {latest && isVerified && (
             <span className="text-sm text-emerald-700 dark:text-emerald-400 inline-flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4" /> Identity verified on{" "}
-              {latest.completedAt ? new Date(latest.completedAt).toLocaleDateString() : ""}
+              <VerifiedBadge size="md" title="Verified" />
+              Identity verified
+              {latest.completedAt ? ` on ${new Date(latest.completedAt).toLocaleDateString()}` : ""}
             </span>
           )}
 
@@ -222,10 +294,15 @@ export default function Verification() {
     );
   };
 
+  const isAccountVerified = items.some((v) => v.type === "PERSONA_ID" && v.status === "PASSED");
+
   return (
     <div className="w-full max-w-4xl mx-auto py-8">
       <div className="mb-6">
-        <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white">Verification</h1>
+        <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white inline-flex items-center gap-2">
+          Verification
+          {isAccountVerified && <VerifiedBadge size="lg" title="Verified account" />}
+        </h1>
         <p className="mt-2 text-slate-600 dark:text-slate-400">
           Verified candidates stand out to recruiters. Each verification is paid once via PayPal and runs through a secure third-party provider — your documents never sit on our servers.
         </p>

@@ -15,6 +15,7 @@ import {
 import { BASE_URL } from "../BaseUrl";
 import ResumeSection from "./ResumeSection";
 import SkillsSection from "./Skillssection";
+import VerifiedBadge from "./VerifiedBadge";
 
 // ─── HTML content helper ─────────────────────────────────────────────────────
 const RichText = ({ html, className = "" }) => {
@@ -54,6 +55,28 @@ const Profile = () => {
   // ── Loading / error state for profile fetch ──
   const [profileLoading, setProfileLoading] = useState(true);
   const [profileError, setProfileError] = useState("");
+
+  // ── Verified badge — true if candidate has a PASSED PERSONA_ID row ──
+  const [isProfileVerified, setIsProfileVerified] = useState(false);
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const token = JSON.parse(sessionStorage.getItem("accessToken") || "null");
+        if (!token) return;
+        const res = await fetch(`${BASE_URL}/job-seeker/verification`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (!res.ok) return;
+        const json = await res.json();
+        const list = Array.isArray(json.result) ? json.result : [];
+        if (!cancelled) {
+          setIsProfileVerified(list.some((v) => v.type === "PERSONA_ID" && v.status === "PASSED"));
+        }
+      } catch {}
+    })();
+    return () => { cancelled = true; };
+  }, []);
 
   const [profileData, setProfileData] = useState({
     basicInfo: {
@@ -302,8 +325,9 @@ const Profile = () => {
       <div className="max-w-[90rem] mx-auto py-4">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2 inline-flex items-center gap-2">
             My Profile
+            {isProfileVerified && <VerifiedBadge size="lg" title="Verified" />}
           </h1>
           <p className="text-gray-600 dark:text-gray-400">
             Manage your professional information for better job matches
