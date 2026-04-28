@@ -142,14 +142,15 @@ export default function Verification() {
   };
 
   // Re-open the same PayPal checkout for a still-pending row. Avoids
-  // creating a duplicate order or running a fresh API call.
-  const reopen = (row) => {
-    if (row.paypalApproveUrl) {
+  // creating a duplicate order. Legacy rows have no saved URL, so we
+  // automatically force a fresh order in that case so the click never
+  // silently fails.
+  const reopen = async (row) => {
+    if (row?.paypalApproveUrl) {
       window.open(row.paypalApproveUrl, "_blank", "noopener,noreferrer");
-    } else {
-      // No saved URL (older rows) — fall through to a fresh init.
-      initiate(row.type);
+      return;
     }
+    await startOver(row.type);
   };
 
   // User explicitly wants to abandon a stuck pending order and start over.
