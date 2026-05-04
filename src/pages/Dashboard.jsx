@@ -16,6 +16,7 @@ import Messaging from "../components/Messaging";
 import SecuritySettings from "../components/SecuritySettings";
 import MyTestimonial from "../components/MyTestimonial";
 import Verification from "../components/Verification";
+import Interviews from "../components/Interviews";
 import { BASE_URL } from "../BaseUrl";
 
 function Dashboard() {
@@ -127,6 +128,7 @@ function Dashboard() {
               <Route path="/" element={<DashboardOverview subscription={subscription} />} />
               <Route path="/messages" element={<Messaging subscription={{ plan: { name: subscription?.planName }, status: subscription?.isActive ? "ACTIVE" : "INACTIVE" }} />} />
               <Route path="/applications" element={<MyApplications />} />
+              <Route path="/interviews" element={<Interviews />} />
               <Route path="/saved_jobs" element={<SavedJobs isAiSubscribed2={isPaidActive} subscription={subscription} />} />
               <Route path="/recommendations" element={<RecommendedJobs isAiSubscribed2={isPaidActive} subscription={subscription} />} />
               <Route

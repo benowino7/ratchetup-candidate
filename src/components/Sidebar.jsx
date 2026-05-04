@@ -12,6 +12,7 @@ import {
   Shield, // Security
   ShieldCheck, // Verification
   MessageSquareQuote, // Testimonial
+  Calendar, // Interviews
   LogOut,
   XCircle,
 } from "lucide-react";
@@ -25,6 +26,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       label: "My Applications",
       icon: ClipboardList,
     },
+    { path: "/dashboard/interviews", label: "Interviews", icon: Calendar },
     { path: "/dashboard/saved_jobs", label: "Saved Jobs", icon: Bookmark },
     {
       path: "/dashboard/recommendations",
